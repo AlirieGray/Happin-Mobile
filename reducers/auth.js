@@ -6,7 +6,8 @@
 
 const authDefaultState = {
   isFetching: false,
-  isAuthenticated: localStorage.getItem('id_token') ? true : false
+  isAuthenticated: false
+  //isAuthenticated: localStorage.getItem('id_token') ? true : false
 }
 
 export default (state = authDefaultState, action) => {
