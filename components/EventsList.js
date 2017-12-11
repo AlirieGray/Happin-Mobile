@@ -14,10 +14,9 @@ class EventsList extends Component {
   render() {
     return(
       <View style={styles.container}>
-      <View style={styles.nav} />
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        {this.props.events.map(({name, date, address, _id, placeId}, index) => {
-          return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} />
+        {this.props.events.map(({name, date, address, _id, placeId, description}, index) => {
+          return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} description={description} {...this.props}/>
         })}
       </ScrollView>
       </View>

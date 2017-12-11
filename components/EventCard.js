@@ -1,15 +1,31 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-const EventCard = ({name, date, address, id, placeId}) => (
-  <View style={styles.eventContainer}>
-    <View style={styles.eventHeader}>
-      <Text> {name} </Text>
-      <Text> {date} </Text>
-    </View>
-    <Text> {address} </Text>
-  </View>
-);
+class EventCard  extends Component{
+  constructor(props) {
+    super(props);
+  }
+  render(){
+    const id = this.props.id;
+    const {navigate} = this.props.navigation;
+    return(
+      <View style={styles.eventContainer}>
+        <View style={styles.eventHeader}>
+          <Text> {this.props.name} </Text>
+          <Text> {this.props.date} </Text>
+        </View>
+        <Text> {this.props.address} </Text>
+        <Button
+          title="View Event"
+          onPress={() => {
+            navigate("EventPage", {navigate, id} )
+          }}
+        />
+      </View>
+    );
+  }
+
+}
 
 const styles = StyleSheet.create({
   eventContainer: {
@@ -22,7 +38,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowRadius: 1.7,
     elevation: 1,
     marginLeft: 5,
     marginRight: 5,
