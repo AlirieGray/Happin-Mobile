@@ -9,7 +9,6 @@ import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 
 
-
 class EventsList extends Component {
 
   constructor(props) {
@@ -19,6 +18,10 @@ class EventsList extends Component {
   componentWillMount() {
     this.props.getEvents();
   }
+
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Events'
+  });
 
   render() {
     return(
@@ -34,6 +37,7 @@ class EventsList extends Component {
         {this.props.events.map(({name, date, address, _id, placeId, description}, index) => {
           return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} description={description} {...this.props}/>
         })}
+        <View style={styles.empty} />
       </ScrollView>
       </View>
     );
@@ -43,12 +47,15 @@ class EventsList extends Component {
 const styles = StyleSheet.create({
   contentContainer: {
     margin: 20,
-    paddingBottom: 25,
+    paddingBottom: 25
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#fff'
+  },
+  empty: {
+    padding: 30,
   },
   addNewEventButton: {
     display: 'flex',

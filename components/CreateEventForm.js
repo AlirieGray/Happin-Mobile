@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { FormLabel, FormInput, SearchBar } from 'react-native-elements';
+import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import { GooglePlacesAutocomplete } from 'react-native-google-places';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -12,21 +12,36 @@ class CreateEventForm extends Component {
     super(props);
     this.state = {
       name: '',
-      date: ''
+      date: '',
+      time: '',
+      lat: 0,
+      lng: 0,
+      address: '',
+      description: ''
     }
     this.updateEventName = this.updateEventName.bind(this);
   }
+
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Create an Event'
+  });
 
   updateEventName(txt) {
     this.setState({ name: txt });
     console.log(txt)
   }
 
+  updateEventDescription(txt) {
+    this.setState({ description: txt });
+  }
+
   render() {
     return(
       <View style={styles.container}>
-        <FormLabel> Event Name </FormLabel>
-        <FormInput style={styles.input} onChangeText={this.updateEventName}/>
+        <FormLabel> Name </FormLabel>
+        <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
+        <FormLabel> Description </FormLabel>
+        <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventDescription}/>
         <DatePicker
           style={{width: 200}}
           date={this.state.date}
@@ -37,6 +52,11 @@ class CreateEventForm extends Component {
           maxDate="2016-06-01"
           confirmBtnText="Confirm"
           iconComponent={<Icon name='event' size={30} />}
+          customStyles={{
+            dateInput: {
+              marginBottom: 15
+            }
+          }}
           cancelBtnText="Cancel"
           onDateChange={(date) => {this.setState({date: date});}}
         />
@@ -69,8 +89,12 @@ const styles = StyleSheet.create({
     margin: 10
   },
   input: {
-    padding: 5
-  }
+    paddingLeft: 10
+  },
+  inputContainer: {
+    marginBottom: 15,
+    width: 300
+  },
 });
 
 
