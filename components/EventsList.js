@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
 import CreateEventForm from './CreateEventForm';
+import { NavigationActions } from 'react-navigation';
+
+
 
 class EventsList extends Component {
 
   constructor(props) {
     super(props);
   }
-
-  static navigationOptions = ({ navigation, screenProps }) => ({
-      title:  'All Events',
-      headerRight: <TouchableHighlight
-            onPress={() => {
-              this.props.navigation('CreateEventForm');
-            }} >
-          <Icon name='add-circle-outline' size={30} />
-        </TouchableHighlight>
-    });
 
   componentWillMount() {
     this.props.getEvents();
@@ -30,6 +23,13 @@ class EventsList extends Component {
   render() {
     return(
       <View style={styles.container}>
+      <TouchableHighlight
+            style={styles.addNewEventButton}
+            onPress={() => {
+            this.props.navigation.navigate('CreateEventForm');
+            }} >
+          <Icon name='add-circle-outline' size={30} />
+        </TouchableHighlight>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         {this.props.events.map(({name, date, address, _id, placeId, description}, index) => {
           return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} description={description} {...this.props}/>
@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#fff'
+  },
+  addNewEventButton: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    marginRight: 10,
+    marginTop: 5
   }
 });
 

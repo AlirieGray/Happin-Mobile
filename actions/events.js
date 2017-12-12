@@ -83,7 +83,7 @@ export function getEventById(id) {
   }
 
   return dispatch => {
-    console.log(dispatch(requestGetEvents()));
+     dispatch(requestGetEvents());
 
     return fetch(`${serverPath}/events/${id}`, config).then((res) => {
       if (res.status != 200) {
@@ -92,7 +92,7 @@ export function getEventById(id) {
       }
       return res.json();
     }).then((json) => {
-      console.log(dispatch(receiveGetEventById(json)));
+      dispatch(receiveGetEventById(json));
     }).catch(err => console.log("Error: " + err));
   }
 }
@@ -107,7 +107,7 @@ export function getEvents() {
   }
 
   return dispatch => {
-    console.log(dispatch(requestGetEvents()));
+    dispatch(requestGetEvents());
 
     return fetch(`${serverPath}/events`, config).then((res) => {
       if (res.status != 200) {
@@ -116,7 +116,7 @@ export function getEvents() {
       }
       return res.json();
     }).then((json) => {
-      console.log(dispatch(receiveGetEvents(json)));
+      dispatch(receiveGetEvents(json));
     }).catch(err => console.log("Error: " + err));
   }
 }

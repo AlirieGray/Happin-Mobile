@@ -24,7 +24,7 @@ const mapNavigationStateToProps = (Wrapper) => {
     static navigationOptions = Wrapper.navigationOptions;
     render() {
       const {navigation: {state: {params}}} = this.props;
-      return <Wrapper {...params} {...this.props} />
+      return <Wrapper {...this.props} {...params} />
     }
   }
 }
