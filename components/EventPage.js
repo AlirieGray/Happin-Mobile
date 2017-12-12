@@ -18,10 +18,10 @@ class EventPage extends Component {
 
   componentWillMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
+
   }
 
   render() {
-
     return(
       <View style={styles.container}>
         <Text style={styles.eventName}> {this.props.currentEvent.name} </Text>

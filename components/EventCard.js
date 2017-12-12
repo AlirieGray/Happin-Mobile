@@ -7,12 +7,12 @@ class EventCard  extends Component{
   constructor(props) {
     super(props);
   }
-  render(){
+  render() {
     const id = this.props.id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
     const { navigate } = this.props.navigation;
-    
+
     return (
       <View style={styles.eventContainer}>
         <TouchableHighlight onPress={() => {
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     marginBottom: 10,
-    marginTop: 2
+    marginTop: 2,
+    maxWidth: 220,
   },
   description: {
     marginTop: 5,

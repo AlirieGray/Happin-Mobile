@@ -5,6 +5,27 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class Map extends Component {
   constructor(props) {
     super(props);
+
+    this.map = null;
+    this.handleRef = this.handleRef.bind(this);
+  }
+
+  handleRef(ref) {
+    this.map = ref;
+    if (!this.map) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      if (!this.map) {
+        return;
+      }
+      this.map.animateToRegion(
+        this.props.initialRegion,
+        1
+      );
+    })
+
   }
 
   render() {
@@ -12,6 +33,7 @@ export default class Map extends Component {
     console.log(this.props.initialRegion)
     return (
       <MapView
+        ref={this.handleRef}
         provider={ PROVIDER_GOOGLE }
         style={styles.container}
         initialRegion={this.props.initialRegion}
