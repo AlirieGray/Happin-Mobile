@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import EventsList from './components/EventsList';
 import EventPage from './components/EventPage';
+import CreateEventForm from './components/CreateEventForm';
 import { Provider, connect } from 'react-redux';
 import ConfigureStore from './store/ConfigureStore';
-import { StackNavigator, addNavigationHelpers } from "react-navigation";
+import { StackNavigator, NavigationActions, addNavigationHelpers } from "react-navigation";
 
 const store = ConfigureStore();
 
@@ -29,8 +30,13 @@ const mapNavigationStateToProps = (Wrapper) => {
 }
 
 const AppNavigator = StackNavigator({
-  EventsList: { screen: EventsList },
+  EventsList: {
+    screen: EventsList
+  },
   EventPage: {
     screen: EventPage
+  },
+  CreateEventForm: {
+    screen: CreateEventForm
   }
 })

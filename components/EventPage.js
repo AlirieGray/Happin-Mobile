@@ -47,7 +47,8 @@ class EventPage extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#fff'
   },
   eventName: {
     fontSize: 20

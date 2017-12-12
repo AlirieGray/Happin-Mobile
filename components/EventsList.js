@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
+import CreateEventForm from './CreateEventForm';
 
 class EventsList extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  static navigationOptions = ({ navigation, screenProps }) => ({
+      title:  'All Events',
+      headerRight: <TouchableHighlight
+            onPress={() => {
+              this.props.navigation('CreateEventForm');
+            }} >
+          <Icon name='add-circle-outline' size={30} />
+        </TouchableHighlight>
+    });
 
   componentWillMount() {
     this.props.getEvents();
@@ -26,15 +42,13 @@ class EventsList extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    margin: 20
-  },
-  nav: {
-    padding: 20,
-    backgroundColor: 'red'
+    margin: 20,
+    paddingBottom: 25,
   },
   container: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#fff'
   }
 });
 
