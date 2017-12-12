@@ -83,7 +83,7 @@ export function getEventById(id) {
   }
 
   return dispatch => {
-     dispatch(requestGetEvents());
+     dispatch(requestGetEventById());
 
     return fetch(`${serverPath}/events/${id}`, config).then((res) => {
       if (res.status != 200) {
@@ -91,8 +91,8 @@ export function getEventById(id) {
         return Promise.reject("Could not fetch events from database");
       }
       return res.json();
-    }).then((json) => {
-      dispatch(receiveGetEventById(json));
+    }).then((event) => {
+      dispatch(receiveGetEventById(event));
     }).catch(err => console.log("Error: " + err));
   }
 }
@@ -115,8 +115,8 @@ export function getEvents() {
         return Promise.reject("Could not fetch events from database");
       }
       return res.json();
-    }).then((json) => {
-      dispatch(receiveGetEvents(json));
+    }).then((event) => {
+      dispatch(receiveGetEvents(event));
     }).catch(err => console.log("Error: " + err));
   }
 }

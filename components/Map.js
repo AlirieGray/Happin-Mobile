@@ -8,6 +8,8 @@ export default class Map extends Component {
   }
 
   render() {
+    console.log("initial region")
+    console.log(this.props.initialRegion)
     return (
       <MapView
         provider={ PROVIDER_GOOGLE }
@@ -25,5 +27,6 @@ const styles = StyleSheet.create({
   container: {
     height: '60%',
     width: '100%',
+    marginTop: 40
   }
 });

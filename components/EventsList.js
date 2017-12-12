@@ -9,6 +9,7 @@ import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 
 
+
 class EventsList extends Component {
 
   constructor(props) {
@@ -34,8 +35,8 @@ class EventsList extends Component {
           <Icon name='add-circle-outline' size={30} />
         </TouchableHighlight>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        {this.props.events.map(({name, date, address, _id, placeId, description}, index) => {
-          return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} description={description} {...this.props}/>
+        {this.props.events.map(({name, date, address, _id, placeId, description, lat, lng}, index) => {
+          return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} lat={lat} lng={lng} description={description} {...this.props}/>
         })}
         <View style={styles.empty} />
       </ScrollView>

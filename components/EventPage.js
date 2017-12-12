@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import * as Actions from '../actions/events';
 import Map from './Map';
-
 // details for Google Maps View
 let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.0922;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
+
 
 class EventPage extends Component {
   constructor(props){
@@ -21,10 +21,7 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log("current event")
-    console.log(this.props.currentEvent.lat)
-    console.log(this.props.currentEvent.lng)
-    console.log("lat lng??")
+
     return(
       <View style={styles.container}>
         <Text style={styles.eventName}> {this.props.currentEvent.name} </Text>
@@ -33,8 +30,8 @@ class EventPage extends Component {
         <Text> {this.props.currentEvent.description} </Text>
         <Map
           initialRegion={{
-            latitude: this.props.currentEvent.lat,
-            longitude: this.props.currentEvent.lng,
+            latitude: this.props.navigation.state.params.lat,
+            longitude: this.props.navigation.state.params.lng,
             latitudeDelta: LAT_DELTA,
             longitudeDelta: LNG_DELTA
           }}
