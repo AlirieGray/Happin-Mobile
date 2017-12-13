@@ -64,7 +64,7 @@ class EventPage extends Component {
             <Text> {this.props.currentEvent.address} </Text>
           </View>
         </View>
-        <Text style={{marginBottom:50}}> {this.props.currentEvent.description} </Text>
+        <Text style={{marginBottom:50, padding: 10}}> {this.props.currentEvent.description} </Text>
 
         <Map
           initialRegion={{

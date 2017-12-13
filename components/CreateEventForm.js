@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import { connect } from 'react-redux';
@@ -49,7 +49,7 @@ class CreateEventForm extends Component {
 
   render() {
     return(
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <FormLabel> Name </FormLabel>
         <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
         <FormLabel > Description </FormLabel>
@@ -150,7 +150,7 @@ class CreateEventForm extends Component {
           }
 
       }}/>
-      </View>
+      </ScrollView>
     );
   }
 }

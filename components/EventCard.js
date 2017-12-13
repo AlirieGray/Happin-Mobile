@@ -22,10 +22,10 @@ class EventCard  extends Component{
           <View>
             <Text style={{fontSize: 20, fontWeight:'bold'}}> {this.props.name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.address}> {this.props.address} </Text>
+              <Text style={styles.address}> {this.props.address.split(',')[0]} </Text>
               <Text> {this.props.date} </Text>
             </View>
-            <Text style={styles.description}> {this.props.description} </Text>
+            <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {this.props.description} </Text>
             <View style={styles.divider} />
           </View>
         </TouchableHighlight>
@@ -48,14 +48,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
     marginBottom: 10,
     marginTop: 2,
-    maxWidth: 220,
+    width: 300,
   },
   description: {
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
   },
   address: {
   }
