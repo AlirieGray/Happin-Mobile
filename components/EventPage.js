@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableHighlight } from 'react-native';
 import * as Actions from '../actions/events';
 import Map from './Map';
 import { Button } from 'react-native-elements';
@@ -29,7 +29,7 @@ class EventPage extends Component {
     headerBackTitleStyle: {
       color: 'black'
     },
-    headerTintColor: 'black'
+    headerTintColor: 'black',
   });
 
   componentWillMount() {

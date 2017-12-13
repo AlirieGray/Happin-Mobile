@@ -30,7 +30,7 @@ class EventsList extends Component {
       onPress={() => {
         navigation.navigate('CreateEventForm');
         }} >
-      <Icon name='add-circle-outline' size={30} />
+      <Icon name='add' size={30} />
     </TouchableHighlight>
   });
 
