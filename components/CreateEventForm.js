@@ -59,7 +59,7 @@ class CreateEventForm extends Component {
           date={this.state.date}
           mode="date"
           placeholder="Select date"
-          format="YYYY-MM-DD"
+          format="MM/DD/YYYY"
           minDate="2017-12-13"
           maxDate="2050-06-01"
           confirmBtnText="Confirm"
@@ -142,6 +142,7 @@ class CreateEventForm extends Component {
           console.log('submitting');
           if (this.state.name && this.state.address && this.state.date) {
             var newEvent = {name: this.state.name, description: this.state.description, lat: this.state.lat, lng: this.state.lng, placeId: this.state.placeId, address: this.state.address, date: this.state.date}
+            console.log(newEvent)
             this.props.addEvent(newEvent);
           }
           else {

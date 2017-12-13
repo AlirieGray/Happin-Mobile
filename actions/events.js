@@ -124,12 +124,13 @@ export function getEvents() {
 
 export function addEvent(event) {
   console.log("attempting to add event...")
+  console.log(event)
   let config = {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}`
+    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}`
   }
 
   return (dispatch, getState) => {
@@ -143,7 +144,8 @@ export function addEvent(event) {
       }
       return res.json();
     }).then(({_id, name, date, address, placeId, lat, lng, description}) => {
-      console.log(dispatch(receiveAddEvent({_id, name, address, placeId, date})))
+      console.log({_id, name, date, address, placeId, lat, lng, description})
+      console.log(dispatch(receiveAddEvent({_id, name, address, placeId, date, lat, lng, description})))
       // navigate to the event's page
       dispatch(NavigationActions.navigate({ routeName: 'EventPage', params: {id:_id, lat, lng} }));
     }).catch(err => console.log("Error: " + err));
