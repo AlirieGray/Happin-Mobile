@@ -52,8 +52,8 @@ class CreateEventForm extends Component {
       <View style={styles.container}>
         <FormLabel> Name </FormLabel>
         <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
-        <FormLabel> Description </FormLabel>
-        <FormInput inputStyle={styles.input} containerStyle={styles.descriptionContainer} onChangeText={this.updateEventDescription}/>
+        <FormLabel > Description </FormLabel>
+        <FormInput multiline inputStyle={styles.input} containerStyle={styles.descriptionContainer} onChangeText={this.updateEventDescription}/>
         <DatePicker
           style={{width: 200}}
           date={this.state.date}
@@ -162,7 +162,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5'
   },
   input: {
-    paddingLeft: 10
+    paddingLeft: 10,
+    width: 295
   },
   inputContainer: {
     marginBottom: 15,
