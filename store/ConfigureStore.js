@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import eventsReducer from '../reducers/events';
 import filtersReducer from '../reducers/filters';
+import navReducer from '../reducers/navigation';
 import authReducer from '../reducers/auth';
 import currentEventReducer from '../reducers/currentEvent';
 
@@ -14,7 +15,8 @@ export default () => {
       events: eventsReducer,
       currentEvent: currentEventReducer,
       filters: filtersReducer,
-      auth: authReducer
+      auth: authReducer,
+      navigation: navReducer
     })
   );
 

@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as Actions from '../actions/events';
 
 const PLACES = 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc';
 
@@ -16,6 +19,7 @@ class CreateEventForm extends Component {
       time: '',
       lat: 0,
       lng: 0,
+      placeId: '',
       address: '',
       description: ''
     }
@@ -79,19 +83,32 @@ class CreateEventForm extends Component {
           iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
           onDateChange={(time) => {this.setState({time: time});}}
         />
+        <FormLabel> Location </FormLabel>
+        <Text> {this.state.address} </Text>
         <GooglePlacesAutocomplete
           placeholder="Search for location"
           minLength={2} // minimum length of text to search
           autoFocus={false}
+          fetchDetails={true}
           returnKeyType={'default'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
-          listViewDisplayed="auto" // true/false/undefined
+          listViewDisplayed='auto' // true/false/undefined
           renderDescription={row => row.description} // custom description render
-          onPress={(data) => {
+          onPress={(data, details) => {
             // 'details' is provided when fetchDetails = true
+            console.log('data')
             console.log(data);
+            console.log('details')
+            console.log(details);
+
+            var splitAddress = details.formatted_address.split(',');
+            var shortAddress = splitAddress.splice(0, 2).join(',');
             this.setState({
-              loc: data
+              address: shortAddress,
+              placeId: data.place_id,
+              lat: details.geometry.location.lat,
+              lng: details.geometry.location.lng
             })
+            console.log(this.state)
           }}
           getDefaultValue={() => {
             return ''; // text input default value
@@ -121,7 +138,17 @@ class CreateEventForm extends Component {
           ]} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
           debounce={200}
         />
-        <Button title="Submit" onPress={() => {console.log('submitting')}}/>
+        <Button title="Submit" onPress={() => {
+          console.log('submitting');
+          if (this.state.name && this.state.address && this.state.date) {
+            var newEvent = {name: this.state.name, description: this.state.description, lat: this.state.lat, lng: this.state.lng, placeId: this.state.placeId, address: this.state.address, date: this.state.date}
+            this.props.addEvent(newEvent);
+          }
+          else {
+            console.log('missing a required field')
+          }
+
+      }}/>
       </View>
     );
   }
@@ -147,4 +174,14 @@ const styles = StyleSheet.create({
 });
 
 
-export default CreateEventForm;
+const mapStateToProps = (state) => {
+  return {
+    events: state.events,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateEventForm);

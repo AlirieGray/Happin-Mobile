@@ -1,4 +1,5 @@
 import serverPath from '../paths';
+import { NavigationActions } from 'react-navigation'
 // ADD_EVENT
 // TODO: google maps
 
@@ -131,7 +132,7 @@ export function addEvent(event) {
     body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}`
   }
 
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(requestAddEvent(event));
     console.log("requested add event")
 
@@ -141,9 +142,10 @@ export function addEvent(event) {
         return Promise.reject("Could not add event");
       }
       return res.json();
-    }).then(({_id, name, date, address, placeId}) => {
+    }).then(({_id, name, date, address, placeId, lat, lng, description}) => {
       console.log(dispatch(receiveAddEvent({_id, name, address, placeId, date})))
-      history.push(`/events/${_id}`);
+      // navigate to the event's page
+      dispatch(NavigationActions.navigate({ routeName: 'EventPage', params: {id:_id, lat, lng} }));
     }).catch(err => console.log("Error: " + err));
   }
 
