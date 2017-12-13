@@ -49,7 +49,7 @@ class CreateEventForm extends Component {
         <FormLabel> Name </FormLabel>
         <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
         <FormLabel> Description </FormLabel>
-        <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventDescription}/>
+        <FormInput inputStyle={styles.input} containerStyle={styles.descriptionContainer} onChangeText={this.updateEventDescription}/>
         <DatePicker
           style={{width: 200}}
           date={this.state.date}
@@ -59,38 +59,39 @@ class CreateEventForm extends Component {
           minDate="2016-05-01"
           maxDate="2016-06-01"
           confirmBtnText="Confirm"
-          iconComponent={<Icon name='event' size={30} />}
+          iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
           customStyles={{
             dateInput: {
-              marginBottom: 15
-            }
+              marginBottom: 25
+            },
           }}
           cancelBtnText="Cancel"
           onDateChange={(date) => {this.setState({date: date});}}
         />
         <DatePicker
-          style={{width: 200}}
+          style={{width: 200, marginBottom: 25}}
           date={this.state.time}
           mode="time"
           format="HH:mm"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           minuteInterval={10}
-          iconComponent={<Icon name='access-time' size={30} />}
+          iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
           onDateChange={(time) => {this.setState({time: time});}}
         />
         <GooglePlacesAutocomplete
-          placeholder="Search"
+          placeholder="Search for location"
           minLength={2} // minimum length of text to search
           autoFocus={false}
-          returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
+          returnKeyType={'default'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
           listViewDisplayed="auto" // true/false/undefined
-          fetchDetails={true}
           renderDescription={row => row.description} // custom description render
-          onPress={(data, details = null) => {
+          onPress={(data) => {
             // 'details' is provided when fetchDetails = true
             console.log(data);
-            console.log(details);
+            this.setState({
+              loc: data
+            })
           }}
           getDefaultValue={() => {
             return ''; // text input default value
@@ -107,18 +108,13 @@ class CreateEventForm extends Component {
             predefinedPlacesDescription: {
               color: '#1faadb',
             },
+            textInput: {
+              width: 300
+            }
           }}
           currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
           currentLocationLabel="Current location"
-          nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
-          GoogleReverseGeocodingQuery={{
-            // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
-          }}
-          GooglePlacesSearchQuery={{
-            // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
-            rankby: 'distance',
-            types: 'food',
-          }}
+          nearbyPlacesAPI="GooglePlacesSearch"
           filterReverseGeocodingByTypes={[
             'locality',
             'administrative_area_level_3',
@@ -144,6 +140,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     width: 300
   },
+  descriptionContainer: {
+    marginBottom: 35,
+    width: 300
+  }
 });
 
 

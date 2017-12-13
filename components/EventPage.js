@@ -36,6 +36,24 @@ class EventPage extends Component {
     this.props.getEventById(this.props.navigation.state.params.id);
   }
 
+  /*
+  <View style={styles.markersToolbar}>
+    <Button onPress={() => {
+      console.log('adding marker')
+    }} />
+    <Button onPress={() => {
+      console.log('adding marker')
+    }} />
+    <Button onPress={() => {
+      console.log('adding marker')
+    }} />
+    <Button onPress={() => {
+      console.log('adding marker')
+    }} />
+  </View>
+
+  */
+
   render() {
     return(
       <View style={styles.container}>
@@ -47,20 +65,7 @@ class EventPage extends Component {
           </View>
         </View>
         <Text style={{marginBottom:50}}> {this.props.currentEvent.description} </Text>
-        <View style={styles.markersToolbar}>
-          <Button onPress={() => {
-            console.log('adding marker')
-          }} />
-          <Button onPress={() => {
-            console.log('adding marker')
-          }} />
-          <Button onPress={() => {
-            console.log('adding marker')
-          }} />
-          <Button onPress={() => {
-            console.log('adding marker')
-          }} />
-        </View>
+
         <Map
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,
