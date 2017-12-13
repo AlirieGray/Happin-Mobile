@@ -60,8 +60,8 @@ class CreateEventForm extends Component {
           mode="date"
           placeholder="Select date"
           format="YYYY-MM-DD"
-          minDate="2016-05-01"
-          maxDate="2016-06-01"
+          minDate="2017-12-13"
+          maxDate="2050-06-01"
           confirmBtnText="Confirm"
           iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
           customStyles={{
