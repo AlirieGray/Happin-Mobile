@@ -21,19 +21,23 @@ class EventsList extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Events'
+    title: 'Events',
+    headerStyle:{
+      backgroundColor: '#F44336'
+    },
+    headerRight: <TouchableHighlight
+      style={styles.addNewEventButton}
+      onPress={() => {
+        navigation.navigate('CreateEventForm');
+        }} >
+      <Icon name='add-circle-outline' size={30} />
+    </TouchableHighlight>
   });
 
   render() {
     return(
       <View style={styles.container}>
-      <TouchableHighlight
-            style={styles.addNewEventButton}
-            onPress={() => {
-            this.props.navigation.navigate('CreateEventForm');
-            }} >
-          <Icon name='add-circle-outline' size={30} />
-        </TouchableHighlight>
+
       <ScrollView contentContainerStyle={styles.contentContainer}>
         {this.props.events.map(({name, date, address, _id, placeId, description, lat, lng}, index) => {
           return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} lat={lat} lng={lng} description={description} {...this.props}/>
@@ -45,6 +49,8 @@ class EventsList extends Component {
   }
 }
 
+
+
 const styles = StyleSheet.create({
   contentContainer: {
     margin: 20,
@@ -53,16 +59,13 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#fff'
+    backgroundColor: '#F5F5F5'
   },
   empty: {
-    padding: 30,
+    padding: 30
   },
   addNewEventButton: {
-    display: 'flex',
-    alignItems: 'flex-end',
-    marginRight: 10,
-    marginTop: 5
+    marginRight: 6
   }
 });
 

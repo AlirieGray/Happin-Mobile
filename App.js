@@ -31,7 +31,7 @@ const mapNavigationStateToProps = (Wrapper) => {
 
 const AppNavigator = StackNavigator({
   EventsList: {
-    screen: EventsList
+    screen: EventsList,
   },
   EventPage: {
     screen: EventPage
@@ -39,4 +39,4 @@ const AppNavigator = StackNavigator({
   CreateEventForm: {
     screen: CreateEventForm
   }
-})
+}, { headerMode: 'screen'})

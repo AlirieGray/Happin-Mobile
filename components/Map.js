@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 
+
 export default class Map extends Component {
   constructor(props) {
     super(props);
@@ -32,14 +33,13 @@ export default class Map extends Component {
     console.log("initial region")
     console.log(this.props.initialRegion)
     return (
-      <MapView
-        ref={this.handleRef}
-        provider={ PROVIDER_GOOGLE }
-        style={styles.container}
-        initialRegion={this.props.initialRegion}
-      >
-      </MapView>
-
+        <MapView
+          ref={this.handleRef}
+          provider={ PROVIDER_GOOGLE }
+          style={styles.container}
+          initialRegion={this.props.initialRegion}
+        >
+        </MapView>
 
     );
   }
@@ -47,8 +47,8 @@ export default class Map extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: '60%',
-    width: '100%',
-    marginTop: 40
-  }
+    height: '70%',
+    width: '100%'
+  },
+
 });
