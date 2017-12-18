@@ -39,7 +39,7 @@ class EventsList extends Component {
       <View style={styles.container}>
 
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        {this.props.events.map(({name, date, address, _id, placeId, description, lat, lng}, index) => {
+        {this.props.events.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng}, index) => {
           return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} lat={lat} lng={lng} description={description} {...this.props}/>
         })}
         <View style={styles.empty} />
