@@ -2,18 +2,17 @@ import serverPath from '../paths';
 import { NavigationActions } from 'react-navigation'
 
 export const requestSignUp = (creds) => ({
-  type: 'REQUEST_SIGNUP',
+  type: 'SIGNUP_REQUEST',
   isFetching: true,
   isAuthenticated: false,
   creds
 })
 
-export const receiveSignUp = (user) => ({
+export const receiveSignUp = (userId) => ({
   type: 'SIGNUP_SUCCESS',
   isAuthenticated: true,
   isFetching: false,
-  id_token: user.id_token,
-  access_token: user.access_token
+  userId
 })
 
 export const signUpError = (message) => ({
@@ -30,12 +29,11 @@ export const requestLogin = (creds) => ({
   creds
 })
 
-export const receiveLogin = (user) => ({
+export const receiveLogin = (userId) => ({
   type: 'LOGIN_SUCCESS',
   isFetching: false,
   isAuthenticated: true,
-  id_token: user.id_token,
-  access_token: user.access_token
+  userId
 })
 
 export const loginError = (message) => ({
@@ -51,8 +49,42 @@ export const requestLogout = () => ({
   isAuthenticated: false
 })
 
+export function signupUser(creds) {
+  let config = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `username=${creds.username}&password=${creds.password}`
+  }
+
+  return dispatch => {
+    dispatch(requestSignUp(creds));
+    return fetch(`${serverPath}/signup`, config).then((res) => {
+      if (res.status !== 200) {
+        return Promise.reject("Could not signup");
+      }
+      return res.json();
+    }).then(async (json) => {
+      try {
+        await AsyncStorage.setItem('token', json.token);
+      } catch (error) {
+        throw error;
+      }
+      try {
+        await AsyncStorage.setItem('userId', json.userId);
+      } catch (error) {
+        throw error;
+      }
+
+      dispatch(receiveSignUp(json.userId));
+    }).catch((err) => {
+      dispatch(signUpError(err));
+    })
+  }
+}
+
 export function loginUser(creds) {
-  console.log("requesting login...")
   let config = {
     method: 'POST',
     headers: {
@@ -66,24 +98,23 @@ export function loginUser(creds) {
     console.log('sent request login dispatch')
 
     return fetch(`${serverPath}/login`, config).then((res) => {
-      console.log(res)
-      if (res.status != 200) {
-        dispatch(loginError(res.statusText));
+      if (res.status !== 200) {
         return Promise.reject("Could not login");
       }
       return res.json();
     }).then(async (json) => {
-        console.log(json);
-        console.log("logged in!")
         try {
           await AsyncStorage.setItem('token', json.token);
         } catch (error) {
           throw error;
         }
-
+        try {
+          await AsyncStorage.setItem('userId', json.userId);
+        } catch (error) {
+          throw error;
+        }
         dispatch(receiveLogin({
-          id_token: json.id_token,
-          access_token: json.access_token }));
+          userId: json.userId }));
     }).catch((err) => {
       dispatch(loginError(err));
     });

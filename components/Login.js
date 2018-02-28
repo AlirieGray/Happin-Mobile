@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Onboard from './Onboard';
-import EventsList from './EventsList';
 import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
