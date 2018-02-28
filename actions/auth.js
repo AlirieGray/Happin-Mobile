@@ -1,4 +1,5 @@
 import serverPath from '../paths';
+import { NavigationActions } from 'react-navigation'
 
 export const requestSignUp = (creds) => ({
   type: 'REQUEST_SIGNUP',
@@ -46,12 +47,6 @@ export const loginError = (message) => ({
 
 export const requestLogout = () => ({
   type: 'LOGOUT_REQUEST',
-  isFetching: true,
-  isAuthenticated: true
-})
-
-export const receiveLogout = () => ({
-  type: 'LOGOUT_SUCCESS',
   isFetching: false,
   isAuthenticated: false
 })
@@ -81,14 +76,14 @@ export function loginUser(creds) {
         console.log(json);
         console.log("logged in!")
         try {
-          await AsyncStorage.setItem('id_token', json.id_token);
-          AsyncStorage.setItem('access_token', json.access_token);
+          AsyncStorage.setItem('token', json.token);
         } catch (error) {
           throw error;
         }
 
-        console.log(dispatch(receiveLogin({id_token: json.id_token, access_token: json.access_token})));
-        history.push('/');
+        dispatch(receiveLogin({
+          id_token: json.id_token,
+          access_token: json.access_token }));
     }).catch(err => console.log("Error: " + err));
   }
 }
@@ -97,11 +92,25 @@ export function logoutUser () {
     return dispatch => {
       dispatch(requestLogout());
       try {
-        await AsyncStorage.removeItem('id_token');
-        await AsyncStorage.removeItem('access_token');
+        //await AsyncStorage.removeItem('userId');
+        //await AsyncStorage.removeItem('access_token');
+
       } catch(error) {
         throw error;
       }
-      dispatch(receiveLogout());
     }
+}
+
+export function navToLogin() {
+  console.log("calling nav")
+  return (dispatch, getState) => {
+      dispatch(NavigationActions.navigate({ routeName: 'Login' }));
+  }
+}
+
+export function navToSignup() {
+  console.log("calling nav")
+  return (dispatch, getState) => {
+      dispatch(NavigationActions.navigate({ routeName: 'Signup' }));
+  }
 }

@@ -1,12 +1,20 @@
 import React from 'react';
 import { StackNavigator } from "react-navigation";
-import EventsList from '../components/EventsList';
+import Home from '../components/Home';
+import Login from '../components/Login';
+import Signup from '../components/Signup';
 import EventPage from '../components/EventPage';
 import CreateEventForm from '../components/CreateEventForm';
 
 export const AppNavigator = StackNavigator({
-  EventsList: {
-    screen: EventsList,
+  Home: {
+    screen: Home
+  },
+  Login: {
+    screen: Login
+  },
+  Signup: {
+    screen: Signup
   },
   EventPage: {
     screen: EventPage

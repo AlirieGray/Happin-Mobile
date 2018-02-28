@@ -8,8 +8,6 @@ import EventCard from './EventCard';
 import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 
-
-
 class EventsList extends Component {
 
   constructor(props) {
@@ -40,7 +38,17 @@ class EventsList extends Component {
 
       <ScrollView contentContainerStyle={styles.contentContainer}>
         {this.props.events.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng}, index) => {
-          return <EventCard key={index} name={name} date={date} id={_id} address={address} placeId={placeId} lat={lat} lng={lng} description={description} {...this.props}/>
+          return <EventCard
+          key={index}
+          name={name}
+          date={date}
+          id={_id}
+          address={address}
+          placeId={placeId}
+          lat={lat}
+          lng={lng}
+          description={description}
+          {...this.props}  />
         })}
         <View style={styles.empty} />
       </ScrollView>

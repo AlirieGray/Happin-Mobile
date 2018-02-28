@@ -1,6 +1,6 @@
 import {AppNavigator} from '../components/AppNavigator'; // Object has access to router
 
-const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('EventsList'));
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Home'));
 
 export default (state=initialState, action) => {
     const newState = AppNavigator.router.getStateForAction(action, state);

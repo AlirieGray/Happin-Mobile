@@ -7,40 +7,46 @@
 const authDefaultState = {
   isFetching: false,
   isAuthenticated: false
-  //isAuthenticated: localStorage.getItem('id_token') ? true : false
+  // TODO: AsyncStorage
+  // isAuthenticated: localStorage.getItem('id_token') ? true : false
 }
 
 export default (state = authDefaultState, action) => {
   switch(action.type) {
     case 'LOGIN_REQUEST':
       return {
-        isFetching: true,
-        isAuthenticated: true,
+        ...state,
+        isFetching: action.isFetching,
+        isAuthenticated: action.isAuthenticated,
         errorMessage: ''
       }
     case 'LOGIN_SUCCESS':
       return {
-        isFetching: false,
-        isAuthenticated: true,
+        ...state,
+        isFetching: action.isFetching,
+        isAuthenticated: action.isAuthenticated,
         errorMessage: ''
       }
     case 'LOGIN_FAILURE':
       return {
-        isFetching: false,
-        isAuthenticated: false,
+        ...state,
+        isFetching: action.isFetching,
+        isAuthenticated: action.isAuthenticated,
         errorMessage: action.message
       }
     case 'LOGOUT_SUCCESS':
       return {
-        isFetching: false,
-        isAuthenticated: false,
+        ...state,
+        isFetching: action.isFetching,
+        isAuthenticated: action.isAuthenticated,
         errorMessage: 'Could not logout'
       }
     case 'SIGNUP_FAILURE':
       return {
-        isFetching: false,
-        isAuthenticated: false,
-        errorMessage: 'Could not sign up '
+        ...state,
+        isFetching: action.isFetching,
+        isAuthenticated: action.isAuthenticated,
+        errorMessage: 'Could not sign up'
       }
     default:
       return state

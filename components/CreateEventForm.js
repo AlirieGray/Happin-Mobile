@@ -141,7 +141,15 @@ class CreateEventForm extends Component {
         <Button title="Submit" onPress={() => {
           console.log('submitting');
           if (this.state.name && this.state.address && this.state.date) {
-            var newEvent = {name: this.state.name, description: this.state.description, lat: this.state.lat, lng: this.state.lng, placeId: this.state.placeId, address: this.state.address, date: this.state.date}
+            var newEvent = {
+              name: this.state.name,
+              description: this.state.description,
+              lat: this.state.lat,
+              lng: this.state.lng,
+              placeId: this.state.placeId,
+              address: this.state.address,
+              date: this.state.date,
+              userId: this.props.userId }
             console.log(newEvent)
             this.props.addEvent(newEvent);
           }

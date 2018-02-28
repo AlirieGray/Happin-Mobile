@@ -150,5 +150,4 @@ export function addEvent(event) {
       dispatch(NavigationActions.navigate({ routeName: 'EventPage', params: {id:_id, lat, lng} }));
     }).catch(err => console.log("Error: " + err));
   }
-
 }
