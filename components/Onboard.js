@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 import * as Actions from '../actions/auth';
 
 class Onboard extends Component {
   constructor(props) {
     super(props);
   }
-
-  static navigationOptions = ({ navigation }) => ({
-    title: 'Activize'
-  })
 
   render() {
     return(
@@ -40,7 +35,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
     justifyContent: 'flex-end',
-    paddingBottom: 35
+    paddingBottom: 35,
+    backgroundColor: '#F5F5F5'
   }
 })
 

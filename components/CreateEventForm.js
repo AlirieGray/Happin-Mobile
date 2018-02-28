@@ -40,7 +40,6 @@ class CreateEventForm extends Component {
 
   updateEventName(txt) {
     this.setState({ name: txt });
-    console.log(txt)
   }
 
   updateEventDescription(txt) {
@@ -156,7 +155,6 @@ class CreateEventForm extends Component {
           else {
             console.log('missing a required field')
           }
-
       }}/>
       </ScrollView>
     );

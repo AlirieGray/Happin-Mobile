@@ -72,11 +72,11 @@ export function loginUser(creds) {
         return Promise.reject("Could not login");
       }
       return res.json();
-    }).then((json) => {
+    }).then(async (json) => {
         console.log(json);
         console.log("logged in!")
         try {
-          AsyncStorage.setItem('token', json.token);
+          await AsyncStorage.setItem('token', json.token);
         } catch (error) {
           throw error;
         }
@@ -84,7 +84,9 @@ export function loginUser(creds) {
         dispatch(receiveLogin({
           id_token: json.id_token,
           access_token: json.access_token }));
-    }).catch(err => console.log("Error: " + err));
+    }).catch((err) => {
+      dispatch(loginError(err));
+    });
   }
 }
 
