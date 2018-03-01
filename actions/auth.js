@@ -67,17 +67,16 @@ export function signupUser(creds) {
       return res.json();
     }).then(async (json) => {
       try {
-        await AsyncStorage.setItem('token', json.token);
-      } catch (error) {
-        throw error;
-      }
-      try {
-        await AsyncStorage.setItem('userId', json.userId);
+        await AsyncStorage.multiSet(
+          ['token', json.token],
+          ['userId', json.userId]
+        );
       } catch (error) {
         throw error;
       }
 
       dispatch(receiveSignUp(json.userId));
+      //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
     }).catch((err) => {
       dispatch(signUpError(err));
     })
@@ -104,17 +103,16 @@ export function loginUser(creds) {
       return res.json();
     }).then(async (json) => {
         try {
-          await AsyncStorage.setItem('token', json.token);
+          await AsyncStorage.multiSet(
+            ['token', json.token],
+            ['userId', json.userId]
+          );
         } catch (error) {
           throw error;
         }
-        try {
-          await AsyncStorage.setItem('userId', json.userId);
-        } catch (error) {
-          throw error;
-        }
-        dispatch(receiveLogin({
-          userId: json.userId }));
+
+        dispatch(receiveLogin({json.userId}));
+        //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
     }).catch((err) => {
       dispatch(loginError(err));
     });
@@ -122,10 +120,10 @@ export function loginUser(creds) {
 }
 
 export function logoutUser () {
-    return dispatch => {
+    return async dispatch => {
       dispatch(requestLogout());
       try {
-        //await AsyncStorage.removeItem('userId');
+        await AsyncStorage.removeItem('userId');
         //await AsyncStorage.removeItem('access_token');
 
       } catch(error) {
@@ -135,14 +133,12 @@ export function logoutUser () {
 }
 
 export function navToLogin() {
-  console.log("calling nav")
   return (dispatch, getState) => {
       dispatch(NavigationActions.navigate({ routeName: 'Login' }));
   }
 }
 
 export function navToSignup() {
-  console.log("calling nav")
   return (dispatch, getState) => {
       dispatch(NavigationActions.navigate({ routeName: 'Signup' }));
   }

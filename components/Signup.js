@@ -48,6 +48,8 @@ class Signup extends Component {
           onPress={() => {
             if (this.state.username && this.state.password) {
               this.props.signupUser(this.state);
+            } else {
+              console.log('missing a required field');
             }
           }}
         />
