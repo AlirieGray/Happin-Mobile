@@ -1,4 +1,5 @@
 import serverPath from '../paths';
+import { AsyncStorage } from 'react-native';
 import { NavigationActions } from 'react-navigation'
 
 export const requestSignUp = (creds) => ({
@@ -111,7 +112,7 @@ export function loginUser(creds) {
           throw error;
         }
 
-        dispatch(receiveLogin({json.userId}));
+        dispatch(receiveLogin({userId: json.userId}));
         //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
     }).catch((err) => {
       dispatch(loginError(err));
