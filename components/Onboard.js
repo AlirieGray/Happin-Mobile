@@ -10,7 +10,7 @@ class Onboard extends Component {
   }
 
   render() {
-    return(
+    return(      
       <View style={styles.container}>
         <Button
           title="Login"

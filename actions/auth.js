@@ -79,6 +79,7 @@ export function signupUser(creds) {
       dispatch(receiveSignUp(json.userId));
       //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
     }).catch((err) => {
+      console.log(err);
       dispatch(signUpError(err));
     })
   }
