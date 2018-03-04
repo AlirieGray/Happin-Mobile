@@ -12,7 +12,18 @@ export default (state = eventsReducerDefaultState, action) => {
         errorMessage: action.message
       }
     case 'ADD_EVENT_SUCCESS':
-      return [...state, {id: action.id, date: action.date, name: action.name, address: action.address, placeId: action.placeId, lat:action.lat, lng:action.lng, description:action.description}];
+      return [...state,
+        {
+          id: action.id,
+          date: action.date,
+          name: action.name,
+          address: action.address,
+          placeId: action.placeId,
+          lat: action.lat,
+          lng:action.lng,
+          description: action.description,
+          organizer: action.organizer
+        }];
     case 'REMOVE_EVENT':
       return state.filter(({ id }) => id !== action.id);
     case 'EDIT_EVENT':

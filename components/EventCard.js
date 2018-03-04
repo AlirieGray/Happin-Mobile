@@ -13,11 +13,12 @@ class EventCard  extends Component{
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
     const { navigate } = this.props.navigation;
+    const organizer = this.props.organizer;
 
     return (
       <View style={styles.eventContainer}>
         <TouchableHighlight onPress={() => {
-          navigate("EventPage", {navigate, id, lat, lng} )
+          navigate("EventPage", {navigate, id, lat, lng, organizer} )
         }} >
           <View>
             <Text style={{fontSize: 20, fontWeight:'bold'}}> {this.props.name} </Text>

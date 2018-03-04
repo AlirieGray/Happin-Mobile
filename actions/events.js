@@ -19,11 +19,12 @@ export const requestAddEvent = (
     }
 });
 
-export const receiveAddEvent = ({name, _id, date, address, placeId}) =>({
+export const receiveAddEvent = ({name, _id, date, address, placeId, organizer}) =>({
   type: 'ADD_EVENT_SUCCESS',
   id: _id,
   date, name,
-  address, placeId
+  address, placeId,
+  organizer
 })
 
 export const addEventError = (message) => ({
@@ -140,12 +141,13 @@ export function addEvent(event) {
     return fetch(`${serverPath}/events/new`, config).then((res) => {
       if (res.status != 200) {
         dispatch(addEventError(res.statusText));
-        return Promise.reject("Could not add event");
+        return Promise.reject(res.message);
       }
       return res.json();
-    }).then(({_id, name, date, address, placeId, lat, lng, description}) => {
-      console.log({_id, name, date, address, placeId, lat, lng, description})
-      console.log(dispatch(receiveAddEvent({_id, name, address, placeId, date, lat, lng, description})))
+    }).then(({_id, name, date, address, placeId, lat, lng, description, organizer}) => {
+      dispatch(receiveAddEvent({
+        _id, name, address, placeId, date, lat, lng, description, organizer
+      }))
       // navigate to the event's page and clear event form from nav history
       dispatch(NavigationActions.reset({
         index: 1,
