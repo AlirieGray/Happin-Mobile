@@ -9,11 +9,12 @@ export const requestSignUp = (creds) => ({
   creds
 })
 
-export const receiveSignUp = (userId) => ({
+export const receiveSignUp = (userDetails) => ({
   type: 'SIGNUP_SUCCESS',
   isAuthenticated: true,
   isFetching: false,
-  userId
+  userId: userDetails.userId,
+  token: userDetails.token
 })
 
 export const signUpError = (message) => ({
@@ -30,11 +31,12 @@ export const requestLogin = (creds) => ({
   creds
 })
 
-export const receiveLogin = (userId) => ({
+export const receiveLogin = (userDetails) => ({
   type: 'LOGIN_SUCCESS',
   isFetching: false,
   isAuthenticated: true,
-  userId
+  userId: userDetails.userId,
+  token: userDetails.token
 })
 
 export const loginError = (message) => ({
@@ -44,8 +46,8 @@ export const loginError = (message) => ({
   message
 })
 
-export const requestLogout = () => ({
-  type: 'LOGOUT_REQUEST',
+export const logout = () => ({
+  type: 'LOGOUT',
   isFetching: false,
   isAuthenticated: false
 })
@@ -66,18 +68,10 @@ export function signupUser(creds) {
         return Promise.reject("Could not signup");
       }
       return res.json();
-    }).then(async (json) => {
-      try {
-        await AsyncStorage.multiSet(
-          ['token', json.token],
-          ['userId', json.userId]
-        );
-      } catch (error) {
-        throw error;
-      }
-
-      dispatch(receiveSignUp(json.userId));
-      //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
+    }).then((json) => {
+      console.log(json);
+      dispatch(receiveSignUp({userId: json.userId, token: json.token}));
+      dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
     }).catch((err) => {
       console.log(err);
       dispatch(signUpError(err));
@@ -103,19 +97,19 @@ export function loginUser(creds) {
         return Promise.reject("Could not login");
       }
       return res.json();
-    }).then(async (json) => {
-        try {
-          await AsyncStorage.multiSet(
-            ['token', json.token],
-            ['userId', json.userId]
-          );
-        } catch (error) {
-          throw error;
-        }
+    }).then( (json) => {
+        console.log("logged in!")
+        console.log(json.userId)
 
-        dispatch(receiveLogin({userId: json.userId}));
-        //dispatch(NavigationActions.navigate({ routeName: 'EventsList' }));
+        dispatch(receiveLogin({userId: json.userId, token: json.token}));
+        dispatch(NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'EventsList' })
+          ]
+        }))
     }).catch((err) => {
+      console.log(err)
       dispatch(loginError(err));
     });
   }

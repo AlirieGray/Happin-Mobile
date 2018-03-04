@@ -4,6 +4,7 @@ import Home from '../components/Home';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import EventPage from '../components/EventPage';
+import EventsList from '../components/EventsList';
 import CreateEventForm from '../components/CreateEventForm';
 
 export const AppNavigator = StackNavigator({
@@ -15,6 +16,9 @@ export const AppNavigator = StackNavigator({
   },
   Signup: {
     screen: Signup
+  },
+  EventsList: {
+    screen: EventsList
   },
   EventPage: {
     screen: EventPage
