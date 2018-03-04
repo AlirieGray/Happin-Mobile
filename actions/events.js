@@ -130,7 +130,7 @@ export function addEvent(event) {
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}`
+    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}&userId=${event.userId}`
   }
 
   return (dispatch, getState) => {
@@ -146,8 +146,14 @@ export function addEvent(event) {
     }).then(({_id, name, date, address, placeId, lat, lng, description}) => {
       console.log({_id, name, date, address, placeId, lat, lng, description})
       console.log(dispatch(receiveAddEvent({_id, name, address, placeId, date, lat, lng, description})))
-      // navigate to the event's page
-      dispatch(NavigationActions.navigate({ routeName: 'EventPage', params: {id:_id, lat, lng} }));
+      // navigate to the event's page and clear event form from nav history
+      dispatch(NavigationActions.reset({
+        index: 1,
+        actions: [
+          NavigationActions.navigate({ routeName: 'EventsList' }),
+          NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }})
+        ]
+      }))
     }).catch(err => console.log("Error: " + err));
   }
 }

@@ -148,7 +148,7 @@ class CreateEventForm extends Component {
               placeId: this.state.placeId,
               address: this.state.address,
               date: this.state.date,
-              userId: this.props.userId }
+              userId: this.props.auth.userId }
             console.log(newEvent)
             this.props.addEvent(newEvent);
           }
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     events: state.events,
+    auth: state.auth
   }
 }
 
