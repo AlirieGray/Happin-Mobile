@@ -1,12 +1,10 @@
 
-const eventsReducerDefaultState = [];
-
-export default (state = eventsReducerDefaultState, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case 'REQUEST_GET_EVENTS':
-      return [...state]
+      return state;
     case 'GET_EVENTS_SUCCESS':
-      return action.events
+      return action.events;
     case 'GET_EVENTS_FAILURE':
       return {
         errorMessage: action.message

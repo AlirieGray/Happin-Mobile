@@ -63,7 +63,7 @@ class EventPage extends Component {
             <Text> {this.props.currentEvent.date} </Text>
             <Text> {this.props.currentEvent.address} </Text>
           </View>
-          <Text> Organizer: {this.props.organizer} </Text>
+          <Text> Organizer: {this.props.currentEvent.organizer} </Text>
         </View>
         <Text style={{marginBottom:50, padding: 10}}> {this.props.currentEvent.description} </Text>
 

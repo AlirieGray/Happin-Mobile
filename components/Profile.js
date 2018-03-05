@@ -1,43 +1,32 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
-import CreateEventForm from './CreateEventForm';
-import { NavigationActions } from 'react-navigation';
 
-class EventsList extends Component {
-
+class Profile extends Component {
   constructor(props) {
     super(props);
   }
 
   componentWillMount() {
-    this.props.getEvents();
+    this.props.getUserEvents(this.props.auth.userId);
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'All Events',
+    title: 'My Events',
     headerStyle:{
       backgroundColor: '#F44336'
-    },
-    headerRight: <TouchableHighlight
-      style={styles.addNewEventButton}
-      onPress={() => {
-        navigation.navigate('CreateEventForm');
-        }} >
-      <Icon name='add' size={30} />
-    </TouchableHighlight>
+    }
   });
 
   render() {
-    console.log(this.props.events)
+    console.log("user events:" + this.props.userEvents.toString())
     return(
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          {this.props.events.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
+          {this.props.userEvents.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
             return <EventCard
               key={index}
               name={name}
@@ -57,7 +46,6 @@ class EventsList extends Component {
     );
   }
 }
-
 
 
 const styles = StyleSheet.create({
@@ -80,7 +68,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events
+    userEvents: state.userEvents,
+    auth: state.auth
   }
 }
 
@@ -88,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventsList);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
