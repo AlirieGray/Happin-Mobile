@@ -79,7 +79,9 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: "#F44336",
-    height: 30,
+    padding: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   container: {
     display: 'flex',
