@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
+import Searchbar from './Searchbar';
 import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 
@@ -19,9 +20,17 @@ class EventsList extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'All Events',
-    headerStyle:{
-      backgroundColor: '#F44336'
+    title: 'Find Events',
+    headerStyle: {
+      backgroundColor: '#F44336',
+      shadowOpacity: 0,
+      shadowRadius: 0,
+      borderBottomWidth: 0,
+      elevation: 0,
+      shadowOffset: {
+        height: 0,
+        width: 0
+      }
     },
     headerRight: <TouchableHighlight
       style={styles.addNewEventButton}
@@ -36,6 +45,9 @@ class EventsList extends Component {
     console.log(this.props.events)
     return(
       <View style={styles.container}>
+        <View style={styles.header}>
+          <Searchbar />
+        </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {this.props.events.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
             return <EventCard
@@ -64,6 +76,10 @@ const styles = StyleSheet.create({
   contentContainer: {
     margin: 20,
     paddingBottom: 25
+  },
+  header: {
+    backgroundColor: "#F44336",
+    height: 30,
   },
   container: {
     display: 'flex',
