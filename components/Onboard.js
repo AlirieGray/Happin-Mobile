@@ -12,18 +12,24 @@ class Onboard extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <Button
-          title="Login"
-          onPress={() => {
-            this.props.navToLogin();
-          }}
-        />
-        <Button
-          title="Sign Up"
-          onPress={() => {
-            this.props.navToSignup();
-          }}
-        />
+        <View style={styles.buttonStyle}>
+          <Button
+            title="Login"
+            color="#F44336"
+            onPress={() => {
+              this.props.navToLogin();
+            }}
+          />
+        </View>
+        <View style={styles.buttonStyle}>
+          <Button
+            title="Sign Up"
+            color="#F44336"
+            onPress={() => {
+              this.props.navToSignup();
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -37,6 +43,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingBottom: 35,
     backgroundColor: '#F5F5F5'
+  },
+  buttonStyle: {
+    margin: 10
   }
 })
 

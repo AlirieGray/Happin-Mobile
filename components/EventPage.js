@@ -32,7 +32,7 @@ class EventPage extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Create an Event',
+    title: 'Event Page',
     headerStyle: {
       backgroundColor: '#F44336',
       paddingTop: 30,

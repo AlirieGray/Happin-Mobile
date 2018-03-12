@@ -45,6 +45,7 @@ class Signup extends Component {
         />
         <Button
           title="Submit"
+          color="#F44336"
           onPress={() => {
             if (this.state.username && this.state.password) {
               this.props.signupUser(this.state);
