@@ -33,8 +33,13 @@ class EventsList extends Component {
         width: 0
       }
     },
+    headerLeft: (<TouchableHighlight
+      style={styles.navHeaderButton}
+      onPress={() => navigation.navigate('DrawerOpen')}>
+        <Icon name='menu' size={30} />
+       </TouchableHighlight>),
     headerRight: <TouchableHighlight
-      style={styles.addNewEventButton}
+      style={styles.navHeaderButton}
       onPress={() => {
         navigation.navigate('CreateEventForm');
         }} >
@@ -92,8 +97,8 @@ const styles = StyleSheet.create({
   empty: {
     padding: 30
   },
-  addNewEventButton: {
-    marginRight: 6
+  navHeaderButton: {
+    margin: 6
   }
 });
 

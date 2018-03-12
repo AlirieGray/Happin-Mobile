@@ -73,8 +73,9 @@ export function signupUser(creds) {
       dispatch(receiveSignUp({userId: json.userId, token: json.token}));
       dispatch(NavigationActions.reset({
         index: 0,
+        key: null,
         actions: [
-          NavigationActions.navigate({ routeName: 'EventsList' })
+          NavigationActions.navigate({ routeName: 'drawerStack', screenName: 'EventsList' })
         ]
       }))
     }).catch((err) => {
@@ -109,8 +110,9 @@ export function loginUser(creds) {
         dispatch(receiveLogin({userId: json.userId, token: json.token}));
         dispatch(NavigationActions.reset({
           index: 0,
+          key: null,
           actions: [
-            NavigationActions.navigate({ routeName: 'drawerStack' })
+            NavigationActions.navigate({ routeName: 'drawerStack', screenName: 'EventsList' })
           ]
         }))
     }).catch((err) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StackNavigator, DrawerNavigator } from "react-navigation";
+import { TouchableHighlight } from 'react-native';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
@@ -20,6 +21,7 @@ const LoginStack = StackNavigator({
   }
 }, {
   headerMode: 'screen',
+  initialRouteName: 'Home',
   navigationOptions: {
     headerStyle: {
       backgroundColor: '#F44336',
@@ -43,6 +45,8 @@ const DrawerStack = DrawerNavigator({
   Profile: {
     screen: Profile
   }
+}, {
+  initialRouteName: 'EventsList',
 })
 
 const DrawerNavigation = StackNavigator({
@@ -52,7 +56,7 @@ const DrawerNavigation = StackNavigator({
 })
 
 export const AppNavigator = StackNavigator({
-  loginStack : {
+  loginStack: {
     screen: LoginStack
   },
   drawerStack: {

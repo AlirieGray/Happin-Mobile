@@ -7,7 +7,7 @@ import { Provider, connect } from 'react-redux';
 import ConfigureStore from './store/ConfigureStore';
 import { ActionCreators } from './actions';
 import { bindActionCreators } from 'redux';
-import { StackNavigator, NavigationActions, addNavigationHelpers } from "react-navigation";
+import { StackNavigator, NavigationActions, DrawerNavigator, addNavigationHelpers } from "react-navigation";
 import {AppNavigator} from './components/AppNavigator';
 
 const store = ConfigureStore();
@@ -24,16 +24,6 @@ class App extends Component {
     );
   }
 }
-
-// const mapNavigationStateToProps = (Wrapper) => {
-//   return class extends Component {
-//     static navigationOptions = Wrapper.navigationOptions;
-//     render() {
-//       const {navigation: {state: {params}}} = this.props;
-//       return <Wrapper {...this.props} {...params} />
-//     }
-//   }
-// }
 
 const mapStateToProps = state => ({
   navigation: state.navigation, // needed for addNavigationHelpers
