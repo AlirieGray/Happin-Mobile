@@ -36,9 +36,9 @@ const ProfileStack = StackNavigator({
   Profile: {
     screen: Profile
   },
-  EventPage: {
-    screen: EventPage
-  }
+  CreateEventForm: {
+    screen: CreateEventForm
+  },
 }, {
   initialRouteName: 'Profile',
   headerMode: 'none',
@@ -51,6 +51,9 @@ const EventsStack = StackNavigator({
   EventsList: {
     screen: EventsList
   },
+  EventPage: {
+    screen: EventPage
+  }
 }, {
   initialRouteName: 'EventsList',
   headerMode: 'none'

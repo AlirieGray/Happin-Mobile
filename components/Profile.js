@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
 
@@ -16,9 +17,24 @@ class Profile extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'My Events',
-    headerStyle:{
-      backgroundColor: '#F44336'
-    }
+    headerStyle: {
+      backgroundColor: '#F44336',
+      paddingTop: 30,
+      paddingBottom: 15,
+      height: 70
+    },
+    headerLeft: (<TouchableHighlight
+      style={styles.navHeaderButton}
+      onPress={() => navigation.navigate('DrawerOpen')}>
+        <Icon name='menu' size={30} />
+       </TouchableHighlight>),
+    headerRight: <TouchableHighlight
+      style={styles.navHeaderButton}
+      onPress={() => {
+        navigation.navigate('CreateEventForm');
+        }} >
+      <Icon name='add' size={30} />
+    </TouchableHighlight>
   });
 
   render() {

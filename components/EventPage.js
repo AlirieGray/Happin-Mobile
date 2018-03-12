@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Dimensions, TouchableHighlight } from 'react-native';
 import * as Actions from '../actions/events';
 import Map from './Map';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Button } from 'react-native-elements';
 
 // details for Google Maps View
@@ -11,6 +12,14 @@ let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.008;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
+
+const Left = ({ onPress }) => (
+  <TouchableHighlight onPress={() => {
+    onPress()
+  }}>
+    <Icon name="arrow-back" size={30} />
+  </TouchableHighlight>
+);
 
 
 class EventPage extends Component {
@@ -23,14 +32,16 @@ class EventPage extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    headerStyle:{
-      backgroundColor: '#F44336'
+    title: 'Create an Event',
+    headerStyle: {
+      backgroundColor: '#F44336',
+      paddingTop: 30,
+      paddingBottom: 15,
+      height: 80
     },
-    headerBackTitleStyle: {
-      color: 'black'
-    },
-    headerTintColor: 'black',
+    headerLeft: <Left onPress={navigation.goBack} />
   });
+
 
   componentWillMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
