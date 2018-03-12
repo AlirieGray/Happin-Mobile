@@ -10,6 +10,12 @@ import * as Actions from '../actions/events';
 
 const PLACES = 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc';
 
+const Left = ({ onPress }) => (
+  <TouchableHighlight onPress={onPress}>
+    <Icon name="arrow back" size={30} />
+  </TouchableHighlight>
+);
+
 class CreateEventForm extends Component {
   constructor(props) {
     super(props);
@@ -29,13 +35,10 @@ class CreateEventForm extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Create an Event',
-    headerStyle:{
+    headerStyle: {
       backgroundColor: '#F44336'
     },
-    headerBackTitleStyle: {
-      color: 'black'
-    },
-    headerTintColor: 'black'
+    left: <Left onPress={navigation.goBack} />
   });
 
   updateEventName(txt) {

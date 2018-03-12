@@ -32,21 +32,40 @@ const LoginStack = StackNavigator({
   }
 })
 
-const DrawerStack = DrawerNavigator({
+const ProfileStack = StackNavigator({
+  Profile: {
+    screen: Profile
+  },
   EventPage: {
     screen: EventPage
-  },
+  }
+}, {
+  initialRouteName: 'Profile',
+  headerMode: 'none',
+})
+
+const EventsStack = StackNavigator({
   CreateEventForm: {
     screen: CreateEventForm
   },
   EventsList: {
     screen: EventsList
   },
-  Profile: {
-    screen: Profile
-  }
 }, {
   initialRouteName: 'EventsList',
+  headerMode: 'none'
+})
+
+const DrawerStack = DrawerNavigator({
+  EventsStack: {
+    screen: EventsStack
+  },
+  ProfileStack: {
+    screen: ProfileStack
+  }
+}, {
+  initialRouteName: 'EventsStack',
+  headerMode: 'none'
 })
 
 const DrawerNavigation = StackNavigator({
