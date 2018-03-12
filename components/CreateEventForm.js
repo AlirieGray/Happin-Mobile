@@ -66,8 +66,8 @@ class CreateEventForm extends Component {
           date={this.state.date}
           mode="date"
           placeholder="Select date"
-          format="MM/DD/YYYY"
-          minDate="2017-12-13"
+          format="YYYY-MM-DD"
+          minDate="2018-01-01"
           maxDate="2050-06-01"
           confirmBtnText="Confirm"
           iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
