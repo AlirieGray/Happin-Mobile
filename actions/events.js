@@ -189,7 +189,7 @@ export function addEvent(event) {
       dispatch(NavigationActions.reset({
         index: 1,
         actions: [
-          NavigationActions.navigate({ routeName: 'Main' }),
+          NavigationActions.navigate({ routeName: 'EventsList' }),
           NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }})
         ]
       }))

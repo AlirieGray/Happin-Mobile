@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator, TabNavigator } from "react-navigation";
+import { StackNavigator, DrawerNavigator } from "react-navigation";
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
@@ -8,7 +8,7 @@ import EventsList from '../components/EventsList';
 import Profile from '../components/Profile';
 import CreateEventForm from '../components/CreateEventForm';
 
-export const AppNavigator = StackNavigator({
+const LoginStack = StackNavigator({
   Home: {
     screen: Home
   },
@@ -17,22 +17,48 @@ export const AppNavigator = StackNavigator({
   },
   Signup: {
     screen: Signup
-  },
+  }
+}, {
+  headerMode: 'screen',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#F44336',
+      paddingTop: 30,
+      paddingBottom: 15,
+      height: 80
+    }
+  }
+})
+
+const DrawerStack = DrawerNavigator({
   EventPage: {
     screen: EventPage
   },
   CreateEventForm: {
     screen: CreateEventForm
   },
-  Main:{
-    screen: TabNavigator({
-      EventsList: {
-        screen: EventsList
-      },
-      Profile: {
-        screen: Profile
-      }
-    })
+  EventsList: {
+    screen: EventsList
+  },
+  Profile: {
+    screen: Profile
   }
+})
 
-}, { headerMode: 'screen'})
+const DrawerNavigation = StackNavigator({
+  DrawerStack: {
+    screen: DrawerStack
+  }
+})
+
+export const AppNavigator = StackNavigator({
+  loginStack : {
+    screen: LoginStack
+  },
+  drawerStack: {
+    screen: DrawerNavigation
+  }
+}, {
+  headerMode: 'none',
+  initialRouteName: 'loginStack'
+})

@@ -23,6 +23,7 @@ class EventsList extends Component {
     title: 'Find Events',
     headerStyle: {
       backgroundColor: '#F44336',
+      paddingTop: 30,
       shadowOpacity: 0,
       shadowRadius: 0,
       borderBottomWidth: 0,

@@ -74,7 +74,7 @@ export function signupUser(creds) {
       dispatch(NavigationActions.reset({
         index: 0,
         actions: [
-          NavigationActions.navigate({ routeName: 'Main' })
+          NavigationActions.navigate({ routeName: 'EventsList' })
         ]
       }))
     }).catch((err) => {
@@ -110,7 +110,7 @@ export function loginUser(creds) {
         dispatch(NavigationActions.reset({
           index: 0,
           actions: [
-            NavigationActions.navigate({ routeName: 'Main' })
+            NavigationActions.navigate({ routeName: 'drawerStack' })
           ]
         }))
     }).catch((err) => {
