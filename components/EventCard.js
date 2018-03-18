@@ -20,11 +20,11 @@ class EventCard  extends Component{
   }
 
   render() {
-    const id = this.props.id;
+    const { name, description, organizer, date, address } = this.props;
+    const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
     const { navigate } = this.props.navigation;
-    const organizer = this.props.organizer;
 
     return (
       <View style={styles.eventContainer}>
@@ -32,12 +32,12 @@ class EventCard  extends Component{
           navigate("EventPage", {navigate, id, lat, lng, organizer} )
         }} >
           <View>
-            <Text style={{fontSize: 20, fontWeight:'bold'}}> {this.props.name} </Text>
+            <Text style={{fontSize: 20, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.address}> {this.props.address.split(',')[0]} </Text>
-              <Text> {this.parseDate(this.props.date)} </Text>
+              <Text style={styles.address}> {address.split(',')[0]} </Text>
+              <Text> {this.parseDate(date)} </Text>
             </View>
-            <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {this.props.description} </Text>
+            <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {description} </Text>
             <View style={styles.divider} />
           </View>
         </TouchableHighlight>

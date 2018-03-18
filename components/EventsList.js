@@ -3,9 +3,11 @@ import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from '
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as Actions from '../actions/events';
+import * as eventActions from '../actions/events';
+import * as filterActions from '../actions/filters';
 import EventCard from './EventCard';
 import Searchbar from './Searchbar';
+import SortButtons from './SortButtons';
 import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 
@@ -48,26 +50,16 @@ class EventsList extends Component {
   });
 
   render() {
-    console.log(this.props.events)
+    const events = this.props.events;
     return(
       <View style={styles.container}>
         <View style={styles.header}>
           <Searchbar />
+          <SortButtons />
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          {this.props.events.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
-            return <EventCard
-              key={index}
-              name={name}
-              date={date}
-              id={_id}
-              address={address}
-              placeId={placeId}
-              lat={lat}
-              lng={lng}
-              description={description}
-              organizer={organizer}
-              {...this.props}  />
+          {events.reverse().map((event, index) => {
+            return <EventCard key={index} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>
@@ -104,12 +96,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events
+    events: state.events,
+    filters: state.filters
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Object.assign({}, eventActions, filterActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsList);
