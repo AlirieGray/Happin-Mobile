@@ -10,6 +10,7 @@ import Searchbar from './Searchbar';
 import SortButtons from './SortButtons';
 import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
+import uuid from 'react-native-uuid';
 
 class EventsList extends Component {
 
@@ -51,15 +52,15 @@ class EventsList extends Component {
 
   render() {
     const events = this.props.events;
-    return(
+    return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Searchbar />
           <SortButtons />
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          {events.reverse().map((event, index) => {
-            return <EventCard key={index} {...event} {...this.props}  />
+          {events.map((event, index) => {
+            return <EventCard key={uuid.v1()} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>

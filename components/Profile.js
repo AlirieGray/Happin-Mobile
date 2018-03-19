@@ -5,12 +5,9 @@ import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from '
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
+import uuid from 'react-native-uuid';
 
 class Profile extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.getUserEvents(this.props.auth.userId);
   }
@@ -38,13 +35,12 @@ class Profile extends Component {
   });
 
   render() {
-    console.log("user events:" + this.props.userEvents.toString())
     return(
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          {this.props.userEvents.slice(0).reverse().map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
+          {this.props.userEvents.map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
             return <EventCard
-              key={index}
+              key={uuid.v1()}
               name={name}
               date={date}
               id={_id}

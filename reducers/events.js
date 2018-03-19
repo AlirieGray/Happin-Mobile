@@ -4,7 +4,9 @@ export default (state = [], action) => {
     case 'REQUEST_GET_EVENTS':
       return state;
     case 'GET_EVENTS_SUCCESS':
-      return action.events;
+      return [
+        ...action.events
+      ];
     case 'GET_EVENTS_FAILURE':
       return {
         errorMessage: action.message

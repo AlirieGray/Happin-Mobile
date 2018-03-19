@@ -101,12 +101,6 @@ class CreateEventForm extends Component {
           listViewDisplayed='auto' // true/false/undefined
           renderDescription={row => row.description} // custom description render
           onPress={(data, details) => {
-            // 'details' is provided when fetchDetails = true
-            console.log('data')
-            console.log(data);
-            console.log('details')
-            console.log(details);
-
             var splitAddress = details.formatted_address.split(',');
             var shortAddress = splitAddress.splice(0, 2).join(',');
             this.setState({
@@ -115,7 +109,6 @@ class CreateEventForm extends Component {
               lat: details.geometry.location.lat,
               lng: details.geometry.location.lng
             })
-            console.log(this.state)
           }}
           getDefaultValue={() => {
             return ''; // text input default value
@@ -145,25 +138,26 @@ class CreateEventForm extends Component {
           ]} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
           debounce={200}
         />
-        <Button title="Submit" onPress={() => {
-          console.log('submitting');
-          if (this.state.name && this.state.address && this.state.date) {
-            var newEvent = {
-              name: this.state.name,
-              description: this.state.description,
-              lat: this.state.lat,
-              lng: this.state.lng,
-              placeId: this.state.placeId,
-              address: this.state.address,
-              date: this.state.date,
-              userId: this.props.auth.userId }
-            console.log(newEvent)
-            this.props.addEvent(newEvent);
-          }
-          else {
-            console.log('missing a required field')
-          }
-      }}/>
+        <View style={styles.submitButtonStyle}>
+          <Button title="Submit" onPress={() => {
+            console.log('submitting');
+            if (this.state.name && this.state.address && this.state.date) {
+              var newEvent = {
+                name: this.state.name,
+                description: this.state.description,
+                lat: this.state.lat,
+                lng: this.state.lng,
+                placeId: this.state.placeId,
+                address: this.state.address,
+                date: this.state.date,
+                userId: this.props.auth.userId }
+              this.props.addEvent(newEvent);
+            }
+            else {
+              console.log('missing a required field')
+            }
+        }}/>
+      </View>
       </ScrollView>
     );
   }
@@ -186,6 +180,9 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     marginBottom: 35,
     width: 300
+  },
+  submitButtonStyle: {
+    margin: 20
   },
   backButtonStyle: {
 

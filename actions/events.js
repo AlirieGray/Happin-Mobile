@@ -1,23 +1,10 @@
 import serverPath from '../paths';
-import { NavigationActions } from 'react-navigation'
-// ADD_EVENT
-// TODO: google maps
+import { NavigationActions } from 'react-navigation';
 
-export const requestAddEvent = (
-  {
-    name = '',
-    date=0,
-    address='',
-  } = {}) => (
-    {
-    type: 'ADD_EVENT',
-    isFetching: true,
-    event: {
-      name,
-      date,
-      address
-    }
-});
+export const requestAddEvent = () => ({
+  type: 'REQUEST_GET_EVENTS',
+  isFetching: true
+})
 
 export const receiveAddEvent = ({name, _id, date, address, placeId, organizer}) =>({
   type: 'ADD_EVENT_SUCCESS',
@@ -61,12 +48,6 @@ export const receiveEvents = (events) => ({
 export const requestGetUserEvent = () =>({
   type: 'REQUEST_USER_EVENTS',
   isFetching: true
-})
-
-export const receiveUserEvents = (event) => ({
-  type: 'GET_USER_EVENTS_SUCCESS',
-  isFetching: false,
-  event
 })
 
 export const getEventsError = (message) => ({
@@ -125,13 +106,12 @@ export function getUserEvents(userId) {
     return fetch(`${serverPath}/users/${userId}/events`, config).then((res) => {
       if (res.status !== 200) {
         dispatch(getEventsError("Error: Could not fetch events for this user from database: " + res.message));
-        return Promise.reject("Could not get events")
+        return Promise.reject("Error: Could not fetch events for this user from database")
       }
       return res.json();
-    }).then((event) => {
-        console.log("Event by user: ")
-        console.log(event)
-        dispatch(receiveUserEvents(event));
+    }).then(({ events }) => {
+        console.log("user events: ", events)
+        dispatch(receiveEvents(events));
     }).catch(err => console.log("Error: " + err))
   }
 }
@@ -151,11 +131,12 @@ export function getEvents() {
     return fetch(`${serverPath}/events`, config).then((res) => {
       if (res.status != 200) {
         dispatch(getEventsError("Error: Could not fetch events index from database: " + res.statusText));
-        return Promise.reject("Could not fetch events from database");
+        return Promise.reject("Error: Could not fetch events index from database");
       }
       return res.json();
-    }).then((event) => {
-      dispatch(receiveEvents(event));
+    }).then(( { events } ) => {
+      console.log("got events index ", events)
+      dispatch(receiveEvents(events));
     }).catch(err => console.log("Error: " + err));
   }
 }
@@ -193,6 +174,7 @@ export function addEvent(event) {
           NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }})
         ]
       }))
+
     }).catch(err => console.log("Error: " + err));
   }
 }
