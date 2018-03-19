@@ -45,11 +45,6 @@ export const receiveEvents = (events) => ({
   events
 })
 
-export const requestGetUserEvent = () =>({
-  type: 'REQUEST_USER_EVENTS',
-  isFetching: true
-})
-
 export const getEventsError = (message) => ({
   type: 'GET_EVENTS_FAILURE',
   isFetching: false,
@@ -101,7 +96,7 @@ export function getUserEvents(userId) {
   }
 
   return dispatch => {
-    dispatch(requestGetUserEvent());
+    dispatch(requestGetEvents());
 
     return fetch(`${serverPath}/users/${userId}/events`, config).then((res) => {
       if (res.status !== 200) {
@@ -110,7 +105,6 @@ export function getUserEvents(userId) {
       }
       return res.json();
     }).then(({ events }) => {
-        console.log("user events: ", events)
         dispatch(receiveEvents(events));
     }).catch(err => console.log("Error: " + err))
   }

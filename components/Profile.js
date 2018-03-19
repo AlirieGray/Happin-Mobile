@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from '
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
-import uuid from 'react-native-uuid';
+
 
 class Profile extends Component {
   componentWillMount() {
@@ -35,22 +35,12 @@ class Profile extends Component {
   });
 
   render() {
+    const events = this.props.events;
     return(
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
-          {this.props.userEvents.map(({name, date, address, _id, placeId, description, lat, lng, organizer}, index) => {
-            return <EventCard
-              key={uuid.v1()}
-              name={name}
-              date={date}
-              id={_id}
-              address={address}
-              placeId={placeId}
-              lat={lat}
-              lng={lng}
-              description={description}
-              organizer={organizer}
-              {...this.props}  />
+          {events.map((event, index) => {
+            return <EventCard key={event._id} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>
@@ -80,7 +70,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    userEvents: state.userEvents,
+    events: state.events,
     auth: state.auth
   }
 }

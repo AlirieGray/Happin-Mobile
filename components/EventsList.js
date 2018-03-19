@@ -10,7 +10,7 @@ import Searchbar from './Searchbar';
 import SortButtons from './SortButtons';
 import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
-import uuid from 'react-native-uuid';
+
 
 class EventsList extends Component {
 
@@ -60,7 +60,7 @@ class EventsList extends Component {
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
-            return <EventCard key={uuid.v1()} {...event} {...this.props}  />
+            return <EventCard key={event._id} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>

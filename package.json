@@ -29,7 +29,6 @@
     "react-native-maps": "^0.18.3",
     "react-native-navigation": "^1.1.305",
     "react-native-search-bar": "^3.0.2",
-    "react-native-uuid": "^1.4.9",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
