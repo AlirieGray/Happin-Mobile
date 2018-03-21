@@ -1,17 +1,25 @@
+import { ADD_EVENT_SUCCESS,
+  ADD_EVENT_FAILURE,
+  REMOVE_EVENT,
+  EDIT_EVENT,
+  REQUEST_GET_EVENTS,
+  GET_EVENTS_SUCCESS,
+  GET_EVENTS_FAILURE
+} from '../actions/events';
 
 export default (state = [], action) => {
   switch (action.type) {
-    case 'REQUEST_GET_EVENTS':
+    case REQUEST_GET_EVENTS:
       return state;
-    case 'GET_EVENTS_SUCCESS':
+    case GET_EVENTS_SUCCESS:
       return [
         ...action.events
       ];
-    case 'GET_EVENTS_FAILURE':
+    case GET_EVENTS_FAILURE:
       return {
         errorMessage: action.message
       }
-    case 'ADD_EVENT_SUCCESS':
+    case ADD_EVENT_SUCCESS:
       return [...state,
         {
           id: action.id,
@@ -24,9 +32,9 @@ export default (state = [], action) => {
           description: action.description,
           organizer: action.organizer
         }];
-    case 'REMOVE_EVENT':
+    case REMOVE_EVENT:
       return state.filter(({ id }) => id !== action.id);
-    case 'EDIT_EVENT':
+    case EDIT_EVENT:
       return state.map( (event) => {
         if (event.id === action.id) {
           return {

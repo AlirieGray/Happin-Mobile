@@ -66,6 +66,14 @@ class CreateEventForm extends Component {
         }}
         >
           <ScrollView contentContainerStyle={styles.container}>
+            <View style={styles.closeButtonStyle}>
+              <TouchableOpacity
+              onClick={() => {
+                console.log('Closing modal....')
+              }}>
+                <Icon name='clear' size={30} />
+              </TouchableOpacity>
+            </View>
             <FormLabel> Name </FormLabel>
             <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
             <FormLabel > Description </FormLabel>
@@ -179,7 +187,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#F5F5F5',
+    paddingTop: 60
   },
   input: {
     paddingLeft: 10,
@@ -195,6 +204,11 @@ const styles = StyleSheet.create({
   },
   submitButtonStyle: {
     margin: 20
+  },
+  closeButtonStyle: {
+    display: 'flex',
+    width: 300,
+    alignItems: 'flex-end'
   }
 });
 

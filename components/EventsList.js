@@ -41,7 +41,7 @@ class EventsList extends Component {
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
-        this.props.openCreateEventModal();
+        dispatch(setCreateEventModal(true))
       }} >
       <Icon name='add' size={30} />
     </TouchableHighlight>

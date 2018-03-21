@@ -1,10 +1,12 @@
+import { REQUEST_GET_EVENT_BY_ID, GET_EVENT_BY_ID_SUCCESS } from '../actions/events';
+
 const currentEventReducerDefaultState = {};
 
 export default (state = currentEventReducerDefaultState, action) => {
   switch (action.type) {
-    case 'REQUEST_GET_EVENT_BY_ID':
+    case REQUEST_GET_EVENT_BY_ID:
       return state;
-    case 'GET_EVENT_BY_ID_SUCCESS':
+    case GET_EVENT_BY_ID_SUCCESS:
       return action.event;
     default:
       return state;

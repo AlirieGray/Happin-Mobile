@@ -1,13 +1,22 @@
 import serverPath from '../paths';
 import { NavigationActions } from 'react-navigation';
+export const ADD_EVENT_SUCCESS = 'ADD_EVENT_SUCCESS';
+export const ADD_EVENT_FAILURE = 'ADD_EVENT_FAILURE';
+export const REMOVE_EVENT = 'REMOVE_EVENT';
+export const EDIT_EVENT = 'EDIT_EVENT';
+export const REQUEST_GET_EVENTS = 'REQUEST_GET_EVENTS';
+export const GET_EVENTS_SUCCESS = 'GET_EVENTS_SUCCESS';
+export const GET_EVENTS_FAILURE = 'GET_EVENTS_FAILURE';
+export const REQUEST_GET_EVENT_BY_ID = 'REQUEST_GET_EVENT_BY_ID';
+export const GET_EVENT_BY_ID_SUCCESS = 'GET_EVENT_BY_ID_SUCCESS';
 
 export const requestAddEvent = () => ({
-  type: 'REQUEST_GET_EVENTS',
+  type: REQUEST_GET_EVENTS,
   isFetching: true
 })
 
 export const receiveAddEvent = ({name, _id, date, address, placeId, organizer}) =>({
-  type: 'ADD_EVENT_SUCCESS',
+  type: ADD_EVENT_SUCCESS,
   id: _id,
   date, name,
   address, placeId,
@@ -15,49 +24,49 @@ export const receiveAddEvent = ({name, _id, date, address, placeId, organizer}) 
 })
 
 export const addEventError = (message) => ({
-  type: 'ADD_EVENT_FAILURE',
+  type: ADD_EVENT_FAILURE,
   isFetching: false,
   message
 })
 
 // REMOVE_EVENT
 export const removeEvent = ({ id }) => ({
-  type: 'REMOVE_EVENT',
+  type: REMOVE_EVENT,
   id
 });
 
 // EDIT_EVENT
 export const editEvent = (id, updates) => ({
-  type: 'EDIT_EVENT',
+  type: EDIT_EVENT,
   id,
   updates
 })
 
 // GET EVENTS
 export const requestGetEvents = () => ({
-  type: 'REQUEST_GET_EVENTS',
+  type: REQUEST_GET_EVENTS,
   isFetching: true,
 })
 
 export const receiveEvents = (events) => ({
-  type: 'GET_EVENTS_SUCCESS',
+  type: GET_EVENTS_SUCCESS,
   isFetching: false,
   events
 })
 
 export const getEventsError = (message) => ({
-  type: 'GET_EVENTS_FAILURE',
+  type: GET_EVENTS_FAILURE,
   isFetching: false,
   message
 })
 
 export const requestGetEventById = (id) => ({
-  type: 'REQUEST_GET_EVENT_BY_ID',
+  type: REQUEST_GET_EVENT_BY_ID,
   isFetching: true,
 })
 
 export const receiveEventById = (event) => ({
-  type: 'GET_EVENT_BY_ID_SUCCESS',
+  type: GET_EVENT_BY_ID_SUCCESS,
   isFetching: false,
   event
 })
