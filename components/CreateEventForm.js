@@ -11,14 +11,6 @@ import * as modalActions from '../actions/modal';
 
 const PLACES = 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc';
 
-// const Left = ({ onPress }) => (
-//   <TouchableHighlight onPress={() => {
-//     onPress()
-//   }}>
-//     <Icon name="arrow-back" size={30} />
-//   </TouchableHighlight>
-// );
-
 class CreateEventForm extends Component {
   constructor(props) {
     super(props);
@@ -52,12 +44,11 @@ class CreateEventForm extends Component {
         visible={this.props.modal.createEventModal}
         onRequestClose={ () => {
           console.log('Modal has been closed.');
-        }}
-        >
+        }}>
           <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.closeButtonStyle}>
               <TouchableOpacity
-              onClick={() => {
+              onPress={ () => {
                 this.props.setCreateEventModal(false);
               }}>
                 <Icon name='clear' size={30} />
@@ -83,7 +74,7 @@ class CreateEventForm extends Component {
                 },
               }}
               cancelBtnText="Cancel"
-              onDateChange={(date) => {this.setState({date: date});}}
+              onDateChange={(date) => { this.setState({date}) }}
             />
             <DatePicker
               style={{width: 200, marginBottom: 25}}
@@ -100,12 +91,12 @@ class CreateEventForm extends Component {
             <Text> {this.state.address} </Text>
             <GooglePlacesAutocomplete
               placeholder="Search for location"
-              minLength={2} // minimum length of text to search
+              minLength={2}
               autoFocus={false}
               fetchDetails={true}
-              returnKeyType={'default'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
-              listViewDisplayed='auto' // true/false/undefined
-              renderDescription={row => row.description} // custom description render
+              returnKeyType={'default'}
+              listViewDisplayed='auto'
+              renderDescription={row => row.description}
               onPress={(data, details) => {
                 var splitAddress = details.formatted_address.split(',');
                 var shortAddress = splitAddress.splice(0, 2).join(',');
@@ -122,7 +113,7 @@ class CreateEventForm extends Component {
               query={{
                 // available options: https://developers.google.com/places/web-service/autocomplete
                 key: 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc',
-                language: 'en', // language of the results
+                language: 'en',
               }}
               styles={{
                 description: {
