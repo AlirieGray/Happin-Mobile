@@ -52,15 +52,6 @@ class EventPage extends Component {
     <Button onPress={() => {
       console.log('adding marker')
     }} />
-    <Button onPress={() => {
-      console.log('adding marker')
-    }} />
-    <Button onPress={() => {
-      console.log('adding marker')
-    }} />
-    <Button onPress={() => {
-      console.log('adding marker')
-    }} />
   </View>
 
   */

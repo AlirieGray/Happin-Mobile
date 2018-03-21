@@ -6,6 +6,7 @@ import navReducer from '../reducers/navigation';
 import authReducer from '../reducers/auth';
 import currentEventReducer from '../reducers/currentEvent';
 import userEventsReducer from '../reducers/userEvents';
+import modalReducer from '../reducers/modal';
 
 let createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
@@ -18,7 +19,8 @@ export default () => {
       userEvents: userEventsReducer,
       filters: filtersReducer,
       auth: authReducer,
-      navigation: navReducer
+      navigation: navReducer,
+      modal: modalReducer
     })
   );
 

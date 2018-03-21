@@ -28,7 +28,7 @@ class Profile extends Component {
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
-        navigation.navigate('CreateEventForm');
+        this.props.openCreateEventModal();
         }} >
       <Icon name='add' size={30} />
     </TouchableHighlight>

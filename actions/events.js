@@ -129,7 +129,6 @@ export function getEvents() {
       }
       return res.json();
     }).then(( { events } ) => {
-      console.log("got events index ", events)
       dispatch(receiveEvents(events));
     }).catch(err => console.log("Error: " + err));
   }
@@ -160,14 +159,9 @@ export function addEvent(event) {
       dispatch(receiveAddEvent({
         _id, name, address, placeId, date, lat, lng, description, organizer
       }))
-      // navigate to the event's page and clear event form from nav history
-      dispatch(NavigationActions.reset({
-        index: 1,
-        actions: [
-          NavigationActions.navigate({ routeName: 'EventsList' }),
-          NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }})
-        ]
-      }))
+
+      // navigate to the event's page and TODO: close modal *******
+      dispatch(NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }}));
 
     }).catch(err => console.log("Error: " + err));
   }

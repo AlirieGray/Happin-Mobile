@@ -4,19 +4,16 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as eventActions from '../actions/events';
+import * as modalActions from '../actions/modal';
 import * as filterActions from '../actions/filters';
 import EventCard from './EventCard';
 import Searchbar from './Searchbar';
-import SortButtons from './SortButtons';
 import CreateEventForm from './CreateEventForm';
+import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
 
 
 class EventsList extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   componentWillMount() {
     this.props.getEvents();
@@ -44,8 +41,8 @@ class EventsList extends Component {
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
-        navigation.navigate('CreateEventForm');
-        }} >
+        this.props.openCreateEventModal();
+      }} >
       <Icon name='add' size={30} />
     </TouchableHighlight>
   });
@@ -54,6 +51,7 @@ class EventsList extends Component {
     const events = this.props.events;
     return (
       <View style={styles.container}>
+        <CreateEventForm />
         <View style={styles.header}>
           <Searchbar />
           <SortButtons />
@@ -98,12 +96,14 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     events: state.events,
-    filters: state.filters
+    filters: state.filters,
+    modal: state.modal
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(Object.assign({}, eventActions, filterActions), dispatch);
+  const actions = Object.assign({}, eventActions, modalActions, filterActions);
+  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsList);
