@@ -12,14 +12,14 @@ import CreateEventForm from './CreateEventForm';
 import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
 
-
 class EventsList extends Component {
 
   componentWillMount() {
     this.props.getEvents();
+    this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
   }
 
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({navigation}) => ({
     title: 'Find Events',
     headerStyle: {
       backgroundColor: '#F44336',
@@ -41,7 +41,7 @@ class EventsList extends Component {
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
-        dispatch(setCreateEventModal(true))
+        navigation.state.params.setCreateEventModal(true)
       }} >
       <Icon name='add' size={30} />
     </TouchableHighlight>

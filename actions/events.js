@@ -90,7 +90,6 @@ export function getEventById(id) {
       }
       return res.json();
     }).then((event) => {
-      console.log(event)
       dispatch(receiveEventById(event));
     }).catch(err => console.log("Error: " + err));
   }
@@ -120,7 +119,6 @@ export function getUserEvents(userId) {
 }
 
 export function getEvents() {
-  console.log("fetching events from database...");
   let config = {
     method: 'GET',
     headers: {
@@ -144,8 +142,6 @@ export function getEvents() {
 }
 
 export function addEvent(event) {
-  console.log("attempting to add event...")
-  console.log(event)
   let config = {
     method: 'POST',
     headers: {
@@ -156,7 +152,6 @@ export function addEvent(event) {
 
   return (dispatch, getState) => {
     dispatch(requestAddEvent(event));
-    console.log("requested add event")
 
     return fetch(`${serverPath}/events/new`, config).then((res) => {
       if (res.status != 200) {

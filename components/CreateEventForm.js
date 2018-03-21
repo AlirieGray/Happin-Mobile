@@ -36,17 +36,6 @@ class CreateEventForm extends Component {
     this.updateEventDescription = this.updateEventDescription.bind(this);
   }
 
-  // static navigationOptions = ({ navigation }) => ({
-  //   title: 'Create an Event',
-  //   headerStyle: {
-  //     backgroundColor: '#F44336',
-  //     paddingTop: 30,
-  //     paddingBottom: 15,
-  //     height: 80
-  //   },
-  //   headerLeft: <Left onPress={navigation.goBack} />
-  // });
-
   updateEventName(txt) {
     this.setState({ name: txt });
   }
@@ -69,7 +58,7 @@ class CreateEventForm extends Component {
             <View style={styles.closeButtonStyle}>
               <TouchableOpacity
               onClick={() => {
-                console.log('Closing modal....')
+                this.props.setCreateEventModal(false);
               }}>
                 <Icon name='clear' size={30} />
               </TouchableOpacity>

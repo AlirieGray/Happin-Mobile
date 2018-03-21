@@ -19,8 +19,7 @@ class App extends Component {
           navigation={addNavigationHelpers({
             dispatch: this.props.dispatch,
             state: this.props.navigation,
-          })}
-         />
+          })} />
     );
   }
 }
