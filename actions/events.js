@@ -9,6 +9,8 @@ export const GET_EVENTS_SUCCESS = 'GET_EVENTS_SUCCESS';
 export const GET_EVENTS_FAILURE = 'GET_EVENTS_FAILURE';
 export const REQUEST_GET_EVENT_BY_ID = 'REQUEST_GET_EVENT_BY_ID';
 export const GET_EVENT_BY_ID_SUCCESS = 'GET_EVENT_BY_ID_SUCCESS';
+export const REQUEST_USER_EVENTS = 'REQUEST_USER_EVENTS';
+export const GET_USER_EVENTS_SUCCESS = 'GET_USER_EVENTS_SUCCESS';
 
 export const requestAddEvent = () => ({
   type: REQUEST_GET_EVENTS,
@@ -60,6 +62,16 @@ export const getEventsError = (message) => ({
   message
 })
 
+export const requestUserEvents = () => ({
+  type: REQUEST_USER_EVENTS,
+  isFetching: true,
+})
+
+export const receiveUserEvents = (events) => ({
+  type: GET_USER_EVENTS_SUCCESS,
+  events
+})
+
 export const requestGetEventById = (id) => ({
   type: REQUEST_GET_EVENT_BY_ID,
   isFetching: true,
@@ -104,7 +116,7 @@ export function getUserEvents(userId) {
   }
 
   return dispatch => {
-    dispatch(requestGetEvents());
+    dispatch(requestUserEvents());
 
     return fetch(`${serverPath}/users/${userId}/events`, config).then((res) => {
       if (res.status !== 200) {
@@ -113,7 +125,7 @@ export function getUserEvents(userId) {
       }
       return res.json();
     }).then(({ events }) => {
-        dispatch(receiveEvents(events));
+        dispatch(receiveUserEvents(events));
     }).catch(err => console.log("Error: " + err))
   }
 }

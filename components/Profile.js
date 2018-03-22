@@ -16,6 +16,8 @@ class Profile extends Component {
     title: 'My Events',
     headerStyle: {
       backgroundColor: '#F44336',
+      display: 'flex',
+      justifyContent: 'space-between',
       paddingTop: 30,
       paddingBottom: 15,
       height: 70
@@ -35,7 +37,7 @@ class Profile extends Component {
   });
 
   render() {
-    const events = this.props.events;
+    const events = this.props.userEvents;
     return(
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -64,12 +66,15 @@ const styles = StyleSheet.create({
   },
   addNewEventButton: {
     marginRight: 6
+  },
+  navHeaderButton: {
+    margin: 6
   }
 });
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events,
+    userEvents: state.userEvents,
     auth: state.auth
   }
 }

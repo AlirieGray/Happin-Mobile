@@ -38,7 +38,6 @@ class CreateEventForm extends Component {
 
   render() {
     return(
-      <View>
         <Modal
         transparent={false}
         visible={this.props.modal.createEventModal}
@@ -149,7 +148,7 @@ class CreateEventForm extends Component {
                     date: this.state.date,
                     userId: this.props.auth.userId }
                   this.props.addEvent(newEvent);
-                  this.props.closeCreateEventModal();
+                  this.props.setCreateEventModal(false);
                 }
                 else {
                   console.log('missing a required field')
@@ -158,7 +157,6 @@ class CreateEventForm extends Component {
             </View>
           </ScrollView>
         </Modal>
-      </View>
     );
   }
 }
