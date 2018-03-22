@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
+import { TextButton } from 'react-native-material-buttons';
 import DatePicker from 'react-native-datepicker';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -107,6 +108,75 @@ class CreateEventForm extends Component {
                 this.setState( {time: time})
               }}
             />
+            <FormLabel> Tags </FormLabel>
+            <ScrollView horizontal={true}>
+              <TextButton title="Social"
+                color={this.state.tags.includes("Social") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Social")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Social')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Social"]})
+                  }
+                }}/>
+              <TextButton title="Environment"
+                color={this.state.tags.includes("Environment") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Environment")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Environment')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Environment"]})
+                  }
+                }}/>
+              <TextButton title="Labor"
+                color={this.state.tags.includes("Labor") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Labor")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Labor')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Labor"]})
+                  }
+                }}/>
+              <TextButton title="Global"
+                color={this.state.tags.includes("Global") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Global")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Global')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Global"]})
+                  }
+                }}/>
+              <TextButton title="Health"
+                color={this.state.tags.includes("Health") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Health")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Health')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Health"]})
+                  }
+                }}/>
+              <TextButton title="Political"
+                color={this.state.tags.includes("Political") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                onPress={() => {
+                  if (this.state.tags.includes("Political")) {
+                    this.setState({
+                      tags: this.state.tags.filter(word => word !== 'Political')
+                    })
+                  } else {
+                    this.setState({ tags: [...this.state.tags, "Political"]})
+                  }
+                }}/>
+            </ScrollView>
             <FormLabel> Location </FormLabel>
             <GooglePlacesAutocomplete
               placeholder="Search for location"
@@ -159,8 +229,7 @@ class CreateEventForm extends Component {
               debounce={200}
             />
             <View style={styles.submitButtonStyle}>
-              <Button title="Submit" onPress={() => {
-                console.log('submitting');
+              <Button title="Create" onPress={() => {
                 if (this.state.name && this.state.address && this.state.date) {
                   var newEvent = {
                     name: this.state.name,
@@ -177,6 +246,7 @@ class CreateEventForm extends Component {
                 }
                 else {
                   console.log('missing a required field')
+                  // TOAST: 'missing required field' / validation error/ etc
                 }
               }}/>
             </View>
@@ -212,6 +282,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     width: 300,
     alignItems: 'flex-end'
+  },
+  tagsContainer: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 });
 

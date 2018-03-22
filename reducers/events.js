@@ -30,7 +30,8 @@ export default (state = [], action) => {
           lat: action.lat,
           lng:action.lng,
           description: action.description,
-          organizer: action.organizer
+          organizer: action.organizer,
+          tags: action.tags
         }];
     case REMOVE_EVENT:
       return state.filter(({ id }) => id !== action.id);

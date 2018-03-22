@@ -159,7 +159,7 @@ export function addEvent(event) {
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}&userId=${event.userId}`
+    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}&userId=${event.userId}&tags=${event.tags}`
   }
 
   return (dispatch, getState) => {
@@ -171,9 +171,9 @@ export function addEvent(event) {
         return Promise.reject(res.message);
       }
       return res.json();
-    }).then(({_id, name, date, address, placeId, lat, lng, description, organizer}) => {
+    }).then(({_id, name, date, address, placeId, lat, lng, description, organizer, tags}) => {
       dispatch(receiveAddEvent({
-        _id, name, address, placeId, date, lat, lng, description, organizer
+        _id, name, address, placeId, date, lat, lng, description, organizer, tags
       }))
 
       // navigate to the event's page and TODO: close modal *******
