@@ -22,13 +22,13 @@ export default (state = [], action) => {
     case ADD_EVENT_SUCCESS:
       return [...state,
         {
-          id: action.id,
+          _id: action._id,
           date: action.date,
           name: action.name,
           address: action.address,
           placeId: action.placeId,
           lat: action.lat,
-          lng:action.lng,
+          lng: action.lng,
           description: action.description,
           organizer: action.organizer,
           tags: action.tags

@@ -68,7 +68,7 @@ class EventPage extends Component {
           </View>
           <Text style={styles.organizer}> Organizer: {organizer} </Text>
         </View>
-        <Text style={{marginBottom:50, padding: 10}}> {description} </Text>
+        <Text textAlign={'left'} numberOfLines={2} renderTruncatedFooter={"..."} style={{marginBottom:50, padding: 10, minWidth: '100%'}}> {description} </Text>
 
         <Map
           initialRegion={{

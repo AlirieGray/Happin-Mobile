@@ -62,6 +62,7 @@ class EventsList extends Component {
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
+            console.log("event id", event._id)
             return <EventCard key={event._id} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />

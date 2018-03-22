@@ -4,7 +4,22 @@ import { Button } from 'react-native-elements';
 
 
 class EventCard  extends Component{
+
+  constructor(props) {
+    super(props);
+    this.getTags = this.getTags.bind(this);
+  }
+
+  getTags() {
+    if (this.props.tags) {
+      return this.props.tags.split(',').map((tag, index) => {
+        return <Text key={this.props._id + index} style={styles.tag}> {tag} </Text>
+      })
+    }
+  }
+
   render() {
+    console.log(this.props.tags)
     const { name, description, organizer, date, address } = this.props;
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
@@ -22,7 +37,9 @@ class EventCard  extends Component{
               <Text style={styles.address}> {address.split(',')[0]} </Text>
               <Text style={styles.date}> {date.split(',')[0] + ', ' + date.split(',')[1]} </Text>
             </View>
-            <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {description} </Text>
+            <View style={styles.tagsContainer}>
+              {this.getTags()}
+            </View>
             <View style={styles.divider} />
           </View>
         </TouchableHighlight>
@@ -54,12 +71,20 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   date: {
-    fontSize: 9,
+    fontSize: 10,
     color: '#888'
   },
   divider: {
     backgroundColor: '#aaa',
     height: 1
+  },
+  tagsContainer: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  tag: {
+    fontSize: 12,
+    color: '#888'
   }
 
 });

@@ -154,12 +154,13 @@ export function getEvents() {
 }
 
 export function addEvent(event) {
+  const tags = event.tags.toString();
   let config = {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}&userId=${event.userId}&tags=${event.tags}`
+    body: `name=${event.name}&date=${event.date}&placeId=${event.placeId}&address=${event.address}&description=${event.description}&lat=${event.lat}&lng=${event.lng}&userId=${event.userId}&tags=${tags}`
   }
 
   return (dispatch, getState) => {
