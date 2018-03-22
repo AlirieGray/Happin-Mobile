@@ -20,7 +20,7 @@ class EventCard  extends Component{
             <Text style={{fontSize: 20, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
               <Text style={styles.address}> {address.split(',')[0]} </Text>
-              <Text style={styles.date}> {date} </Text>
+              <Text style={styles.date}> {date.split(',')[0] + ', ' + date.split(',')[1]} </Text>
             </View>
             <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {description} </Text>
             <View style={styles.divider} />

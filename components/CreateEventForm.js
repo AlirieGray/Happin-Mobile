@@ -46,7 +46,7 @@ class CreateEventForm extends Component {
     if (dateString) {
       var dateSections = dateString.split('/');
       var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
-      return weekdays[jsDate.getDay()] + ', ' + months[jsDate.getMonth()] + ' ' + jsDate.getDate()
+      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
     }
   }
 
