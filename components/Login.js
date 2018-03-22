@@ -64,7 +64,7 @@ class Login extends Component {
           secureTextEntry={true}
         />
         <Button
-          title="Submit"
+          title="Log In"
           color="#F44336"
           onPress={() => {
             if (this.state.username && this.state.password) {

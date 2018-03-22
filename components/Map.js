@@ -37,8 +37,7 @@ export default class Map extends Component {
           ref={this.handleRef}
           provider={ PROVIDER_GOOGLE }
           style={styles.container}
-          initialRegion={this.props.initialRegion}
-        >
+          initialRegion={this.props.initialRegion}>
         </MapView>
 
     );
@@ -47,7 +46,7 @@ export default class Map extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: '70%',
+    height: 400,
     width: '100%'
   },
 

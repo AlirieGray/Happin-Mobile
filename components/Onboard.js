@@ -17,7 +17,7 @@ class Onboard extends Component {
         </View>
         <View style={styles.buttonStyle}>
           <Button
-            title="Login"
+            title="Log In"
             color="#F44336"
             onPress={() => {
               this.props.navToLogin();

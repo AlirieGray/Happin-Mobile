@@ -32,11 +32,13 @@ class EventCard  extends Component{
           navigate("EventPage", {navigate, id, lat, lng, organizer} )
         }} >
           <View>
-            <Text style={{fontSize: 20, fontWeight:'bold'}}> {name} </Text>
+            <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.address}> {address.split(',')[0]} </Text>
-              <Text style={styles.date}> {date.split(',')[0] + ', ' + date.split(',')[1]} </Text>
+              <Text style={styles.detailsText}> {date.split(',')[0] + ', ' + date.split(',')[1]} </Text>
+              <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
+              <Text style={styles.detailsText}> .75 miles </Text>
             </View>
+            <Text style={styles.detailsText}> 88 Attending </Text>
             <View style={styles.tagsContainer}>
               {this.getTags()}
             </View>
@@ -58,33 +60,38 @@ const styles = StyleSheet.create({
   eventDetails: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     marginBottom: 2,
-    marginTop: 2,
+    marginTop: 2
   },
   description: {
     marginBottom: 5,
     paddingLeft: 10
   },
-  address: {
-    fontSize: 10,
-    paddingLeft: 10
-  },
-  date: {
-    fontSize: 10,
-    color: '#888'
-  },
   divider: {
-    backgroundColor: '#aaa',
-    height: 1
+    backgroundColor: '#ccc',
+    height: 1,
+    marginLeft: 5,
+    marginRight: 5
   },
   tagsContainer: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 4,
+    zIndex: 0
   },
   tag: {
-    fontSize: 12,
-    color: '#888'
+    fontSize: 14,
+    color: '#999',
+    backgroundColor: '#eee',
+    margin: 2,
+    borderRadius: 4,
+    overflow: 'hidden'
+  },
+  detailsText: {
+    fontSize: 14,
+    color: '#333',
+    paddingLeft: 10
   }
 
 });

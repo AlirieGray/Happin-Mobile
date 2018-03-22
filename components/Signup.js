@@ -64,7 +64,7 @@ class Signup extends Component {
           secureTextEntry={true}
         />
         <Button
-          title="Submit"
+          title="Sign Up"
           color="#F44336"
           onPress={() => {
             if (this.state.username && this.state.password) {

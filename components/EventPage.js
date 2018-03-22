@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Dimensions, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableHighlight, ScrollView } from 'react-native';
 import * as Actions from '../actions/events';
 import Map from './Map';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { TextButton } from 'react-native-material-buttons';
 import { Button } from 'react-native-elements';
 
 // details for Google Maps View
@@ -27,7 +28,8 @@ class EventPage extends Component {
     super(props);
 
     this.state  = {
-      markers: []
+      markers: [],
+      attending: false
     }
   }
 
@@ -59,7 +61,7 @@ class EventPage extends Component {
   render() {
     const { name, address, date, description, organizer } = this.props.currentEvent;
     return(
-      <View style={styles.container}>
+      <ScrollView>
         <View style={styles.header}>
           <Text style={styles.eventName}> {name} </Text>
           <View style={styles.details}>
@@ -68,8 +70,22 @@ class EventPage extends Component {
           </View>
           <Text style={styles.organizer}> Organizer: {organizer} </Text>
         </View>
+        <View style={styles.rsvpContainer}>
+        <Text> Attending? </Text>
+          <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+          onPress={() => {
+            this.setState({
+              attending: true
+            })
+          }}/>
+          <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
+          onPress={() => {
+            this.setState({
+              attending: false
+            })
+          }}/>
+        </View>
         <Text textAlign={'left'} numberOfLines={2} renderTruncatedFooter={"..."} style={{marginBottom:50, padding: 10, minWidth: '100%'}}> {description} </Text>
-
         <Map
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,
@@ -78,7 +94,7 @@ class EventPage extends Component {
             longitudeDelta: LNG_DELTA
           }}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -120,6 +136,14 @@ const styles = StyleSheet.create({
   organizer: {
     fontSize: 11,
     paddingLeft: 10
+  },
+  rsvpContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    paddingLeft: 10,
+    paddingTop: 10
   }
 })
 

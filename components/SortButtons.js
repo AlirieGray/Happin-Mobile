@@ -8,9 +8,6 @@ class SortButtons extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{display:'flex', justifyContent:'center', alignItems:'center'}} >
-          <Text> Sort By: </Text>
-        </View>
         <TextButton title="Distance"
           onPress={() => console.log("Distance")}
           />
@@ -18,6 +15,9 @@ class SortButtons extends Component {
           onPress={() => console.log("Distance")}
           />
         <TextButton title="Name"
+          onPress={() => console.log("Distance")}
+          />
+        <TextButton title="Tags"
           onPress={() => console.log("Distance")}
           />
       </View>
