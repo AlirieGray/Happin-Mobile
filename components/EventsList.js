@@ -75,7 +75,7 @@ class EventsList extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    height: '100%'
+    minHeight: '100%',
   },
   header: {
     backgroundColor: "#F44336",

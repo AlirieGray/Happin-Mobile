@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 100
+    marginBottom: 60
   }
 })
 

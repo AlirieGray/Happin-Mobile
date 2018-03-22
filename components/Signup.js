@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableHighlight } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/auth';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+const Left = ({ onPress }) => (
+  <TouchableHighlight style={{ margin: 10 }} onPress={() => {
+    onPress()
+  }}>
+    <Icon name="arrow-back" size={30} />
+  </TouchableHighlight>
+);
 
 class Signup extends Component {
   constructor(props) {
@@ -15,6 +24,17 @@ class Signup extends Component {
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
   }
+
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Sign Up',
+    headerStyle: {
+      backgroundColor: '#F44336',
+      paddingTop: 30,
+      paddingBottom: 15,
+      height: 80
+    },
+    headerLeft: <Left onPress={navigation.goBack} />
+  });
 
   updateUsername(txt) {
     this.setState({ username: txt });
@@ -31,7 +51,7 @@ class Signup extends Component {
           {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
         </View>
         <Text> {this.props.auth.errorMessage } </Text>
-        <FormLabel> Name </FormLabel>
+        <FormLabel> Username </FormLabel>
         <FormInput
           inputStyle={styles.input}
           containerStyle={styles.inputContainer}

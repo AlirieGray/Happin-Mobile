@@ -12,8 +12,6 @@ let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.008;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
-const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 const Left = ({ onPress }) => (
   <TouchableHighlight onPress={() => {
@@ -30,16 +28,6 @@ class EventPage extends Component {
 
     this.state  = {
       markers: []
-    }
-    this.parseDate = this.parseDate.bind(this);
-  }
-
-  // returns a formatted date string
-  parseDate(dateString) {
-    if (dateString) {
-      var dateSections = dateString.split('-');
-      var jsDate = new Date(dateSections[0], dateSections[1] - 1, dateSections[2]);
-      return weekdays[jsDate.getDay()] + ', ' + months[jsDate.getMonth()] + ' ' + jsDate.getDate()
     }
   }
 
@@ -69,17 +57,18 @@ class EventPage extends Component {
   */
 
   render() {
+    const { name, address, date, description, organizer } = this.props.currentEvent;
     return(
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.eventName}> {this.props.currentEvent.name} </Text>
+          <Text style={styles.eventName}> {name} </Text>
           <View style={styles.details}>
-            <Text style={styles.address}> {this.props.currentEvent.address} </Text>
-            <Text style={styles.date}> {this.parseDate(this.props.currentEvent.date)} </Text>
+            <Text style={styles.address}> {address} </Text>
+            <Text style={styles.date}> {date} </Text>
           </View>
-          <Text style={styles.organizer}> Organizer: {this.props.currentEvent.organizer} </Text>
+          <Text style={styles.organizer}> Organizer: {organizer} </Text>
         </View>
-        <Text style={{marginBottom:50, padding: 10}}> {this.props.currentEvent.description} </Text>
+        <Text style={{marginBottom:50, padding: 10}}> {description} </Text>
 
         <Map
           initialRegion={{

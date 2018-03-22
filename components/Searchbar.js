@@ -34,6 +34,7 @@ class Searchbar extends Component {
           style={styles.input}
           onChangeText={(query) => this.setState({query})}
           value={this.state.query}
+          underlineColorAndroid='rgba(0,0,0,0)'
         />
       </View>
     );

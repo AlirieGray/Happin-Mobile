@@ -10,6 +10,8 @@ import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
 
 const PLACES = 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc';
+const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 class CreateEventForm extends Component {
   constructor(props) {
@@ -22,10 +24,13 @@ class CreateEventForm extends Component {
       lng: 0,
       placeId: '',
       address: '',
-      description: ''
+      description: '',
+      formattedDate: '',
+      tags: []
     }
     this.updateEventName = this.updateEventName.bind(this);
     this.updateEventDescription = this.updateEventDescription.bind(this);
+    this.parseDate = this.parseDate.bind(this);
   }
 
   updateEventName(txt) {
@@ -34,6 +39,15 @@ class CreateEventForm extends Component {
 
   updateEventDescription(txt) {
     this.setState({ description: txt });
+  }
+
+  // returns a formatted date string
+  parseDate(dateString) {
+    if (dateString) {
+      var dateSections = dateString.split('/');
+      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
+      return weekdays[jsDate.getDay()] + ', ' + months[jsDate.getMonth()] + ' ' + jsDate.getDate()
+    }
   }
 
   render() {
@@ -55,16 +69,16 @@ class CreateEventForm extends Component {
             </View>
             <FormLabel> Name </FormLabel>
             <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
-            <FormLabel > Description </FormLabel>
+            <FormLabel> Description </FormLabel>
             <FormInput multiline inputStyle={styles.input} containerStyle={styles.descriptionContainer} onChangeText={this.updateEventDescription}/>
             <DatePicker
               style={{width: 200}}
               date={this.state.date}
               mode="date"
               placeholder="Select date"
-              format="YYYY-MM-DD"
-              minDate="2018-01-01"
-              maxDate="2050-06-01"
+              format="MM/DD/YYYY"
+              minDate="01/01/2018"
+              maxDate="01/01/2050"
               confirmBtnText="Confirm"
               iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
               customStyles={{
@@ -73,28 +87,33 @@ class CreateEventForm extends Component {
                 },
               }}
               cancelBtnText="Cancel"
-              onDateChange={(date) => { this.setState({date}) }}
+              onDateChange={(date) => {
+                const formattedDate = this.parseDate(date);
+                this.setState({ formattedDate });
+                this.setState({ date });
+              }}
             />
             <DatePicker
               style={{width: 200, marginBottom: 25}}
               date={this.state.time}
               mode="time"
               format="HH:mm"
+              is24Hour={false}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               minuteInterval={10}
               iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
-              onDateChange={(time) => {this.setState({time: time});}}
+              onDateChange={(time) => {
+                this.setState( {time: time})
+              }}
             />
             <FormLabel> Location </FormLabel>
-            <Text> {this.state.address} </Text>
             <GooglePlacesAutocomplete
               placeholder="Search for location"
               minLength={2}
               autoFocus={false}
               fetchDetails={true}
               returnKeyType={'default'}
-              listViewDisplayed='auto'
               renderDescription={row => row.description}
               onPress={(data, details) => {
                 var splitAddress = details.formatted_address.split(',');
@@ -115,18 +134,23 @@ class CreateEventForm extends Component {
                 language: 'en',
               }}
               styles={{
-                description: {
-                  fontWeight: 'bold',
-                },
-                predefinedPlacesDescription: {
-                  color: '#1faadb',
+                textInputContainer: {
+                  backgroundColor: 'rgba(0,0,0,0)',
+                  borderTopWidth: 0,
+                  borderBottomWidth:0,
+                  minWidth: '100%'
                 },
                 textInput: {
-                  width: 300
-                }
+                  marginLeft: 0,
+                  marginRight: 0,
+                  height: 38,
+                  color: '#5d5d5d',
+                  fontSize: 16,
+                },
+                predefinedPlacesDescription: {
+                  color: '#1faadb'
+                },
               }}
-              currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
-              currentLocationLabel="Current location"
               nearbyPlacesAPI="GooglePlacesSearch"
               filterReverseGeocodingByTypes={[
                 'locality',
@@ -145,7 +169,8 @@ class CreateEventForm extends Component {
                     lng: this.state.lng,
                     placeId: this.state.placeId,
                     address: this.state.address,
-                    date: this.state.date,
+                    date: this.state.formattedDate,
+                    tags: this.state.tags,
                     userId: this.props.auth.userId }
                   this.props.addEvent(newEvent);
                   this.props.setCreateEventModal(false);

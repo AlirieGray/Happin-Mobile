@@ -8,8 +8,10 @@ import EventCard from './EventCard';
 
 
 class Profile extends Component {
+
   componentWillMount() {
     this.props.getUserEvents(this.props.auth.userId);
+    this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -30,7 +32,7 @@ class Profile extends Component {
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
-        this.props.openCreateEventModal();
+        navigation.state.params.setCreateEventModal(true)
         }} >
       <Icon name='add' size={30} />
     </TouchableHighlight>
@@ -54,12 +56,12 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    height: '100%'
+    minHeight: '100%'
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#FFF'
   },
   empty: {
     padding: 30

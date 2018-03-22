@@ -5,7 +5,9 @@ export default (state = [], action) => {
     case REQUEST_USER_EVENTS:
       return state;
     case GET_USER_EVENTS_SUCCESS:
-      return action.events;
+      return [
+        ...action.events
+      ]
     default:
       return state;
   }
