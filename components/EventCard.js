@@ -35,7 +35,7 @@ class EventCard  extends Component{
             <Text style={{fontSize: 20, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
               <Text style={styles.address}> {address.split(',')[0]} </Text>
-              <Text> {this.parseDate(date)} </Text>
+              <Text style={styles.date}> {this.parseDate(date)} </Text>
             </View>
             <Text numberOfLines={2} renderTruncatedFooter={"..."} style={styles.description}> {description} </Text>
             <View style={styles.divider} />
@@ -49,27 +49,34 @@ class EventCard  extends Component{
 
 const styles = StyleSheet.create({
   eventContainer: {
-    padding: 5,
-    marginBottom: 5,
-  },
-  divider: {
-    backgroundColor: 'gray',
-    height: 1
+    backgroundColor: '#fff',
+    borderRadius: 2,
+    padding: 5
   },
   eventDetails: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: 2,
     marginTop: 2,
-    width: 300,
   },
   description: {
-    marginTop: 5,
     marginBottom: 5,
+    paddingLeft: 10
   },
   address: {
+    fontSize: 10,
+    paddingLeft: 10
+  },
+  date: {
+    fontSize: 9,
+    color: '#888'
+  },
+  divider: {
+    backgroundColor: '#aaa',
+    height: 1
   }
+
 });
 
 export default EventCard;

@@ -52,8 +52,7 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    margin: 20,
-    paddingBottom: 25
+    height: '100%'
   },
   container: {
     display: 'flex',

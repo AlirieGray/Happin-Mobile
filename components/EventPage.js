@@ -12,6 +12,8 @@ let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.008;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
+const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 const Left = ({ onPress }) => (
   <TouchableHighlight onPress={() => {
@@ -28,6 +30,16 @@ class EventPage extends Component {
 
     this.state  = {
       markers: []
+    }
+    this.parseDate = this.parseDate.bind(this);
+  }
+
+  // returns a formatted date string
+  parseDate(dateString) {
+    if (dateString) {
+      var dateSections = dateString.split('-');
+      var jsDate = new Date(dateSections[0], dateSections[1] - 1, dateSections[2]);
+      return weekdays[jsDate.getDay()] + ', ' + months[jsDate.getMonth()] + ' ' + jsDate.getDate()
     }
   }
 
@@ -59,13 +71,13 @@ class EventPage extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <View>
+        <View style={styles.header}>
           <Text style={styles.eventName}> {this.props.currentEvent.name} </Text>
           <View style={styles.details}>
-            <Text> {this.props.currentEvent.date} </Text>
-            <Text> {this.props.currentEvent.address} </Text>
+            <Text style={styles.address}> {this.props.currentEvent.address} </Text>
+            <Text style={styles.date}> {this.parseDate(this.props.currentEvent.date)} </Text>
           </View>
-          <Text> Organizer: {this.props.currentEvent.organizer} </Text>
+          <Text style={styles.organizer}> Organizer: {this.props.currentEvent.organizer} </Text>
         </View>
         <Text style={{marginBottom:50, padding: 10}}> {this.props.currentEvent.description} </Text>
 
@@ -87,20 +99,38 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     height: '100%',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#F5F5F5',
+  },
+  header: {
+    width: '100%',
+    paddingLeft: 5,
+    paddingRight: 10
   },
   eventName: {
     fontSize: 25,
     marginTop: 7,
-    marginBottom: 4
+    marginBottom: 4,
   },
   details: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 10
   },
   markersToolbar: {
     display: 'flex',
     flexDirection: 'row'
+  },
+  date: {
+    fontSize: 10
+  },
+  address: {
+    fontSize: 10
+  },
+  organizer: {
+    fontSize: 11,
+    paddingLeft: 10
   }
 })
 

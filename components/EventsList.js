@@ -23,7 +23,11 @@ class EventsList extends Component {
     title: 'Find Events',
     headerStyle: {
       backgroundColor: '#F44336',
-      paddingTop: 30,
+      display: 'flex',
+      justifyContent: 'space-between',
+      paddingTop: 40,
+      paddingLeft: 15,
+      paddingRight: 15,
       shadowOpacity: 0,
       shadowRadius: 0,
       borderBottomWidth: 0,
@@ -71,14 +75,15 @@ class EventsList extends Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    margin: 20,
-    paddingBottom: 25
+    height: '100%'
   },
   header: {
     backgroundColor: "#F44336",
     padding: 10,
     paddingLeft: 20,
     paddingRight: 20,
+    display: 'flex',
+    alignItems: 'center'
   },
   container: {
     display: 'flex',

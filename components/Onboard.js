@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import * as Actions from '../actions/auth';
 
 class Onboard extends Component {
@@ -12,6 +12,9 @@ class Onboard extends Component {
   render() {
     return(
       <View style={styles.container}>
+        <View style={styles.imageContainer}>
+          <Image source={ require('../logo.png')} style={{width: 300, height: 300}}/>
+        </View>
         <View style={styles.buttonStyle}>
           <Button
             title="Login"
@@ -41,11 +44,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
     justifyContent: 'flex-end',
-    paddingBottom: 35,
+    paddingBottom: 50,
     backgroundColor: '#F5F5F5'
   },
   buttonStyle: {
     margin: 10
+  },
+  imageContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: 100
   }
 })
 

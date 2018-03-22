@@ -46,17 +46,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
+    borderRadius: 4,
+    marginTop: 8
   },
   searchIcon: {
-    padding: 5,
+    padding: 3,
+    borderRadius: 4,
+    marginLeft: 1,
   },
   input: {
     flex: 1,
     paddingLeft: 5,
-    margin: 10,
+    margin: 6,
     backgroundColor: '#eee',
     color: '#424242',
+    borderRadius: 4
   },
 })
 

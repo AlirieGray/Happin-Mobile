@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Dimensions } from 'react-native';
+import { TextButton } from 'react-native-material-buttons';
 import { Button } from 'react-native-elements';
 
 class SortButtons extends Component {
@@ -7,23 +8,17 @@ class SortButtons extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Distance"
-          buttonStyle={{
-            width: 90,
-            height: 40
-          }}
+        <View style={{display:'flex', justifyContent:'center', alignItems:'center'}} >
+          <Text> Sort By: </Text>
+        </View>
+        <TextButton title="Distance"
+          onPress={() => console.log("Distance")}
           />
-        <Button title="Date"
-          buttonStyle={{
-            width: 90,
-            height: 40
-          }}
+        <TextButton title="Date"
+          onPress={() => console.log("Distance")}
           />
-        <Button title="Name"
-          buttonStyle={{
-            width: 90,
-            height: 40
-          }}
+        <TextButton title="Name"
+          onPress={() => console.log("Distance")}
           />
       </View>
     );
@@ -35,7 +30,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#F44336'
+    backgroundColor: '#F44336',
   }
 })
 
