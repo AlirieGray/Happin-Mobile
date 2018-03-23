@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 
 
@@ -38,6 +38,10 @@ export default class Map extends Component {
         provider={ PROVIDER_GOOGLE }
         style={styles.container}
         initialRegion={this.props.initialRegion}>
+        <Marker
+          coordinate={{latitude: this.props.initialRegion.latitude, longitude: this.props.initialRegion.longitude}}
+          title={"Event Location"}
+        />
       </MapView>
     );
   }
