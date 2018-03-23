@@ -178,7 +178,7 @@ export function addEvent(event) {
       }))
 
       // navigate to the event's page and TODO: close modal *******
-      dispatch(NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng }}));
+      dispatch(NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng, name }}));
 
     }).catch(err => console.log("Error: " + err));
   }

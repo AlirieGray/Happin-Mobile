@@ -19,8 +19,7 @@ class EventCard  extends Component{
   }
 
   render() {
-    console.log(this.props.tags)
-    const { name, description, organizer, date, address } = this.props;
+    const { name, description, organizer, date, address, attendees } = this.props;
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
@@ -29,7 +28,7 @@ class EventCard  extends Component{
     return (
       <View style={styles.eventContainer}>
         <TouchableHighlight onPress={() => {
-          navigate("EventPage", {navigate, id, lat, lng, organizer} )
+          navigate("EventPage", {id, lat, lng, name} )
         }} >
           <View>
             <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
@@ -38,11 +37,12 @@ class EventCard  extends Component{
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
               <Text style={styles.detailsText}> .75 miles </Text>
             </View>
-            <Text style={styles.detailsText}> 88 Attending </Text>
+            <Text style={styles.detailsText}> {attendees} Attending </Text>
+            <View style={styles.divider} />
             <View style={styles.tagsContainer}>
               {this.getTags()}
             </View>
-            <View style={styles.divider} />
+
           </View>
         </TouchableHighlight>
       </View>
@@ -54,8 +54,11 @@ class EventCard  extends Component{
 const styles = StyleSheet.create({
   eventContainer: {
     backgroundColor: '#fff',
-    borderRadius: 2,
-    padding: 5
+    padding: 5,
+    borderRadius: 4,
+    borderColor: '#ddd',
+    borderWidth: .5,
+    margin: 5
   },
   eventDetails: {
     display: 'flex',
@@ -71,14 +74,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
     height: 1,
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 5,
+    marginTop: 3
   },
   tagsContainer: {
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 10,
     paddingTop: 4,
-    zIndex: 0
+    zIndex: 0,
+    maxWidth: '95%',
+    flexWrap: 'wrap'
   },
   tag: {
     fontSize: 14,

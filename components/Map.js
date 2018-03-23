@@ -33,13 +33,12 @@ export default class Map extends Component {
     console.log("initial region")
     console.log(this.props.initialRegion)
     return (
-        <MapView
-          ref={this.handleRef}
-          provider={ PROVIDER_GOOGLE }
-          style={styles.container}
-          initialRegion={this.props.initialRegion}>
-        </MapView>
-
+      <MapView
+        ref={this.handleRef}
+        provider={ PROVIDER_GOOGLE }
+        style={styles.container}
+        initialRegion={this.props.initialRegion}>
+      </MapView>
     );
   }
 }
@@ -47,7 +46,7 @@ export default class Map extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 400,
-    width: '100%'
+    width: '100%',
   },
 
 });

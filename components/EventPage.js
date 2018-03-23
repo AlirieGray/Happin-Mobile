@@ -22,94 +22,115 @@ const Left = ({ onPress }) => (
   </TouchableHighlight>
 );
 
-
 class EventPage extends Component {
   constructor(props){
     super(props);
 
     this.state  = {
       markers: [],
-      attending: false
+      attending: false,
+      seeFullDescription: false
     }
   }
 
+  componentWillMount() {
+    this.props.getEventById(this.props.navigation.state.params.id);
+    //this.props.navigation.setParams({ eventName: this.props.name });
+  }
+
   static navigationOptions = ({ navigation }) => ({
-    title: 'Event Page',
+    title: navigation.state.params.name,
     headerStyle: {
       backgroundColor: '#F44336',
       paddingTop: 30,
       paddingBottom: 15,
-      height: 80
+      height: 80,
+    },
+    headerTitleStyle: {
+      fontSize: 20
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });
 
-
-  componentWillMount() {
-    this.props.getEventById(this.props.navigation.state.params.id);
-  }
-
-  /*
-  <View style={styles.markersToolbar}>
-    <Button onPress={() => {
-      console.log('adding marker')
-    }} />
-  </View>
-
-  */
-
   render() {
     const { name, address, date, description, organizer } = this.props.currentEvent;
     return(
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
-          <Text style={styles.eventName}> {name} </Text>
           <View style={styles.details}>
-            <Text style={styles.address}> {address} </Text>
-            <Text style={styles.date}> {date} </Text>
+            <Text style={styles.detailsText}> {address} </Text>
+            <Text style={styles.detailsText}> {date ? date.split(',').join(', '): null} </Text>
+            <Text style={styles.detailsText}> Organizer: {organizer} </Text>
           </View>
-          <Text style={styles.organizer}> Organizer: {organizer} </Text>
+          <View style={styles.rsvpContainer}>
+            <Text> Attending? </Text>
+              <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+              onPress={() => {
+                this.setState({
+                  attending: true
+                })
+              }}/>
+              <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
+              onPress={() => {
+                this.setState({
+                  attending: false
+                })
+              }}/>
+          </View>
         </View>
-        <View style={styles.rsvpContainer}>
-        <Text> Attending? </Text>
-          <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-          onPress={() => {
-            this.setState({
-              attending: true
-            })
-          }}/>
-          <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
-          onPress={() => {
-            this.setState({
-              attending: false
-            })
-          }}/>
+
+        <View style={styles.descriptionContainer}>
+          {!this.state.seeFullDescription &&
+            <Text textAlign={'left'} numberOfLines={2}
+              renderTruncatedFooter={"..."}
+              style={{minWidth: '100%'}}>
+              {description} </Text>}
+          {this.state.seeFullDescription &&
+            <Text textAlign={'left'}
+            style={{minWidth: '100%'}}>
+            {description} </Text>}
+            <View style={styles.divider} />
+            <View style={{display:'flex', padding:6, alignItems:'flex-end', minWidth:'100%'}}>
+              <TouchableHighlight
+                onPress={() => {
+                  this.setState({
+                    seeFullDescription: !this.state.seeFullDescription
+                  })
+                }}>
+                <Text> {this.state.seeFullDescription ? 'Show Less' : 'Show More'} </Text>
+              </TouchableHighlight>
+            </View>
         </View>
-        <Text textAlign={'left'} numberOfLines={2} renderTruncatedFooter={"..."} style={{marginBottom:50, padding: 10, minWidth: '100%'}}> {description} </Text>
+
         <Map
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,
             longitude: this.props.navigation.state.params.lng,
             latitudeDelta: LAT_DELTA,
             longitudeDelta: LNG_DELTA
-          }}
-        />
+          }}/>
+        <View style={{height: 60}} />
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     display: 'flex',
     alignItems: 'center',
-    height: '100%',
     backgroundColor: '#F5F5F5',
+    minHeight: '100%'
   },
   header: {
     width: '100%',
     paddingLeft: 5,
-    paddingRight: 10
+    paddingRight: 10,
+    paddingTop: 10,
+    backgroundColor: '#FFF',
+    marginBottom: 10,
+    borderBottomColor: '#ddd',
+    borderBottomWidth: .5
   },
   eventName: {
     fontSize: 25,
@@ -118,32 +139,35 @@ const styles = StyleSheet.create({
   },
   details: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingLeft: 10
+    flexDirection: 'column',
+    paddingLeft: 7,
+    backgroundColor: '#FFF'
   },
-  markersToolbar: {
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  date: {
-    fontSize: 10
-  },
-  address: {
-    fontSize: 10
-  },
-  organizer: {
-    fontSize: 11,
-    paddingLeft: 10
+  detailsText: {
+    color: '#333',
+    paddingBottom: 2
   },
   rsvpContainer: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    paddingLeft: 10,
-    paddingTop: 10
+    backgroundColor: '#FFF',
+    paddingBottom: 7
+  },
+  divider: {
+    backgroundColor: '#ccc',
+    height: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 3
+  },
+  descriptionContainer: {
+    backgroundColor: '#FFF',
+    marginBottom: 10,
+    padding: 12,
+    borderBottomColor: '#ddd',
+    borderBottomWidth: .5
   }
 })
 

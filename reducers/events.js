@@ -31,7 +31,8 @@ export default (state = [], action) => {
           lng: action.lng,
           description: action.description,
           organizer: action.organizer,
-          tags: action.tags
+          tags: action.tags,
+          attendees: action.attendees
         }];
     case REMOVE_EVENT:
       return state.filter(({ id }) => id !== action.id);
