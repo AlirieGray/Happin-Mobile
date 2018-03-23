@@ -83,6 +83,12 @@ export const receiveEventById = (event) => ({
   event
 })
 
+export const rsvp = (isAttending) => ({
+  type: RSVP,
+  isFetching: false,
+  isAttending
+})
+
 export function getEventById(id) {
   console.log("fetching events from database...");
   let config = {
@@ -103,7 +109,7 @@ export function getEventById(id) {
       return res.json();
     }).then((event) => {
       dispatch(receiveEventById(event));
-    }).catch(err => console.log("Error: " + err));
+    }).catch(err => console.log(err));
   }
 }
 
@@ -126,7 +132,7 @@ export function getUserEvents(userId) {
       return res.json();
     }).then(({ events }) => {
         dispatch(receiveUserEvents(events));
-    }).catch(err => console.log("Error: " + err))
+    }).catch(err => console.log(err))
   }
 }
 
@@ -149,7 +155,7 @@ export function getEvents() {
       return res.json();
     }).then(( { events } ) => {
       dispatch(receiveEvents(events));
-    }).catch(err => console.log("Error: " + err));
+    }).catch(err => console.log(err));
   }
 }
 
@@ -167,7 +173,7 @@ export function addEvent(event) {
     dispatch(requestAddEvent(event));
 
     return fetch(`${serverPath}/events/new`, config).then((res) => {
-      if (res.status != 200) {
+      if (res.status !== 200) {
         dispatch(addEventError(res.statusText));
         return Promise.reject(res.message);
       }
@@ -180,6 +186,6 @@ export function addEvent(event) {
       // navigate to the event's page and TODO: close modal *******
       dispatch(NavigationActions.navigate({routeName: 'EventPage', params: { id:_id, lat, lng, name }}));
 
-    }).catch(err => console.log("Error: " + err));
+    }).catch(err => console.log(err));
   }
 }

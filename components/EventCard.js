@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 
 
@@ -27,7 +27,7 @@ class EventCard  extends Component{
 
     return (
       <View style={styles.eventContainer}>
-        <TouchableHighlight onPress={() => {
+        <TouchableOpacity onPress={() => {
           navigate("EventPage", {id, lat, lng, name} )
         }} >
           <View>
@@ -44,7 +44,7 @@ class EventCard  extends Component{
             </View>
 
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   detailsText: {
     fontSize: 14,
     color: '#333',
-    paddingLeft: 10
+    paddingLeft: 5
   }
 
 });

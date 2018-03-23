@@ -153,7 +153,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#FFF',
-    paddingBottom: 7
+    paddingBottom: 7,
+    paddingLeft: 5
   },
   divider: {
     backgroundColor: '#ccc',
