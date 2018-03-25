@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
     backgroundColor: '#FFF',
     width: '100%',
     borderStyle: 'solid',
