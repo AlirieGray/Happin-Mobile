@@ -8,20 +8,24 @@ import * as actions from '../actions/filters';
 
 class SortButtons extends Component {
 
+
   render() {
     return (
       <View style={styles.container}>
-        <TextButton title="Distance"
-          onPress={() => this.props.setSortBy("Distance")}
-          />
         <TextButton title="Date"
-          onPress={() => this.props.setSortBy("Date")}
+          color={this.props.filters.sortBy == 'date' ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+          onPress={() => this.props.setSortBy("date")}
+          />
+        <TextButton title="Distance"
+          color={this.props.filters.sortBy == 'distance' ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+          onPress={() => this.props.setSortBy("distance")}
           />
         <TextButton title="Name"
-          onPress={() => this.props.setSortBy("Name")}
+          color={this.props.filters.sortBy == 'name' ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+          onPress={() => this.props.setSortBy("name")}
           />
         <TextButton title="Tags"
-          onPress={() => console.log("Tags")}
+          onPress={() => console.log("tags")}
           />
       </View>
     );

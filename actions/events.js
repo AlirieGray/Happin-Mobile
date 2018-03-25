@@ -17,12 +17,12 @@ export const requestAddEvent = () => ({
   isFetching: true
 })
 
-export const receiveAddEvent = ({name, _id, date, address, placeId, organizer}) =>({
+export const receiveAddEvent = ({name, _id, date, address, placeId, organizer, description}) =>({
   type: ADD_EVENT_SUCCESS,
   id: _id,
   date, name,
   address, placeId,
-  organizer
+  organizer, description
 })
 
 export const addEventError = (message) => ({
