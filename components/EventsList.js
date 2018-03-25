@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
-import * as filterActions from '../actions/filters';
 import EventCard from './EventCard';
 import Searchbar from './Searchbar';
 import CreateEventForm from './CreateEventForm';
 import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
+import selectEvents from '../selectors/events';
 
 class EventsList extends Component {
 
@@ -35,7 +35,7 @@ class EventsList extends Component {
       shadowOffset: {
         height: 0,
         width: 0
-      }
+      },
     },
     headerLeft: (<TouchableHighlight
       style={styles.navHeaderButton}
@@ -53,16 +53,18 @@ class EventsList extends Component {
 
   render() {
     const events = this.props.events;
+    console.log(this.props.filters);
     return (
       <View style={styles.container}>
         <CreateEventForm />
         <View style={styles.header}>
-          <Searchbar />
+          <View style={{width:'100%', display: 'flex', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
+            <Searchbar />
+          </View>
           <SortButtons />
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
-            console.log("event id", event._id)
             return <EventCard key={event._id} {...event} {...this.props}  />
           })}
           <View style={styles.empty} />
@@ -73,16 +75,12 @@ class EventsList extends Component {
 }
 
 
-
 const styles = StyleSheet.create({
   contentContainer: {
     minHeight: '100%',
   },
   header: {
     backgroundColor: "#F44336",
-    padding: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
     display: 'flex',
     alignItems: 'center'
   },
@@ -101,14 +99,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events,
     filters: state.filters,
+    events: selectEvents(state.events, state.filters),
     modal: state.modal
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  const actions = Object.assign({}, eventActions, modalActions, filterActions);
+  const actions = Object.assign({}, eventActions, modalActions);
   return bindActionCreators(actions, dispatch);
 }
 

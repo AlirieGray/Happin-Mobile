@@ -1,12 +1,10 @@
 
-export default (events, { text, sortBy, startDate, endDate}) => {
+// takes in two arguments: an array of events and the filters to apply to those events
+export default (events, { text, sortBy, startDate, endDate} ) => {
   return events.filter((event) => {
 
-    //var dateSections = event.date.split('-');
-    //var eventDate = new Date(dateSections[0], dateSections[1] - 1, dateSections[2]);
-
-
     // see if event name or description includes search bar text
+    console.log("Filter Text: ", text)
     const textMatch = event.description.toLowerCase().includes(text.toLowerCase()) || event.name.toLowerCase().includes(text.toLowerCase());
 
     return textMatch;

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'rea
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as Actions from '../actions/events';
+import * as actions from '../actions/filters';
 
 class Searchbar extends Component {
   constructor(props) {
@@ -17,7 +17,9 @@ class Searchbar extends Component {
   }
 
   Search() {
-    console.log(this.state.query);
+    console.log("Search query", this.state.query);
+    console.log("props: ", this.props)
+    this.props.setTextFilter(this.state.query);
   }
 
   render() {
@@ -26,8 +28,7 @@ class Searchbar extends Component {
         <TouchableOpacity
           onPress={() => {
             this.Search();
-          }}
-        >
+          }}>
           <Icon name="search" size={20} style={styles.searchIcon} />
         </TouchableOpacity>
         <TextInput
@@ -47,9 +48,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#eee',
+    backgroundColor: '#FFF',
     borderRadius: 4,
-    marginTop: 8
+    marginTop: 15,
+    marginBottom: 10,
+    width: '65%'
   },
   searchIcon: {
     padding: 3,
@@ -60,10 +63,20 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 5,
     margin: 6,
-    backgroundColor: '#eee',
+    backgroundColor: '#FFF',
     color: '#424242',
     borderRadius: 4
   },
 })
 
-export default Searchbar;
+const mapStateToProps = (state) => {
+  return {
+    filters: state.filters
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);

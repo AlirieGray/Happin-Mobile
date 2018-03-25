@@ -35,7 +35,6 @@ class EventPage extends Component {
 
   componentWillMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
-    //this.props.navigation.setParams({ eventName: this.props.name });
   }
 
   static navigationOptions = ({ navigation }) => ({

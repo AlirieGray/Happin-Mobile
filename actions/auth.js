@@ -69,7 +69,6 @@ export function signupUser(creds) {
       }
       return res.json();
     }).then((json) => {
-      console.log(json);
       dispatch(receiveSignUp({userId: json.userId, token: json.token}));
       dispatch(NavigationActions.reset({
         index: 0,
@@ -96,8 +95,6 @@ export function loginUser(creds) {
 
   return dispatch => {
     dispatch(requestLogin(creds));
-    console.log('sent request login dispatch')
-
     return fetch(`${serverPath}/login`, config).then((res) => {
       if (res.status !== 200) {
         return Promise.reject("Could not login");
@@ -105,7 +102,6 @@ export function loginUser(creds) {
       return res.json();
     }).then( (json) => {
         console.log("logged in!")
-        console.log(json.userId)
 
         dispatch(receiveLogin({userId: json.userId, token: json.token}));
         dispatch(NavigationActions.reset({
