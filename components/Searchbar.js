@@ -19,7 +19,7 @@ class Searchbar extends Component {
   Search() {
     console.log("Search query", this.state.query);
     console.log("props: ", this.props)
-    this.props.setTextFilter(this.state.query);
+
   }
 
   render() {
@@ -33,7 +33,10 @@ class Searchbar extends Component {
         </TouchableOpacity>
         <TextInput
           style={styles.input}
-          onChangeText={(query) => this.setState({query})}
+          onChangeText={(query) => {
+            this.setState({query});
+            this.props.setTextFilter(query);
+          }}
           value={this.state.query}
           underlineColorAndroid='rgba(0,0,0,0)'
         />
