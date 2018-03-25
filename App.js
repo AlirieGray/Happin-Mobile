@@ -10,6 +10,8 @@ import { bindActionCreators } from 'redux';
 import { StackNavigator, NavigationActions, DrawerNavigator, addNavigationHelpers } from "react-navigation";
 import {AppNavigator} from './components/AppNavigator';
 
+// loading={<ActivityIndicator size="small" color="#0000ff"/>}
+
 const store = ConfigureStore();
 
 class App extends Component {

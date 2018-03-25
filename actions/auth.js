@@ -68,8 +68,16 @@ export function signupUser(creds) {
         return Promise.reject("Could not signup");
       }
       return res.json();
-    }).then((json) => {
+    }).then( async (json) => {
       dispatch(receiveSignUp({userId: json.userId, token: json.token}));
+
+      try {
+        console.log("saving token!")
+        await AsyncStorage.setItem('token', json.token);
+      } catch (error) {
+        console.log(error);
+      }
+
       dispatch(NavigationActions.reset({
         index: 0,
         key: null,
@@ -100,10 +108,16 @@ export function loginUser(creds) {
         return Promise.reject("Could not login");
       }
       return res.json();
-    }).then( (json) => {
+    }).then(async (json) => {
         console.log("logged in!")
-
         dispatch(receiveLogin({userId: json.userId, token: json.token}));
+
+        try {
+          await AsyncStorage.setItem('token', json.token);
+        } catch (error) {
+          console.log(error);
+        }
+
         dispatch(NavigationActions.reset({
           index: 0,
           key: null,
@@ -123,7 +137,7 @@ export function logoutUser () {
       dispatch(requestLogout());
       try {
         await AsyncStorage.removeItem('userId');
-        //await AsyncStorage.removeItem('access_token');
+        //await AsyncStorage.removeItem('token');
 
       } catch(error) {
         throw error;

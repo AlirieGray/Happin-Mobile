@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
+import * as locationActions from '../actions/location';
 import EventCard from './EventCard';
 import Searchbar from './Searchbar';
 import CreateEventForm from './CreateEventForm';
@@ -17,15 +18,48 @@ class EventsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: '',
-      longitude: '',
-      error: null
+      location: {
+        latitude: 0,
+        longitude: 0
+      }
     }
+    this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
+    this.TestGetToken = this.TestGetToken.bind(this);
   }
 
   componentWillMount() {
     this.props.getEvents();
     this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position)
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+        this.props.setLocation(position.coords)
+      },
+      (error) => console.log( error.message ),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
+    this.TestGetToken();
+  }
+
+
+  async TestGetToken() {
+    try {
+      const value = await AsyncStorage.getItem('token');
+      if (value !== null){
+        // We have data!!
+        console.log("TOKEN IN ASYNC STORAGE: ", value);
+      }
+    } catch (error) {
+      // Error retrieving data
+      console.log("Could not retrieve login token :( ")
+    }
   }
 
   static navigationOptions = ({navigation}) => ({
@@ -60,19 +94,18 @@ class EventsList extends Component {
     </TouchableOpacity>
   });
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position)
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null,
-        });
-      },
-      (error) => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-    );
+  getDistanceToEvent(lat, lng) {
+    var lat1 = Math.PI * lat / 180;
+    var lng1 = Math.PI * lat / 180;
+    var lat2 = Math.PI * this.state.latitude / 180;
+    var lng2 = Math.PI * this.state.longitude / 180;
+
+    var theta = Math.PI * (lng1 - lng2) / 180;
+    var distance = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(theta)
+    distance = Math.acos(distance);
+    distance = distance * 180/Math.PI;
+    distance = distance * 60 * 1.1515;
+    return distance;
   }
 
   render() {
@@ -89,7 +122,9 @@ class EventsList extends Component {
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
-            return <EventCard key={event._id} {...event} {...this.props}  />
+            // calculate distance from user's location
+            var distance = this.getDistanceToEvent(event.lat, event.lng);
+            return <EventCard key={event._id} {...event} distance={distance} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>
@@ -124,13 +159,14 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     filters: state.filters,
-    events: selectEvents(state.events, state.filters),
-    modal: state.modal
+    events: selectEvents(state.events, state.filters, state.location),
+    modal: state.modal,
+    location: state.location
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  const actions = Object.assign({}, eventActions, modalActions);
+  const actions = Object.assign({}, eventActions, modalActions, locationActions);
   return bindActionCreators(actions, dispatch);
 }
 

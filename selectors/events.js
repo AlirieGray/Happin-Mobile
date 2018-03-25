@@ -1,6 +1,6 @@
 
 // takes in two arguments: an array of events and the filters to apply to those events
-export default (events, { text, sortBy, startDate, endDate} ) => {
+export default (events, { text, sortBy, startDate, endDate}, position ) => {
   return events.filter((event) => {
 
     // see if event name or description includes search bar text
@@ -20,6 +20,12 @@ export default (events, { text, sortBy, startDate, endDate} ) => {
       return a.name < b.name ? -1 : 1;
     } else if (sortBy === 'distance') {
       console.log("sorting by distance")
+      console.log("position in selector: ", position)
+
+      const eventLatLng = { lat: a.lat, lng: a.lng };
+      console.log("Event lat lng: ", eventLatLng);
+
+
       // get the distance between the user's location and the event's location
       // sort in ascending borderRadius
       return a.name < b.name ? 1 : -1;

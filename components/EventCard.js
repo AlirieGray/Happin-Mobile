@@ -32,7 +32,7 @@ class EventCard  extends Component{
   }
 
   render() {
-    const { name, description, organizer, address, attendeeCount } = this.props;
+    const { name, description, organizer, address, attendeeCount, distance } = this.props;
     const date = this.parseDate(this.props.date);
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
@@ -49,7 +49,7 @@ class EventCard  extends Component{
             <View style={styles.eventDetails}>
               <Text style={styles.detailsText}> {date ? date.split(',')[0] + ', ' + date.split(',')[1] : null} </Text>
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
-              <Text style={styles.detailsText}> .75 miles </Text>
+              <Text style={styles.detailsText}> {distance} miles away </Text>
             </View>
             <Text style={styles.detailsText}> {attendeeCount} Attending </Text>
             <View style={styles.divider} />
