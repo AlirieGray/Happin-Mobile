@@ -10,11 +10,19 @@ export default (events, { text, sortBy, startDate, endDate} ) => {
     return textMatch;
   }).sort((a, b) => {
     if (sortBy === 'date') { // TODO: come up with a better way to do this.... store the date as a Date object earlier?
-      var dateSectionsA = a.date.split('-');
-      var dateSectionsB = b.date.split('-');
-      var eventDateA = new Date(dateSectionsA[0], dateSectionsA[1] - 1, dateSectionsA[2]);
-      var eventDateB = new Date(dateSectionsB[0], dateSectionsB[1] - 1, dateSectionsB[2]);
-      return eventDateA < eventDateB ? 1 : -1;
+      console.log(a.date)
+      var dateSectionsA = a.date.split('/');
+      var dateSectionsB = b.date.split('/');
+      var eventDateA = new Date(dateSectionsA[2], dateSectionsA[0] - 1, dateSectionsA[1]);
+      var eventDateB = new Date(dateSectionsB[2], dateSectionsB[0] - 1, dateSectionsB[1]);
+      return eventDateA - eventDateB;
+    }
+    else if (sortBy === 'name') {
+      return a.name < b.name ? 1 : -1;
+    } else if (sortBy === 'distance') {
+      // get the distance between the user's location and the event's location
+      // sort in ascending borderRadius
+      return a.name < b.name ? 1 : -1;
     }
   })
 }

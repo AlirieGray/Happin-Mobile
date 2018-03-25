@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -37,18 +37,18 @@ class EventsList extends Component {
         width: 0
       },
     },
-    headerLeft: (<TouchableHighlight
+    headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
         <Icon name='menu' size={30} />
-       </TouchableHighlight>),
-    headerRight: <TouchableHighlight
+       </TouchableOpacity>),
+    headerRight: <TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
       }} >
       <Icon name='add' size={30} />
-    </TouchableHighlight>
+    </TouchableOpacity>
   });
 
   render() {

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Dimensions } from 'react-native';
 import { TextButton } from 'react-native-material-buttons';
 import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/filters';
 
 class SortButtons extends Component {
 
@@ -9,16 +12,16 @@ class SortButtons extends Component {
     return (
       <View style={styles.container}>
         <TextButton title="Distance"
-          onPress={() => console.log("Distance")}
+          onPress={() => this.props.setSortBy("Distance")}
           />
         <TextButton title="Date"
-          onPress={() => console.log("Distance")}
+          onPress={() => this.props.setSortBy("Date")}
           />
         <TextButton title="Name"
-          onPress={() => console.log("Distance")}
+          onPress={() => this.props.setSortBy("Name")}
           />
         <TextButton title="Tags"
-          onPress={() => console.log("Distance")}
+          onPress={() => console.log("Tags")}
           />
       </View>
     );
@@ -39,4 +42,14 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SortButtons;
+const mapStateToProps = (state) => {
+  return {
+    filters: state.filters
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SortButtons);

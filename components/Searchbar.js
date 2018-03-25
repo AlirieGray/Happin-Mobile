@@ -12,14 +12,6 @@ class Searchbar extends Component {
     this.state = {
       query: ''
     }
-
-    this.Search = this.Search.bind(this);
-  }
-
-  Search() {
-    console.log("Search query", this.state.query);
-    console.log("props: ", this.props)
-
   }
 
   render() {

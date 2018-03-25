@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 
+const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
 
 class EventCard  extends Component{
 
   constructor(props) {
     super(props);
     this.getTags = this.getTags.bind(this);
+    this.parseDate = this.parseDate.bind(this);
   }
 
   getTags() {
@@ -18,8 +22,19 @@ class EventCard  extends Component{
     }
   }
 
+  // returns a formatted date string
+  parseDate(dateString) {
+    if (dateString) {
+      var dateSections = dateString.split('/');
+      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
+      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
+    }
+  }
+
   render() {
-    const { name, description, organizer, date, address, attendeeCount } = this.props;
+    const { name, description, organizer, address, attendeeCount } = this.props;
+    console.log("date in props: ", this.props.date)
+    const date = this.parseDate(this.props.date);
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
@@ -33,7 +48,7 @@ class EventCard  extends Component{
           <View>
             <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.detailsText}> {date.split(',')[0] + ', ' + date.split(',')[1]} </Text>
+              <Text style={styles.detailsText}> {date ? date.split(',')[0] + ', ' + date.split(',')[1] : null} </Text>
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
               <Text style={styles.detailsText}> .75 miles </Text>
             </View>

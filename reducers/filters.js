@@ -13,12 +13,8 @@ const filterDefaults = {
 };
 
 export default (state = filterDefaults, action) => {
-  console.log("Running reducer filters")
-  console.log(action)
-  console.log(`somethin: ${SET_TEXT_FILTER}`)
   switch (action.type) {
     case SET_TEXT_FILTER:
-      console.log("Setting text filter")
       return {
         ...state,
         text: action.text

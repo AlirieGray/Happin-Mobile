@@ -11,8 +11,6 @@ import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
 
 const PLACES = 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc';
-const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 class CreateEventForm extends Component {
   constructor(props) {
@@ -26,12 +24,10 @@ class CreateEventForm extends Component {
       placeId: '',
       address: '',
       description: '',
-      formattedDate: '',
       tags: []
     }
     this.updateEventName = this.updateEventName.bind(this);
     this.updateEventDescription = this.updateEventDescription.bind(this);
-    this.parseDate = this.parseDate.bind(this);
   }
 
   updateEventName(txt) {
@@ -40,15 +36,6 @@ class CreateEventForm extends Component {
 
   updateEventDescription(txt) {
     this.setState({ description: txt });
-  }
-
-  // returns a formatted date string
-  parseDate(dateString) {
-    if (dateString) {
-      var dateSections = dateString.split('/');
-      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
-      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
-    }
   }
 
   render() {
@@ -89,8 +76,6 @@ class CreateEventForm extends Component {
               }}
               cancelBtnText="Cancel"
               onDateChange={(date) => {
-                const formattedDate = this.parseDate(date);
-                this.setState({ formattedDate });
                 this.setState({ date });
               }}
             />
@@ -238,7 +223,7 @@ class CreateEventForm extends Component {
                     lng: this.state.lng,
                     placeId: this.state.placeId,
                     address: this.state.address,
-                    date: this.state.formattedDate,
+                    date: this.state.date,
                     tags: this.state.tags,
                     userId: this.props.auth.userId }
                   this.props.addEvent(newEvent);

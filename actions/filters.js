@@ -13,18 +13,3 @@ export const setTextFilter = (text) => ({
   type: SET_TEXT_FILTER,
   text
 })
-
-// export function setTextFilter(text) {
-//   console.log("set text filter action!!")
-//   return {
-//     type: SET_TEXT_FILTER,
-//     text
-//   }
-// }
-
-//
-// export function setSearch(query) {
-//   return dispatch => {
-//     dispatch(setTextFilter(query));
-//   }
-// }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Dimensions, TouchableHighlight, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import * as Actions from '../actions/events';
 import Map from './Map';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,13 +13,15 @@ let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.008;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
+const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 const Left = ({ onPress }) => (
-  <TouchableHighlight onPress={() => {
+  <TouchableOpacity onPress={() => {
     onPress()
   }}>
     <Icon name="arrow-back" size={30} />
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 class EventPage extends Component {
@@ -31,10 +33,20 @@ class EventPage extends Component {
       attending: false,
       seeFullDescription: false
     }
+    this.parseDate = this.parseDate.bind(this);
   }
 
   componentWillMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
+  }
+
+  // returns a formatted date string
+  parseDate(dateString) {
+    if (dateString) {
+      var dateSections = dateString.split('/');
+      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
+      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
+    }
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -52,13 +64,14 @@ class EventPage extends Component {
   });
 
   render() {
-    const { name, address, date, description, organizer } = this.props.currentEvent;
+    const { name, address, description, organizer } = this.props.currentEvent;
+    const date = this.parseDate(this.props.currentEvent.date);
     return(
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
           <View style={styles.details}>
             <Text style={styles.detailsText}> {address} </Text>
-            <Text style={styles.detailsText}> {date ? date.split(',').join(', '): null} </Text>
+            <Text style={styles.detailsText}> {date ? date.split(',')[0] + ', ' + date.split(',')[1] + ', ' + date.split(',')[2]: null} </Text>
             <Text style={styles.detailsText}> Organizer: {organizer} </Text>
           </View>
           <View style={styles.rsvpContainer}>
@@ -90,14 +103,14 @@ class EventPage extends Component {
             {description} </Text>}
             <View style={styles.divider} />
             <View style={{display:'flex', padding:6, alignItems:'flex-end', minWidth:'100%'}}>
-              <TouchableHighlight
+              <TouchableOpacity
                 onPress={() => {
                   this.setState({
                     seeFullDescription: !this.state.seeFullDescription
                   })
                 }}>
                 <Text> {this.state.seeFullDescription ? 'Show Less' : 'Show More'} </Text>
-              </TouchableHighlight>
+              </TouchableOpacity>
             </View>
         </View>
 
