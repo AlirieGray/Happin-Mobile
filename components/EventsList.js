@@ -14,6 +14,15 @@ import selectEvents from '../selectors/events';
 
 class EventsList extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      latitude: '',
+      longitude: '',
+      error: null
+    }
+  }
+
   componentWillMount() {
     this.props.getEvents();
     this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
@@ -51,9 +60,24 @@ class EventsList extends Component {
     </TouchableOpacity>
   });
 
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position)
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
+  }
+
   render() {
     const events = this.props.events;
-    console.log(this.props.filters);
+
     return (
       <View style={styles.container}>
         <CreateEventForm />

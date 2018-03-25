@@ -66,6 +66,7 @@ class EventPage extends Component {
   render() {
     const { name, address, description, organizer } = this.props.currentEvent;
     const date = this.parseDate(this.props.currentEvent.date);
+    
     return(
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>

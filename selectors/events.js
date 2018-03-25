@@ -1,7 +1,6 @@
 
 // takes in two arguments: an array of events and the filters to apply to those events
 export default (events, { text, sortBy, startDate, endDate} ) => {
-  console.log("Sorting by: ", sortBy)
   return events.filter((event) => {
 
     // see if event name or description includes search bar text
@@ -10,7 +9,6 @@ export default (events, { text, sortBy, startDate, endDate} ) => {
     return textMatch;
   }).sort((a, b) => {
     if (sortBy === 'date') { // TODO: come up with a better way to do this.... store the date as a Date object earlier?
-      console.log("sorting by date")
       console.log(a.date)
       var dateSectionsA = a.date.split('/');
       var dateSectionsB = b.date.split('/');
@@ -19,7 +17,6 @@ export default (events, { text, sortBy, startDate, endDate} ) => {
       return eventDateA < eventDateB ? -1 : 1;
     }
     else if (sortBy === 'name') {
-      console.log("sorting by name")
       return a.name < b.name ? -1 : 1;
     } else if (sortBy === 'distance') {
       console.log("sorting by distance")
