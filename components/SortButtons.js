@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { TextButton } from 'react-native-material-buttons';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as actions from '../actions/filters';
 
 class SortButtons extends Component {
 
-
   render() {
+    var icon = null;
+    if (this.props.mapView) {
+      icon = <Icon name='format-list-bulleted' size={30} />
+    } else {
+      icon = <Icon name='language' size={30} />
+    }
+
     return (
       <View style={styles.container}>
         <TextButton title="Date"
@@ -27,6 +34,11 @@ class SortButtons extends Component {
         <TextButton title="Tags"
           onPress={() => console.log("tags")}
           />
+        <TouchableOpacity onPress={() => {
+          this.props.toggleView();
+        }}>
+          {icon}
+        </TouchableOpacity>
       </View>
     );
   }

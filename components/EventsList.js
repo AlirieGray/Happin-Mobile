@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,6 +12,13 @@ import CreateEventForm from './CreateEventForm';
 import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
 import selectEvents from '../selectors/events';
+import Map from './Map';
+
+// details for Google Maps View
+let { width, height } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LAT_DELTA = 0.008;
+const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
 
 class EventsList extends Component {
 
@@ -21,9 +28,11 @@ class EventsList extends Component {
       location: {
         latitude: 0,
         longitude: 0
-      }
+      },
+      mapView: true
     }
     this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
+    this.toggleView = this.toggleView.bind(this);
     this.TestGetToken = this.TestGetToken.bind(this);
   }
 
@@ -108,18 +117,23 @@ class EventsList extends Component {
     return distance;
   }
 
+  toggleView() {
+    this.setState({
+      mapView: !this.state.mapView
+    })
+  }
+
   render() {
     const events = this.props.events;
 
-    return (
-      <View style={styles.container}>
-        <CreateEventForm />
-        <View style={styles.header}>
-          <View style={{width:'100%', display: 'flex', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
-            <Searchbar />
-          </View>
-          <SortButtons />
-        </View>
+    var eventsView = null;
+    if (this.state.mapView) {
+      eventsView = <Map
+      initialRegion={{...this.state.location,
+        latitudeDelta: LAT_DELTA,
+        longitudeDelta: LNG_DELTA }}/>
+    } else {
+      eventsView = (
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
             // calculate distance from user's location
@@ -128,6 +142,19 @@ class EventsList extends Component {
           })}
           <View style={styles.empty} />
         </ScrollView>
+      )
+    }
+
+    return (
+      <View style={styles.container}>
+        <CreateEventForm />
+        <View style={styles.header}>
+          <View style={{width:'100%', display: 'flex', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
+            <Searchbar />
+          </View>
+          <SortButtons mapView={this.state.mapView} toggleView={this.toggleView}/>
+        </View>
+        {eventsView}
       </View>
     );
   }
