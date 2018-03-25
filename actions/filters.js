@@ -1,8 +1,8 @@
-const SET_SORT_BY = 'SET_SORT_BY';
-const SET_TEXT_FILTER = 'SET_TEXT_FILTER';
-const SET_START_DATE = 'SET_START_DATE';
-const SET_END_DATE = 'SET_END_DATE';
-const SET_TAGS = 'SET_TAGS';
+export const SET_SORT_BY = 'SET_SORT_BY';
+export const SET_TEXT_FILTER = 'SET_TEXT_FILTER';
+export const SET_START_DATE = 'SET_START_DATE';
+export const SET_END_DATE = 'SET_END_DATE';
+export const SET_TAGS = 'SET_TAGS';
 
 export const setSortBy = (sortBy) => ({
   type: SET_SORT_BY,
@@ -13,6 +13,14 @@ export const setTextFilter = (text) => ({
   type: SET_TEXT_FILTER,
   text
 })
+
+// export function setTextFilter(text) {
+//   console.log("set text filter action!!")
+//   return {
+//     type: SET_TEXT_FILTER,
+//     text
+//   }
+// }
 
 //
 // export function setSearch(query) {
