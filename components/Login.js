@@ -7,7 +7,7 @@ import * as Actions from '../actions/auth';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Left = ({ onPress }) => (
-  <TouchableHighlight style={{ margin: 10 }} onPress={() => {
+  <TouchableHighlight style={{ padding: 10 }} onPress={() => {
     onPress()
   }}>
     <Icon name="arrow-back" size={30} />

@@ -184,14 +184,15 @@ class EventsList extends Component {
               onPress={() => {
                 this.setView('map')
               }}>
-              <Text style={{color: this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.8)' }}> VIEW MAP</Text>
+              <Icon name={'language'} color={this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'} size={25}/>
             </TouchableOpacity>
+            <View  style={styles.divider}/>
             <TouchableOpacity
               style={styles.tab}
               onPress={() => {
                 this.setView('list')
               }}>
-              <Text style={{color: !this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.8)' }}> VIEW LIST </Text>
+              <Icon name={'format-list-bulleted'} color={!this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'} size={25}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
     padding: 30
   },
   navHeaderButton: {
-    margin: 6
+    padding: 8
   },
   loading: {
     display: 'flex',
@@ -231,8 +232,15 @@ const styles = StyleSheet.create({
   tab: {
     width: '50%',
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingBottom: 5
+  },
+  divider: {
+    height: 24,
+    width: 1,
+    backgroundColor: '#FFF'
   }
 });
 

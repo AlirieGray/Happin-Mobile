@@ -25,7 +25,7 @@ const Left = ({ onPress }) => (
   <TouchableOpacity onPress={() => {
     onPress()
   }}>
-    <Icon name="arrow-back" size={30} />
+    <Icon name="arrow-back" size={30} color={'#FFF'} style={{padding: 10}}/>
   </TouchableOpacity>
 );
 
@@ -63,7 +63,8 @@ class EventPage extends Component {
       height: 80,
     },
     headerTitleStyle: {
-      fontSize: 20
+      fontSize: 20,
+      color: '#FFF'
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });

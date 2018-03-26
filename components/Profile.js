@@ -16,6 +16,9 @@ class Profile extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'My Events',
+    headerTitleStyle: {
+      color: '#FFF'
+    },    
     headerStyle: {
       backgroundColor: '#F44336',
       display: 'flex',
@@ -27,14 +30,14 @@ class Profile extends Component {
     headerLeft: (<TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name='menu' size={30} />
+        <Icon name='menu' size={30} color={'#FFF'}/>
        </TouchableHighlight>),
     headerRight: <TouchableHighlight
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
         }} >
-      <Icon name='add' size={30} />
+      <Icon name='add' size={30} color={'#FFF'} />
     </TouchableHighlight>
   });
 
