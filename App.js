@@ -15,13 +15,14 @@ import {AppNavigator} from './components/AppNavigator';
 const store = ConfigureStore();
 
 class App extends Component {
+
   render() {
     return (
-        <AppNavigator
-          navigation={addNavigationHelpers({
-            dispatch: this.props.dispatch,
-            state: this.props.navigation,
-          })} />
+      <AppNavigator
+        navigation={addNavigationHelpers({
+          dispatch: this.props.dispatch,
+          state: this.props.navigation,
+        })} />
     );
   }
 }

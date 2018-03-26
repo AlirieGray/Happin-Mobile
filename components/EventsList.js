@@ -31,14 +31,14 @@ class EventsList extends Component {
     super(props);
     this.state = {
       location: {
-        latitude: 0,
-        longitude: 0
+        latitude: null,
+        longitude: null
       },
       mapView: true,
       gotLocation: false
     }
     this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
-    this.toggleView = this.toggleView.bind(this);
+    this.setView = this.setView.bind(this);
     this.TestGetToken = this.TestGetToken.bind(this);
   }
 
@@ -81,6 +81,9 @@ class EventsList extends Component {
 
   static navigationOptions = ({navigation}) => ({
     title: 'Find Events',
+    headerTitleStyle: {
+      color: '#FFF'
+    },
     headerStyle: {
       backgroundColor: '#F44336',
       display: 'flex',
@@ -100,14 +103,14 @@ class EventsList extends Component {
     headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name='menu' size={30} />
+        <Icon name='menu' size={30} color={'#FFF'}/>
        </TouchableOpacity>),
     headerRight: <TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
       }} >
-      <Icon name='add' size={30} />
+      <Icon name='add' size={30} color={'#FFF'} />
     </TouchableOpacity>
   });
 
@@ -122,15 +125,24 @@ class EventsList extends Component {
     distance = Math.acos(distance);
     distance = distance * 180/Math.PI;
     distance = distance * 60 * 1.1515;
-    return distance;
+    return Math.round(distance * 10) / 10;
   }
 
-  toggleView() {
-    this.setState({
-      mapView: !this.state.mapView
-    })
+  setView(viewType) {
+    console.log("setting view")
+    if (viewType === 'map') {
+      this.setState({
+        mapView: true
+      })
+    } else if (viewType === 'list') {
+      this.setState({
+        mapView: false
+      })
+    }
+
   }
 
+  //<SortButtons mapView={this.state.mapView} mapStyle={mapStyle} toggleView={this.toggleView}/>
   render() {
     const events = this.props.events;
     console.log("Location in events list: ", this.props.location)
@@ -138,7 +150,6 @@ class EventsList extends Component {
     var eventsView = null;
     if (this.state.mapView && this.state.gotLocation) {
       eventsView = <Map
-      pinName={"My Location"}
       events={this.props.events}
       mapHeight={'100%'}
       initialRegion={{
@@ -164,10 +175,25 @@ class EventsList extends Component {
       <View style={styles.container}>
         <CreateEventForm />
         <View style={styles.header}>
-          <View style={{width:'100%', display: 'flex', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
+          <View style={{width:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
             <Searchbar />
           </View>
-          <SortButtons mapView={this.state.mapView} mapStyle={mapStyle} toggleView={this.toggleView}/>
+          <View style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <TouchableOpacity
+              style={styles.tab}
+              onPress={() => {
+                this.setView('map')
+              }}>
+              <Text style={{color: this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.8)' }}> VIEW MAP</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.tab}
+              onPress={() => {
+                this.setView('list')
+              }}>
+              <Text style={{color: !this.state.mapView ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.8)' }}> VIEW LIST </Text>
+            </TouchableOpacity>
+          </View>
         </View>
         {eventsView}
       </View>
@@ -199,7 +225,14 @@ const styles = StyleSheet.create({
   loading: {
     display: 'flex',
     alignItems: 'center',
-    paddingTop: 30
+    paddingTop: 30,
+    backgroundColor: '#F5F5F5'
+  },
+  tab: {
+    width: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    paddingBottom: 5
   }
 });
 

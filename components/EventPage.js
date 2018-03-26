@@ -121,7 +121,6 @@ class EventPage extends Component {
         </View>
 
         <Map
-          pinName={"Event Location"}
           mapHeight={400}
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,

@@ -19,9 +19,9 @@ class Searchbar extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
-            this.Search();
+            this.props.setTextFilter(this.state.query);
           }}>
-          <Icon name="search" size={20} style={styles.searchIcon} />
+          <Icon name="search" size={20} style={styles.searchIcon} color={'#444'} />
         </TouchableOpacity>
         <TextInput
           style={styles.input}
@@ -32,6 +32,13 @@ class Searchbar extends Component {
           value={this.state.query}
           underlineColorAndroid='rgba(0,0,0,0)'
         />
+        <TouchableOpacity
+          style={{borderRadius: 4}}
+          onPress={() => {
+            console.log("Open advanced search modal")
+          }}>
+          <Icon name="filter-list" size={20} style={styles.filterIcon} color={'#444'}/>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -62,6 +69,12 @@ const styles = StyleSheet.create({
     color: '#424242',
     borderRadius: 4
   },
+  filterIcon: {
+    margin: 5,
+    backgroundColor: '#eee',
+    padding: 3,
+    borderRadius: 4
+  }
 })
 
 const mapStateToProps = (state) => {

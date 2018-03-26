@@ -40,16 +40,25 @@ export default class Map extends Component {
   render() {
     console.log("Rendering map")
     console.log(this.props.initialRegion)
+    var eventMarker = null;
+    if (!this.props.events) {
+      eventMarker = (
+        <Marker
+          coordinate={{latitude: this.props.initialRegion.latitude, longitude: this.props.initialRegion.longitude}}
+          title={"Event Location"}
+        />
+      )
+    }
     return (
       <MapView
         ref={this.handleRef}
         provider={ PROVIDER_GOOGLE }
         style={{height: this.props.mapHeight, width: '100%'}}
+        showsUserLocation={true}
+	      followsUserLocation={true}
+        showsMyLocationButton={true}
         initialRegion={this.props.initialRegion}>
-        <Marker
-          coordinate={{latitude: this.props.initialRegion.latitude, longitude: this.props.initialRegion.longitude}}
-          title={this.props.pinName}
-        />
+        {eventMarker}
         {this.getMarkers()}
       </MapView>
     );
