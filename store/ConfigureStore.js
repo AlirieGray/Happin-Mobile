@@ -7,6 +7,7 @@ import authReducer from '../reducers/auth';
 import currentEventReducer from '../reducers/currentEvent';
 import userEventsReducer from '../reducers/userEvents';
 import modalReducer from '../reducers/modal';
+import locationReducer from '../reducers/location';
 
 let createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
@@ -20,7 +21,8 @@ export default () => {
       filters: filtersReducer,
       auth: authReducer,
       navigation: navReducer,
-      modal: modalReducer
+      modal: modalReducer,
+      location: locationReducer
     })
   );
 

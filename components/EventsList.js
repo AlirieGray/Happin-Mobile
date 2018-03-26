@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,6 +20,11 @@ const ASPECT_RATIO = width / height;
 const LAT_DELTA = 0.008;
 const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
 
+const mapStyle = {
+    height: 400,
+    width: '100%'
+}
+
 class EventsList extends Component {
 
   constructor(props) {
@@ -29,7 +34,8 @@ class EventsList extends Component {
         latitude: 0,
         longitude: 0
       },
-      mapView: true
+      mapView: true,
+      gotLocation: false
     }
     this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
     this.toggleView = this.toggleView.bind(this);
@@ -39,22 +45,24 @@ class EventsList extends Component {
   componentWillMount() {
     this.props.getEvents();
     this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
-  }
-
-  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position)
+        console.log("USER POSITION", position)
         this.setState({
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          longitude: position.coords.longitude,
+          gotLocation: true
         })
         this.props.setLocation(position.coords)
       },
       (error) => console.log( error.message ),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
-    this.TestGetToken();
+    //this.TestGetToken();
+  }
+
+  componentDidMount() {
+
   }
 
 
@@ -125,14 +133,19 @@ class EventsList extends Component {
 
   render() {
     const events = this.props.events;
+    console.log("Location in events list: ", this.props.location)
 
     var eventsView = null;
-    if (this.state.mapView) {
+    if (this.state.mapView && this.state.gotLocation) {
       eventsView = <Map
-      initialRegion={{...this.state.location,
+      pinName={"My Location"}
+      events={this.props.events}
+      mapHeight={'100%'}
+      initialRegion={{
+        ...this.props.location,
         latitudeDelta: LAT_DELTA,
         longitudeDelta: LNG_DELTA }}/>
-    } else {
+    } else if (!this.state.mapView) {
       eventsView = (
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
@@ -143,6 +156,8 @@ class EventsList extends Component {
           <View style={styles.empty} />
         </ScrollView>
       )
+    } else if (!this.state.gotLocation){
+      eventsView = (<View style={styles.loading}><ActivityIndicator size="small" color="#0000ff"/></View>)
     }
 
     return (
@@ -152,7 +167,7 @@ class EventsList extends Component {
           <View style={{width:'100%', display: 'flex', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
             <Searchbar />
           </View>
-          <SortButtons mapView={this.state.mapView} toggleView={this.toggleView}/>
+          <SortButtons mapView={this.state.mapView} mapStyle={mapStyle} toggleView={this.toggleView}/>
         </View>
         {eventsView}
       </View>
@@ -180,6 +195,11 @@ const styles = StyleSheet.create({
   },
   navHeaderButton: {
     margin: 6
+  },
+  loading: {
+    display: 'flex',
+    alignItems: 'center',
+    paddingTop: 30
   }
 });
 

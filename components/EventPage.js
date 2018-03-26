@@ -16,6 +16,11 @@ const LNG_DELTA = LAT_DELTA / ASPECT_RATIO;
 const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
+const mapStyle = {
+    height: 400,
+    width: '100%'
+}
+
 const Left = ({ onPress }) => (
   <TouchableOpacity onPress={() => {
     onPress()
@@ -66,7 +71,7 @@ class EventPage extends Component {
   render() {
     const { name, address, description, organizer } = this.props.currentEvent;
     const date = this.parseDate(this.props.currentEvent.date);
-    
+
     return(
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
@@ -116,6 +121,8 @@ class EventPage extends Component {
         </View>
 
         <Map
+          pinName={"Event Location"}
+          mapHeight={400}
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,
             longitude: this.props.navigation.state.params.lng,
