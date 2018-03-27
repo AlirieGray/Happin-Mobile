@@ -101,12 +101,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   tag: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#999',
     backgroundColor: '#eee',
     margin: 2,
     borderRadius: 4,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    padding: 3,
+    paddingLeft: 5,
+    paddingRight: 5
   },
   detailsText: {
     fontSize: 14,

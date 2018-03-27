@@ -32,7 +32,6 @@ class CreateEventForm extends Component {
 
   updateEventName(txt) {
     this.setState({ name: txt });
-    this.TestGetToken();
   }
 
   updateEventDescription(txt) {
