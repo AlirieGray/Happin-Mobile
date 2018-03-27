@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, StyleSheet, Text, View, Button, Image, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
+import { Modal, StyleSheet, Text, View, Button, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { TextButton } from 'react-native-material-buttons';
 import DatePicker from 'react-native-datepicker';

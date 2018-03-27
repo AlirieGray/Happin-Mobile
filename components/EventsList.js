@@ -8,6 +8,7 @@ import * as modalActions from '../actions/modal';
 import * as locationActions from '../actions/location';
 import EventCard from './EventCard';
 import Searchbar from './Searchbar';
+import SearchOptions from './SearchOptions';
 import CreateEventForm from './CreateEventForm';
 import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
@@ -174,6 +175,7 @@ class EventsList extends Component {
     return (
       <View style={styles.container}>
         <CreateEventForm />
+        <SearchOptions />
         <View style={styles.header}>
           <View style={{width:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
             <Searchbar />

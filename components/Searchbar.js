@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'rea
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/filters';
+import * as filterActions from '../actions/filters';
+import * as modalActions from '../actions/modal';
 
 class Searchbar extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class Searchbar extends Component {
         <TouchableOpacity
           style={{borderRadius: 4}}
           onPress={() => {
-            console.log("Open advanced search modal")
+            this.props.setSearchModal(true)
           }}>
           <Icon name="filter-list" size={20} style={styles.filterIcon} color={'#444'}/>
         </TouchableOpacity>
@@ -79,12 +80,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    filters: state.filters
+    filters: state.filters,
+    modal: state.modal
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actions, dispatch);
+  return bindActionCreators(Object.assign({}, filterActions, modalActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
