@@ -41,10 +41,6 @@ class SearchOptions extends Component {
                 onPress={() => this.props.setSortBy("name")}
                 />
             </View>
-            <Text> Tags: </Text>
-            <View>
-              
-            </View>
           </View>
         </View>
       </Modal>

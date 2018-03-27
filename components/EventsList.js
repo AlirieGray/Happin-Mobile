@@ -38,6 +38,7 @@ class EventsList extends Component {
       gotLocation: false
     }
     this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
+    this.deg2rad = this.deg2rad.bind(this);
     this.setView = this.setView.bind(this);
     this.TestGetToken = this.TestGetToken.bind(this);
   }
@@ -114,18 +115,37 @@ class EventsList extends Component {
     </TouchableOpacity>
   });
 
-  getDistanceToEvent(lat, lng) {
-    var lat1 = Math.PI * lat / 180;
-    var lng1 = Math.PI * lat / 180;
-    var lat2 = Math.PI * this.state.latitude / 180;
-    var lng2 = Math.PI * this.state.longitude / 180;
+  // getDistanceToEvent(lat, lng) {
+  //   var lat1 = Math.PI * lat / 180;
+  //   var lng1 = Math.PI * lat / 180;
+  //   var lat2 = Math.PI * this.state.latitude / 180;
+  //   var lng2 = Math.PI * this.state.longitude / 180;
+  //
+  //   var theta = Math.PI * (lng1 - lng2) / 180;
+  //   var distance = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(theta)
+  //   distance = Math.acos(distance);
+  //   distance = distance * 180/Math.PI;
+  //   distance = distance * 60 * 1.1515;
+  //   return Math.round(distance * 10) / 10;
+  // }
 
-    var theta = Math.PI * (lng1 - lng2) / 180;
-    var distance = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(theta)
-    distance = Math.acos(distance);
-    distance = distance * 180/Math.PI;
-    distance = distance * 60 * 1.1515;
-    return Math.round(distance * 10) / 10;
+  getDistanceToEvent(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = this.deg2rad(lon2-lon1);
+    var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+    d = d * 0.621371;
+    return Math.round(d * 10) / 10;
+  }
+
+  deg2rad(deg) {
+    return deg * (Math.PI/180)
   }
 
   setView(viewType) {
@@ -161,7 +181,7 @@ class EventsList extends Component {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {events.map((event, index) => {
             // calculate distance from user's location
-            var distance = this.getDistanceToEvent(event.lat, event.lng);
+            var distance = this.getDistanceToEvent(event.lat, event.lng, this.state.latitude, this.state.longitude);
             return <EventCard key={event._id} {...event} distance={distance} {...this.props}  />
           })}
           <View style={styles.empty} />
