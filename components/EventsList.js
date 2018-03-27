@@ -10,7 +10,6 @@ import EventCard from './EventCard';
 import Searchbar from './Searchbar';
 import SearchOptions from './SearchOptions';
 import CreateEventForm from './CreateEventForm';
-import SortButtons from './SortButtons';
 import { NavigationActions } from 'react-navigation';
 import selectEvents from '../selectors/events';
 import Map from './Map';
