@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Actions from '../actions/events';
 import EventCard from './EventCard';
 
 
 class Profile extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showHosting: true
+    }
+  }
 
   componentWillMount() {
     this.props.getUserEvents(this.props.auth.userId);
@@ -18,39 +25,64 @@ class Profile extends Component {
     title: 'My Events',
     headerTitleStyle: {
       color: '#FFF'
-    },    
+    },
     headerStyle: {
       backgroundColor: '#F44336',
       display: 'flex',
       justifyContent: 'space-between',
       paddingTop: 30,
-      paddingBottom: 15,
-      height: 70
+      shadowOpacity: 0,
+      shadowRadius: 0,
+      borderBottomWidth: 0,
+      elevation: 0,
+      shadowOffset: {
+        height: 0,
+        width: 0
+      }
     },
-    headerLeft: (<TouchableHighlight
+    headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
         <Icon name='menu' size={30} color={'#FFF'}/>
-       </TouchableHighlight>),
-    headerRight: <TouchableHighlight
+       </TouchableOpacity>),
+    headerRight: <TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
         }} >
       <Icon name='add' size={30} color={'#FFF'} />
-    </TouchableHighlight>
+    </TouchableOpacity>
   });
 
   render() {
     const events = this.props.userEvents;
     return(
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          {events.map((event, index) => {
-            return <EventCard key={event._id} {...event} {...this.props}  />
-          })}
-          <View style={styles.empty} />
-        </ScrollView>
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => {
+              console.log('My event')
+            }}>
+            <Text style={{color:this.state.isHosting ? 'rgba(255,255,255,.65)' : 'rgba(255,255,255,1)'}}> Hosting </Text>
+          </TouchableOpacity>
+          <View  style={styles.divider}/>
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => {
+              console.log('Attending....')
+            }}>
+            <Text style={{color:!this.state.isHosting ? 'rgba(255,255,255,.65)' : 'rgba(255,255,255,1)'}}> Attending </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <ScrollView contentContainerStyle={styles.contentContainer}>
+            {events.map((event, index) => {
+              return <EventCard key={event._id} {...event} {...this.props}  />
+            })}
+            <View style={styles.empty} />
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -66,14 +98,35 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#FFF'
   },
-  empty: {
+  header: {
+    backgroundColor: "#F44336",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 15,
+    paddingBottom: 5
+  },
+  empty: { // TODO: fix padding method to match EventsList
     padding: 30
   },
   addNewEventButton: {
     marginRight: 6
   },
   navHeaderButton: {
-    margin: 6
+    padding: 20
+  },
+  tab: {
+    width: '50%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  divider: {
+    height: 24,
+    width: 1,
+    backgroundColor: '#FFF'
   }
 });
 

@@ -89,9 +89,7 @@ class EventsList extends Component {
       backgroundColor: '#F44336',
       display: 'flex',
       justifyContent: 'space-between',
-      paddingTop: 40,
-      paddingLeft: 15,
-      paddingRight: 15,
+      paddingTop: 30,
       shadowOpacity: 0,
       shadowRadius: 0,
       borderBottomWidth: 0,
@@ -99,7 +97,7 @@ class EventsList extends Component {
       shadowOffset: {
         height: 0,
         width: 0
-      },
+      }
     },
     headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
@@ -242,7 +240,7 @@ const styles = StyleSheet.create({
     padding: 30
   },
   navHeaderButton: {
-    padding: 8
+    padding: 20
   },
   loading: {
     display: 'flex',
