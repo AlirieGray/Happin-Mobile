@@ -217,7 +217,7 @@ class CreateEventForm extends Component {
             <View style={styles.submitButtonStyle}>
               <Button title="Create" onPress={() => {
                 if (this.state.name && this.state.address && this.state.date) {
-                  var newEvent = {
+                  var newHap = {
                     name: this.state.name,
                     description: this.state.description,
                     lat: this.state.lat,
@@ -227,7 +227,8 @@ class CreateEventForm extends Component {
                     date: this.state.date,
                     tags: this.state.tags,
                     userId: this.props.auth.userId }
-                  this.props.addEvent(newEvent);
+                  this.props.createNewHapSocket(this.props.socket, newHap)
+                  //this.props.addEvent(newEvent);
                   this.props.setCreateEventModal(false);
                 }
                 else {

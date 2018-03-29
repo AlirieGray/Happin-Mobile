@@ -9,12 +9,29 @@ import { ActionCreators } from './actions';
 import { bindActionCreators } from 'redux';
 import { StackNavigator, NavigationActions, DrawerNavigator, addNavigationHelpers } from "react-navigation";
 import {AppNavigator} from './components/AppNavigator';
+import serverPath from './paths';
+import io from 'socket.io-client';
+import { addHapSocket } from './reducers/events';
 
 // loading={<ActivityIndicator size="small" color="#0000ff"/>}
 
 const store = ConfigureStore();
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.socket = io(`${serverPath}`);
+    this.socket.on('New Hap', (res) => {
+      console.log(res);
+      // dispatch to store
+      this.props.addHapSocket(res.hap)
+    })
+  }
+
+  componentWillUnount() {
+    this.socket.disconnect();
+  }
 
   render() {
     return (
@@ -28,11 +45,12 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  navigation: state.navigation, // needed for addNavigationHelpers
+  navigation: state.navigation, // needed for addNavigationHelpers,
+  events: state.events
 });
 
 const bindAction = dispatch => {
-    return Object.assign({dispatch: dispatch}, bindActionCreators(ActionCreators, dispatch));
+    return Object.assign({dispatch: dispatch, addHapSocket}, bindActionCreators(ActionCreators, dispatch));
     // add dispatch itself to props, so available for addNavigationHelpers
 };
 

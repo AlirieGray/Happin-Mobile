@@ -83,11 +83,32 @@ export const receiveEventById = (event) => ({
   event
 })
 
-export const rsvp = (isAttending) => ({
-  type: RSVP,
-  isFetching: false,
-  isAttending
-})
+////**** SOCKET ACTIONS ****////
+export function addHap(hap) {
+  console.log("received hap from socket: ", hap)
+  return dispatch => {
+    dispatch(receiveAddEvent(hap));
+  }
+}
+
+export function createNewHapSocket(socket, hap) {
+  console.log("emitting new hap: ", hap)
+  return dispatch => {
+    socket.emit('New Hap', {hap});
+  }
+}
+
+export function joinHapSocket(socket, hapId, userId) {
+  return dispatch => {
+    socket.emit('Join Hap', {hapId, userId});
+  }
+}
+
+export function leaveHapSocket(socket, hapId, userId) {
+  return dispatch => {
+    socket.emit('Leave Hap', {hapId, userId});
+  }
+}
 
 export function getEventById(id) {
   console.log("fetching events from database...");
