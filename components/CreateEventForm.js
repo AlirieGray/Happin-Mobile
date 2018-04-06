@@ -40,6 +40,9 @@ class CreateEventForm extends Component {
 
 
   render() {
+    //console.log(this.props)
+    console.log("Props socket reducer: ", this.props.socket)
+    console.log("Props socket socket: ", this.props.socket.socket)
     return(
         <Modal
         transparent={false}
@@ -227,7 +230,7 @@ class CreateEventForm extends Component {
                     date: this.state.date,
                     tags: this.state.tags,
                     userId: this.props.auth.userId }
-                  this.props.createNewHapSocket(this.props.socket, newHap)
+                  this.props.createNewHapSocket(this.props.socket.socket, newHap)
                   //this.props.addEvent(newEvent);
                   this.props.setCreateEventModal(false);
                 }
@@ -281,7 +284,8 @@ const mapStateToProps = (state) => {
   return {
     events: state.events,
     auth: state.auth,
-    modal: state.modal
+    modal: state.modal,
+    socket: state.socket
   }
 }
 

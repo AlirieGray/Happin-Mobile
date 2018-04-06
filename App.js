@@ -11,7 +11,8 @@ import { StackNavigator, NavigationActions, DrawerNavigator, addNavigationHelper
 import {AppNavigator} from './components/AppNavigator';
 import serverPath from './paths';
 import io from 'socket.io-client';
-import { addHapSocket } from './reducers/events';
+import { addHapSocket } from './actions/events';
+import {connectSocket, disconnectSocket} from './actions/socket';
 
 // loading={<ActivityIndicator size="small" color="#0000ff"/>}
 
@@ -22,6 +23,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.socket = io(`${serverPath}`);
+    this.props.connectSocket(this.socket)
     this.socket.on('New Hap', (res) => {
       console.log(res);
       // dispatch to store
@@ -30,7 +32,9 @@ class App extends Component {
   }
 
   componentWillUnount() {
+    console.log("App js unmounting")
     this.socket.disconnect();
+    this.props.disconnectSocket();
   }
 
   render() {
@@ -45,12 +49,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  navigation: state.navigation, // needed for addNavigationHelpers,
-  events: state.events
+  navigation: state.navigation, // needed for addNavigationHelpers
+  events: state.events,
+  socket: state.socket
 });
 
 const bindAction = dispatch => {
-    return Object.assign({dispatch: dispatch, addHapSocket}, bindActionCreators(ActionCreators, dispatch));
+    return Object.assign({dispatch: dispatch, addHapSocket, connectSocket, disconnectSocket}, bindActionCreators(ActionCreators, dispatch));
     // add dispatch itself to props, so available for addNavigationHelpers
 };
 

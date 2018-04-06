@@ -1,4 +1,4 @@
-# Activize
+# Happin
 ### The mobile app for the activists of the 21st century
 An cross-platform mobile app to help activists organize safely and efficiently. The main feature is a live updating map with a Waze-esque method of alerting local activists to points of interest and hazards. This will allow organizers to communicate the location of a police blockade to everyone at a rally within seconds, for street medics to keep participants updated with the location of first aid stations, or to help people navigate to the water fountains and public bathrooms at large events. The developers are focused on protecting the safety of activists without allowing the app to be co-opted by police or others with malicious intent. We are open to feedback from both the activist and developer communities.
 
