@@ -22,7 +22,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    console.ignoredYellowBox = ['Setting a timer'];
+    //console.ignoredYellowBox = ['Setting a timer'];
     this.socket = io(`${serverPath}`);
     this.props.connectSocket(this.socket);
 
@@ -57,8 +57,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  // add dispatch itself to props, so available for addNavigationHelpers
-  return Object.assign({dispatch: dispatch, addHap, connectSocket, disconnectSocket}, bindActionCreators(ActionCreators, dispatch));
+  // add dispatch itself to props, so it is available for addNavigationHelpers
+  return Object.assign({dispatch: dispatch}, bindActionCreators({addHap, connectSocket, disconnectSocket}, dispatch))
 };
 
 const AppWithNavigationState = connect(mapStateToProps, mapDispatchToProps)(App)

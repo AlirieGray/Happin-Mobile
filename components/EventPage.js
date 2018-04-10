@@ -71,6 +71,7 @@ class EventPage extends Component {
 
   render() {
     const { name, address, description, organizer } = this.props.currentEvent;
+    console.log("raw date: ", this.props.currentEvent.date)
     const date = this.parseDate(this.props.currentEvent.date);
 
     return(
