@@ -231,7 +231,7 @@ class CreateEventForm extends Component {
                     tags: this.state.tags,
                     userId: this.props.auth.userId }
                   this.props.createNewHapSocket(this.props.socket.socket, newHap)
-                  //this.props.addEvent(newEvent);
+                  //this.props.addEvent(newHap);
                   this.props.setCreateEventModal(false);
                 }
                 else {

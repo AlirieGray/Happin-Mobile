@@ -174,7 +174,8 @@ export function getEvents() {
         return Promise.reject("Error: Could not fetch events index from database");
       }
       return res.json();
-    }).then(( { events } ) => {
+    }).then((  events  ) => {
+      console.log(events)
       dispatch(receiveEvents(events));
     }).catch(err => console.log(err));
   }
