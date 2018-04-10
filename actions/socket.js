@@ -11,10 +11,7 @@ export const removeSocketConnection = () => ({
 })
 
 export function connectSocket(socket) {
-  console.log("connect socket action")
-  //console.log("Got socket: ", socket) // we have socket here
   return dispatch => {
-    console.log("sending connect dispatch...")
     dispatch(addSocketConnection(socket))
   }
 }
