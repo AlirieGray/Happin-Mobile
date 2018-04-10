@@ -57,7 +57,7 @@ class EventPage extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.name,
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       paddingTop: 30,
       paddingBottom: 15,
       height: 80,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#fafff9',
     minHeight: '100%'
   },
   header: {

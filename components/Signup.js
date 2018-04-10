@@ -10,7 +10,7 @@ const Left = ({ onPress }) => (
   <TouchableHighlight style={{ padding: 10 }} onPress={() => {
     onPress()
   }}>
-    <Icon name="arrow-back" size={30} />
+    <Icon name="arrow-back" size={30} color={'#FFF'}/>
   </TouchableHighlight>
 );
 
@@ -59,12 +59,14 @@ class Signup extends Component {
           inputStyle={styles.input}
           containerStyle={styles.inputContainer}
           onChangeText={this.updateUsername}
+          underlineColorAndroid={'#4AB169'}
         />
         <FormLabel> Password </FormLabel>
         <FormInput inputStyle={styles.input}
           containerStyle={styles.inputContainer}
           onChangeText={this.updatePassword}
           secureTextEntry={true}
+          underlineColorAndroid={'#4AB169'}
         />
         <Button
           title="Sign Up"
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafff9'
   },
   input: {
     paddingLeft: 10,

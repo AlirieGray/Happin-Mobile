@@ -27,7 +27,7 @@ class Profile extends Component {
       color: '#FFF'
     },
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       display: 'flex',
       justifyContent: 'space-between',
       paddingTop: 30,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF'
   },
   header: {
-    backgroundColor: "#F44336",
+    backgroundColor: "#4AB169",
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
