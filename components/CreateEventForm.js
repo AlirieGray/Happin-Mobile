@@ -41,8 +41,8 @@ class CreateEventForm extends Component {
 
   render() {
     //console.log(this.props)
-    console.log("Props socket reducer: ", this.props.socket)
-    console.log("Props socket socket: ", this.props.socket.socket)
+    //console.log("Props socket reducer: ", this.props.socket)
+    //console.log("Props socket socket: ", this.props.socket.socket)
     return(
         <Modal
         transparent={false}
@@ -68,9 +68,9 @@ class CreateEventForm extends Component {
               date={this.state.date}
               mode="date"
               placeholder="Select date"
-              format="MM/DD/YYYY"
-              minDate="01/01/2018"
-              maxDate="01/01/2050"
+              format="YYYY-MM-DD"
+              minDate="2018-01-01"
+              maxDate="2070-01-01"
               confirmBtnText="Confirm"
               iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
               customStyles={{
@@ -98,7 +98,7 @@ class CreateEventForm extends Component {
               }}
             />
             <FormLabel> Tags </FormLabel>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} contentContainerStyle={styles.tagsContainer}>
               <TextButton title="Social"
                 color={this.state.tags.includes("Social") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
                 onPress={() => {
@@ -251,16 +251,17 @@ class CreateEventForm extends Component {
               debounce={200}
             />
             <View style={styles.submitButtonStyle}>
-              <Button title="Create" onPress={() => {
+              <Button title="Create" color={'#4AB169'} onPress={() => {
                 if (this.state.name && this.state.address && this.state.date) {
                   var newHap = {
                     name: this.state.name,
                     description: this.state.description,
                     lat: this.state.lat,
                     lng: this.state.lng,
+                    loc: [this.state.lng, this.state.lat],
                     placeId: this.state.placeId,
                     address: this.state.address,
-                    date: this.state.date,
+                    date: this.state.date + "T" + this.state.time,
                     tags: this.state.tags,
                     userId: this.props.auth.userId }
                   this.props.createNewHapSocket(this.props.socket.socket, newHap)
@@ -283,7 +284,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#fafff9',
     paddingTop: 60
   },
   input: {
@@ -307,8 +308,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end'
   },
   tagsContainer: {
-    display: 'flex',
-    flexDirection: 'row'
+    backgroundColor: 'blue'
   }
 });
 

@@ -11,7 +11,6 @@ class EventCard  extends Component{
   constructor(props) {
     super(props);
     this.getTags = this.getTags.bind(this);
-    this.parseDate = this.parseDate.bind(this);
   }
 
   getTags() {
@@ -22,18 +21,9 @@ class EventCard  extends Component{
     }
   }
 
-  // returns a formatted date string
-  parseDate(dateString) {
-    if (dateString) {
-      var dateSections = dateString.split('/');
-      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
-      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
-    }
-  }
-
   render() {
-    const { name, description, organizer, address, attendeeCount, distance } = this.props;
-    const date = this.parseDate(this.props.date);
+    const { name, description, organizer, address, attendeeCount, distance, dateFormatted } = this.props;
+    console.log("formatted date: ", dateFormatted)
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
@@ -47,7 +37,7 @@ class EventCard  extends Component{
           <View>
             <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.detailsText}> {date ? date.split(',')[0] + ', ' + date.split(',')[1] : null} </Text>
+              <Text style={styles.detailsText}> {dateFormatted} </Text>
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
               <Text style={styles.detailsText}> {distance} miles away </Text>
             </View>
@@ -56,7 +46,6 @@ class EventCard  extends Component{
             <View style={styles.tagsContainer}>
               {this.getTags()}
             </View>
-
           </View>
         </TouchableOpacity>
       </View>

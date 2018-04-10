@@ -38,20 +38,10 @@ class EventPage extends Component {
       attending: false,
       seeFullDescription: false
     }
-    this.parseDate = this.parseDate.bind(this);
   }
 
   componentWillMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
-  }
-
-  // returns a formatted date string
-  parseDate(dateString) {
-    if (dateString) {
-      var dateSections = dateString.split('/');
-      var jsDate = new Date(dateSections[2], dateSections[0] - 1, dateSections[1]);
-      return weekdays[jsDate.getDay()] + ',' + months[jsDate.getMonth()] + ' ' + jsDate.getDate() + ',' + jsDate.getFullYear();
-    }
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -70,16 +60,15 @@ class EventPage extends Component {
   });
 
   render() {
-    const { name, address, description, organizer } = this.props.currentEvent;
+    const { name, address, description, organizer, dateFormatted } = this.props.currentEvent;
     console.log("raw date: ", this.props.currentEvent.date)
-    const date = this.parseDate(this.props.currentEvent.date);
 
     return(
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
           <View style={styles.details}>
             <Text style={styles.detailsText}> {address} </Text>
-            <Text style={styles.detailsText}> {date ? date.split(',')[0] + ', ' + date.split(',')[1] + ', ' + date.split(',')[2]: null} </Text>
+            <Text style={styles.detailsText}> {dateFormatted} </Text>
             <Text style={styles.detailsText}> Organizer: {organizer} </Text>
           </View>
           <View style={styles.rsvpContainer}>
