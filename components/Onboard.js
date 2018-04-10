@@ -13,12 +13,12 @@ class Onboard extends Component {
     return(
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={ require('../logo.png')} style={{width: 300, height: 300}}/>
+
         </View>
         <View style={styles.buttonStyle}>
           <Button
             title="Log In"
-            color="#F44336"
+            color="#4AB169"
             onPress={() => {
               this.props.navToLogin();
             }}
@@ -27,7 +27,7 @@ class Onboard extends Component {
         <View style={styles.buttonStyle}>
           <Button
             title="Sign Up"
-            color="#F44336"
+            color="#4AB169"
             onPress={() => {
               this.props.navToSignup();
             }}
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'flex-end',
     paddingBottom: 50,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafff9'
   },
   buttonStyle: {
     margin: 10

@@ -23,7 +23,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.socket = io(`${serverPath}`);
-    this.props.connectSocket(this.socket)
+    this.props.connectSocket(this.socket);
+
     this.socket.on('New Hap', (res) => {
       console.log(res);
       // dispatch to store

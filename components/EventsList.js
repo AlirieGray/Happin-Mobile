@@ -86,7 +86,7 @@ class EventsList extends Component {
       color: '#FFF'
     },
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       display: 'flex',
       justifyContent: 'space-between',
       paddingTop: 30,
@@ -194,7 +194,7 @@ class EventsList extends Component {
         <CreateEventForm />
         <SearchOptions />
         <View style={styles.header}>
-          <View style={{width:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F44336', elevation: 3}}>
+          <View style={{width:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#4AB169'}}>
             <Searchbar />
           </View>
           <View style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
@@ -227,14 +227,14 @@ const styles = StyleSheet.create({
     minHeight: '100%',
   },
   header: {
-    backgroundColor: "#F44336",
+    backgroundColor: "#4AB169",
     display: 'flex',
     alignItems: 'center'
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafff9'
   },
   empty: {
     padding: 30
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     paddingTop: 30,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#fafff9'
   },
   tab: {
     width: '50%',

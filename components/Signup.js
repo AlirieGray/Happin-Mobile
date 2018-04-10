@@ -28,10 +28,13 @@ class Signup extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Sign Up',
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       paddingTop: 30,
       paddingBottom: 15,
       height: 80
+    },
+    headerTitleStyle: {
+      color: '#FFF'
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });
@@ -65,7 +68,7 @@ class Signup extends Component {
         />
         <Button
           title="Sign Up"
-          color="#F44336"
+          color="#4AB169"
           onPress={() => {
             if (this.state.username && this.state.password) {
               this.props.signupUser(this.state);

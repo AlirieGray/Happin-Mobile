@@ -24,3 +24,4 @@ export function disconnectSocket() {
     dispatch(removeSocketConnection())
   }
 }
+// party, volunteer, help, music, free, food, activism, game, art, social

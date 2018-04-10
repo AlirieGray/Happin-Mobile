@@ -10,7 +10,7 @@ const Left = ({ onPress }) => (
   <TouchableHighlight style={{ padding: 10 }} onPress={() => {
     onPress()
   }}>
-    <Icon name="arrow-back" size={30} />
+    <Icon name="arrow-back" size={30} color={'#FFF'}/>
   </TouchableHighlight>
 );
 
@@ -28,10 +28,13 @@ class Login extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Login',
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       paddingTop: 30,
       paddingBottom: 15,
       height: 80
+    },
+    headerTitleStyle: {
+      color: '#FFF'
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });
@@ -65,7 +68,7 @@ class Login extends Component {
         />
         <Button
           title="Log In"
-          color="#F44336"
+          color="#4AB169"
           onPress={() => {
             if (this.state.username && this.state.password) {
               this.props.loginUser(this.state);

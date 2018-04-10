@@ -24,7 +24,7 @@ const LoginStack = StackNavigator({
   initialRouteName: 'Home',
   navigationOptions: {
     headerStyle: {
-      backgroundColor: '#F44336',
+      backgroundColor: '#4AB169',
       paddingTop: 30,
       paddingBottom: 15,
       height: 80

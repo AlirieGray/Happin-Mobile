@@ -110,61 +110,94 @@ class CreateEventForm extends Component {
                     this.setState({ tags: [...this.state.tags, "Social"]})
                   }
                 }}/>
-              <TextButton title="Environment"
-                color={this.state.tags.includes("Environment") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+              <TextButton title="Party"
+                color={this.state.tags.includes("Party") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
                 onPress={() => {
-                  if (this.state.tags.includes("Environment")) {
+                  if (this.state.tags.includes("Party")) {
                     this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Environment')
+                      tags: this.state.tags.filter(word => word !== 'Party')
                     })
                   } else {
-                    this.setState({ tags: [...this.state.tags, "Environment"]})
+                    this.setState({ tags: [...this.state.tags, "Party"]})
                   }
                 }}/>
-              <TextButton title="Labor"
-                color={this.state.tags.includes("Labor") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                <TextButton title="Free"
+                  color={this.state.tags.includes("Free") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Free")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Free')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Free"]})
+                    }
+                  }}/>
+              <TextButton title="Volunteer"
+                color={this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
                 onPress={() => {
-                  if (this.state.tags.includes("Labor")) {
+                  if (this.state.tags.includes("Volunteer")) {
                     this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Labor')
+                      tags: this.state.tags.filter(word => word !== 'Volunteer')
                     })
                   } else {
-                    this.setState({ tags: [...this.state.tags, "Labor"]})
+                    this.setState({ tags: [...this.state.tags, "Volunteer"]})
                   }
                 }}/>
-              <TextButton title="Global"
-                color={this.state.tags.includes("Global") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+              <TextButton title="Food"
+                color={this.state.tags.includes("Food") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
                 onPress={() => {
-                  if (this.state.tags.includes("Global")) {
+                  if (this.state.tags.includes("Food")) {
                     this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Global')
+                      tags: this.state.tags.filter(word => word !== 'Food')
                     })
                   } else {
-                    this.setState({ tags: [...this.state.tags, "Global"]})
+                    this.setState({ tags: [...this.state.tags, "Food"]})
                   }
                 }}/>
-              <TextButton title="Health"
-                color={this.state.tags.includes("Health") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+              <TextButton title="Activism"
+                color={this.state.tags.includes("Activism") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
                 onPress={() => {
-                  if (this.state.tags.includes("Health")) {
+                  if (this.state.tags.includes("Activism")) {
                     this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Health')
+                      tags: this.state.tags.filter(word => word !== 'Activism')
                     })
                   } else {
-                    this.setState({ tags: [...this.state.tags, "Health"]})
+                    this.setState({ tags: [...this.state.tags, "Activism"]})
                   }
                 }}/>
-              <TextButton title="Political"
-                color={this.state.tags.includes("Political") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Political")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Political')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Political"]})
-                  }
-                }}/>
+                <TextButton title="Music"
+                  color={this.state.tags.includes("Music") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Music")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Music')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Music"]})
+                    }
+                  }}/>
+                <TextButton title="Art"
+                  color={this.state.tags.includes("Art") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Art")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Art')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Art"]})
+                    }
+                  }}/>
+                <TextButton title="Games"
+                  color={this.state.tags.includes("Games") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Games")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Games')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Games"]})
+                    }
+                  }}/>
             </ScrollView>
             <FormLabel> Location </FormLabel>
             <GooglePlacesAutocomplete
