@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import * as eventActions from '../actions/events';
 import * as locationActions from '../actions/location';
 import Map from './Map';
@@ -129,16 +129,35 @@ class EventPage extends Component {
             </View>
         </View>
 
-        <View style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', width: '100%'}}>
-          <TouchableOpacity onPress={() => {
-            console.log("Adding Marker!")
-            this.setState({
-              markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "PIN"}]
-            })
-          }}>
-            <Icon name="add-location" size={30} style={{padding: 10}}/>
-          </TouchableOpacity>
-        </View>
+          <View style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "blue_flag"}]
+              })
+            }}>
+              <Image
+                source={require('../images/blue_flag.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "green_flag"}]
+              })
+            }}>
+              <Image
+                source={require('../images/green_flag.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "red_flag"}]
+              })
+            }}>
+              <Image
+                source={require('../images/red_flag.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+          </View>
 
         <Map
           mapHeight={400}

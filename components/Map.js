@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 
+const red_flag = require('../images/red_flag.png')
+const green_flag = require('../images/green_flag.png')
+const blue_flag = require('../images/blue_flag.png')
+var markerSymbols = {
+  red_flag, green_flag, blue_flag
+}
 
 export default class Map extends Component {
   constructor(props) {
@@ -47,7 +53,7 @@ export default class Map extends Component {
         return <Marker
           key={`marker${index}`}
           coordinate={{latitude: pin.lat, longitude: pin.lng}}
-          title={pin.name} />
+          image={markerSymbols[pin.name]}  />
       })
     }
   }
