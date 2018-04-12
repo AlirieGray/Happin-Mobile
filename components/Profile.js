@@ -24,7 +24,10 @@ class Profile extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'My Events',
     headerTitleStyle: {
-      color: '#FFF'
+      color: '#FFF',
+      textAlign: 'center',
+      width: '90%',
+      fontSize: 20
     },
     headerStyle: {
       backgroundColor: '#4AB169',

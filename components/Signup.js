@@ -34,7 +34,10 @@ class Signup extends Component {
       height: 80
     },
     headerTitleStyle: {
-      color: '#FFF'
+      color: '#FFF',
+      fontSize: 20,
+      textAlign: 'center',
+      width: '80%',
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });

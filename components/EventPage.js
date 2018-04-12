@@ -67,9 +67,9 @@ class EventPage extends Component {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
           <View style={styles.details}>
+            <Text style={styles.detailsText}> Organizer: {organizer} </Text>
             <Text style={styles.detailsText}> {address} </Text>
             <Text style={styles.detailsText}> {dateFormatted} </Text>
-            <Text style={styles.detailsText}> Organizer: {organizer} </Text>
           </View>
           <View style={styles.rsvpContainer}>
             <Text> Attending? </Text>
@@ -154,7 +154,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF'
   },
   detailsText: {
-    color: '#333',
     paddingBottom: 2
   },
   rsvpContainer: {

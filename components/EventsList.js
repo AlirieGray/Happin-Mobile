@@ -77,12 +77,12 @@ class EventsList extends Component {
   }
 
   static navigationOptions = ({navigation}) => ({
-    title: 'Find Events',
+    title: "What's Happining",
     headerTitleStyle: {
       color: '#FFF',
       textAlign: 'center',
-      width: '75%',
-      fontSize: 24
+      width: '90%',
+      fontSize: 20
     },
     headerStyle: {
       backgroundColor: '#4AB169',
