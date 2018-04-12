@@ -37,13 +37,13 @@ class EventCard  extends Component{
           <View>
             <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.detailsText}> {dateFormatted} </Text>
-            </View>
-            <View style={styles.eventDetails}>
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
               <Text style={styles.detailsText}> {distance} miles away </Text>
             </View>
-            <Text style={styles.detailsText}> {attendeeCount} Attending </Text>
+            <View style={styles.eventDetails}>
+              <Text style={styles.detailsText}> {dateFormatted} </Text>
+              <Text style={styles.detailsText}> {attendeeCount} Attending </Text>
+            </View>
             <View style={styles.divider} />
             <View style={styles.tagsContainer}>
               {this.getTags()}

@@ -29,6 +29,7 @@ export default (state = [], action) => {
           address: action.address,
           placeId: action.placeId,
           lat: action.lat,
+          tags: action.tags,
           lng: action.lng,
           description: action.description,
           organizer: action.organizer,
