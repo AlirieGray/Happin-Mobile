@@ -133,7 +133,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "blue_flag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "BlueFlag"}]
               })
             }}>
               <Image
@@ -142,7 +142,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "green_flag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "GreenFlag"}]
               })
             }}>
               <Image
@@ -151,7 +151,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "red_flag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "RedFlag"}]
               })
             }}>
               <Image

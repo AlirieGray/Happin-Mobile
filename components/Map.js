@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Image, View } from 'react-native';
 
-const red_flag = require('../images/red_flag.png')
-const green_flag = require('../images/green_flag.png')
-const blue_flag = require('../images/blue_flag.png')
+const RedFlag =(<Image source={require('../images/red_flag.png')} style={{height: 35, width: 35}}/>)
+const GreenFlag =(<Image source={require('../images/green_flag.png')} style={{height: 35, width: 35}} />)
+const BlueFlag = (<Image source={require('../images/blue_flag.png')} style={{height: 35, width: 35}} />)
 var markerSymbols = {
-  red_flag, green_flag, blue_flag
+  RedFlag, GreenFlag, BlueFlag
 }
 
 export default class Map extends Component {
@@ -52,8 +52,9 @@ export default class Map extends Component {
       return this.props.droppedPins.map((pin, index) => {
         return <Marker
           key={`marker${index}`}
-          coordinate={{latitude: pin.lat, longitude: pin.lng}}
-          image={markerSymbols[pin.name]}  />
+          coordinate={{latitude: pin.lat, longitude: pin.lng}}>
+          {markerSymbols[pin.name]}
+          </Marker>
       })
     }
   }
