@@ -23,7 +23,6 @@ class EventCard  extends Component{
 
   render() {
     const { name, description, organizer, address, attendeeCount, distance, dateFormatted } = this.props;
-    console.log("formatted date: ", dateFormatted)
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);

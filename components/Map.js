@@ -9,6 +9,7 @@ export default class Map extends Component {
 
     this.map = null;
     this.handleRef = this.handleRef.bind(this);
+    this.getEventMarkers = this.getEventMarkers.bind(this);
     this.getMarkers = this.getMarkers.bind(this);
   }
 
@@ -29,10 +30,24 @@ export default class Map extends Component {
     })
   }
 
-  getMarkers() {
+  getEventMarkers() {
     if (this.props.events) {
       return this.props.events.map((event) => {
-        return <Marker key={event._id} coordinate={{latitude:event.lat, longitude:event.lng}} title={event.name}/>
+        return <Marker
+          key={event._id}
+          coordinate={{latitude:event.lat, longitude:event.lng}}
+          title={event.name} />
+      })
+    }
+  }
+
+  getMarkers() {
+    if (this.props.droppedPins) {
+      return this.props.droppedPins.map((pin, index) => {
+        return <Marker
+          key={`marker${index}`}
+          coordinate={{latitude: pin.lat, longitude: pin.lng}}
+          title={pin.name} />
       })
     }
   }
@@ -59,6 +74,7 @@ export default class Map extends Component {
         showsMyLocationButton={true}
         initialRegion={this.props.initialRegion}>
         {eventMarker}
+        {this.getEventMarkers()}
         {this.getMarkers()}
       </MapView>
     );

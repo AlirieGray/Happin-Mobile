@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
-import * as Actions from '../actions/events';
+import * as eventActions from '../actions/events';
+import * as locationActions from '../actions/location';
 import Map from './Map';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TextButton } from 'react-native-material-buttons';
@@ -36,12 +37,29 @@ class EventPage extends Component {
     this.state  = {
       markers: [],
       attending: false,
-      seeFullDescription: false
+      seeFullDescription: false,
+      gotLocation: false,
+      latitude: this.props.latitude,
+      longitude: this.props.longitude
     }
   }
 
   componentDidMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("USER POSITION IN EVENT PAGE", position)
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          gotLocation: true
+        })
+        this.props.setLocation(position.coords)
+      },
+      (error) => console.log( error.message ),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -111,8 +129,20 @@ class EventPage extends Component {
             </View>
         </View>
 
+        <View style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start', width: '100%'}}>
+          <TouchableOpacity onPress={() => {
+            console.log("Adding Marker!")
+            this.setState({
+              markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "PIN"}]
+            })
+          }}>
+            <Icon name="add-location" size={30} style={{padding: 10}}/>
+          </TouchableOpacity>
+        </View>
+
         <Map
           mapHeight={400}
+          droppedPins={this.state.markers}
           initialRegion={{
             latitude: this.props.navigation.state.params.lat,
             longitude: this.props.navigation.state.params.lng,
@@ -184,12 +214,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    currentEvent: state.currentEvent
+    currentEvent: state.currentEvent,
+    location: state.location
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Object.assign({}, eventActions, locationActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventPage);

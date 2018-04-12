@@ -4,5 +4,5 @@ const serverPaths = {
 }
 
 //const serverPath = (process.env.NODE_ENV === 'development') ? serverPaths.dev : serverPaths.prod;
-const serverPath = serverPaths.prod;
+const serverPath = serverPaths.dev;
 export default serverPath;

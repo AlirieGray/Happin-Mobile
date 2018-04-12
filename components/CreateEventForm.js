@@ -62,9 +62,15 @@ class CreateEventForm extends Component {
               </TouchableOpacity>
             </View>
             <FormLabel> Name </FormLabel>
-            <FormInput inputStyle={styles.input} containerStyle={styles.inputContainer} onChangeText={this.updateEventName}/>
+            <FormInput inputStyle={styles.input}
+              containerStyle={styles.inputContainer}
+              onChangeText={this.updateEventName}
+              underlineColorAndroid={'#4AB169'}/>
             <FormLabel> Description </FormLabel>
-            <FormInput multiline inputStyle={styles.input} containerStyle={styles.descriptionContainer} onChangeText={this.updateEventDescription}/>
+            <FormInput multiline
+              inputStyle={styles.input}
+              containerStyle={styles.descriptionContainer}
+              onChangeText={this.updateEventDescription} underlineColorAndroid={'#4AB169'}/>
             <DatePicker
               style={{width: 200}}
               date={this.state.date}
@@ -292,15 +298,16 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingLeft: 10,
-    width: 295
+    width: 295,
+    marginBottom: 10,
   },
   inputContainer: {
     marginBottom: 15,
-    width: 300
+    width: 300,
   },
   descriptionContainer: {
     marginBottom: 35,
-    width: 300
+    width: 300,
   },
   submitButtonStyle: {
     margin: 20
@@ -311,7 +318,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end'
   },
   tagsContainer: {
-    backgroundColor: 'blue'
   }
 });
 

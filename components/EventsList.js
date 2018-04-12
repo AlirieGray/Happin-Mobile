@@ -179,7 +179,7 @@ class EventsList extends Component {
           {events.map((event, index) => {
             // calculate distance from user's location
             var distance = this.getDistanceToEvent(event.lat, event.lng, this.state.latitude, this.state.longitude);
-            return <EventCard key={event._id} {...event} distance={distance} {...this.props}  />
+            return <EventCard key={event._id} {...event} distance={distance} latitude={this.state.latitude} longitude={this.state.longitude} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>
