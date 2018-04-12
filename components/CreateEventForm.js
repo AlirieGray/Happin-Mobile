@@ -17,8 +17,8 @@ class CreateEventForm extends Component {
     super(props);
     this.state = {
       name: '',
-      date: '',
-      time: '',
+      date: '2018-04-12',
+      time: '10:00',
       lat: 0,
       lng: 0,
       placeId: '',
@@ -269,7 +269,7 @@ class CreateEventForm extends Component {
                     loc: [this.state.lng, this.state.lat],
                     placeId: this.state.placeId,
                     address: this.state.address,
-                    date: this.state.date + "T" + this.state.time,
+                    dateTime: this.state.date + "T" + this.state.time,
                     tags: this.state.tags,
                     organizer: this.props.auth.username,
                     organizerId: this.props.auth.userId }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, Image, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import * as eventActions from '../actions/events';
 import * as locationActions from '../actions/location';
+import * as socketActions from '../actions/socket';
 import Map from './Map';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TextButton } from 'react-native-material-buttons';
@@ -49,7 +50,6 @@ class EventPage extends Component {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("USER POSITION IN EVENT PAGE", position)
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -93,12 +93,14 @@ class EventPage extends Component {
             <Text> Attending? </Text>
               <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
               onPress={() => {
+                this.props.joinHapSocket(this.props.socket.socket, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: true
                 })
               }}/>
               <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
               onPress={() => {
+                this.props.leaveHapSocket(this.props.socket.socekt, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: false
                 })
@@ -234,12 +236,13 @@ const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     currentEvent: state.currentEvent,
-    location: state.location
+    location: state.location,
+    socket: state.socket
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(Object.assign({}, eventActions, locationActions), dispatch);
+  return bindActionCreators(Object.assign({}, eventActions, locationActions, socketActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventPage);
