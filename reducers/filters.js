@@ -7,7 +7,7 @@ import {
 
 const filterDefaults = {
   text: '',
-  sortBy: 'date',
+  sortBy: 'distance',
   startDate: undefined,
   endDate: undefined
 };

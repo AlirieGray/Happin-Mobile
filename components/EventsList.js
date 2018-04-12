@@ -43,7 +43,7 @@ class EventsList extends Component {
     this.TestGetToken = this.TestGetToken.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getEvents();
     this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
     navigator.geolocation.getCurrentPosition(
@@ -60,10 +60,6 @@ class EventsList extends Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
     //this.TestGetToken();
-  }
-
-  componentDidMount() {
-
   }
 
 

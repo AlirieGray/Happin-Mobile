@@ -19,8 +19,7 @@ export const requestAddEvent = () => ({
 
 export const receiveAddEvent = ({name, _id, date, address, placeId, organizer, description, dateFormatted, lat, lng, attendeeCount, tags}) =>({
   type: ADD_EVENT_SUCCESS,
-  id: _id,
-  date, name,
+  _id, date, name,
   address, placeId,
   organizer, description,
   dateFormatted, lat, lng,

@@ -40,7 +40,7 @@ class EventPage extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getEventById(this.props.navigation.state.params.id);
   }
 
