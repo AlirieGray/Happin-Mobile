@@ -14,7 +14,8 @@ export const receiveSignUp = (userDetails) => ({
   isAuthenticated: true,
   isFetching: false,
   userId: userDetails.userId,
-  token: userDetails.token
+  token: userDetails.token,
+  username: userDetails.username
 })
 
 export const signUpError = (message) => ({
@@ -36,7 +37,8 @@ export const receiveLogin = (userDetails) => ({
   isFetching: false,
   isAuthenticated: true,
   userId: userDetails.userId,
-  token: userDetails.token
+  token: userDetails.token,
+  username: userDetails.username
 })
 
 export const loginError = (message) => ({
@@ -69,8 +71,9 @@ export function signupUser(creds) {
       }
       return res.json();
     }).then( async (json) => {
-      dispatch(receiveSignUp({userId: json.userId, token: json.token}));
-
+      console.log("SENDING USERNAME TO REDUX", creds.username)
+      console.log("SENDING ID TO REDUX", json.userId);
+      dispatch(receiveSignUp({userId: json.userId, token: json.token, username: creds.username}));
       try {
         console.log("saving token!")
         await AsyncStorage.setItem('token', json.token);
@@ -110,8 +113,9 @@ export function loginUser(creds) {
       return res.json();
     }).then(async (json) => {
         console.log("logged in!")
-        dispatch(receiveLogin({userId: json.userId, token: json.token}));
-
+        console.log("SENDING USERNAME TO REDUX", creds.username)
+        console.log("SENDING ID TO REDUX", json.userId)
+        dispatch(receiveLogin({userId: json.userId, token: json.token, username: creds.username}));
         try {
           await AsyncStorage.setItem('token', json.token);
         } catch (error) {

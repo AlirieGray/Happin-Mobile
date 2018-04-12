@@ -43,6 +43,8 @@ class CreateEventForm extends Component {
     //console.log(this.props)
     //console.log("Props socket reducer: ", this.props.socket)
     //console.log("Props socket socket: ", this.props.socket.socket)
+    console.log("GOT USERNAME", this.props.auth.username)
+    console.log("GOT USERID", this.props.auth.userId)
     return(
         <Modal
         transparent={false}
@@ -94,7 +96,7 @@ class CreateEventForm extends Component {
               minuteInterval={10}
               iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
               onDateChange={(time) => {
-                this.setState( {time: time})
+                this.setState( { time })
               }}
             />
             <FormLabel> Tags </FormLabel>
@@ -263,7 +265,8 @@ class CreateEventForm extends Component {
                     address: this.state.address,
                     date: this.state.date + "T" + this.state.time,
                     tags: this.state.tags,
-                    userId: this.props.auth.userId }
+                    organizer: this.props.auth.username,
+                    organizerId: this.props.auth.userId }
                   this.props.createNewHapSocket(this.props.socket.socket, newHap)
                   //this.props.addEvent(newHap);
                   this.props.setCreateEventModal(false);

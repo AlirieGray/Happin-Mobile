@@ -24,6 +24,7 @@ export default (state = [], action) => {
         {
           _id: action._id,
           date: action.date,
+          dateFormatted: action.dateFormatted,
           name: action.name,
           address: action.address,
           placeId: action.placeId,

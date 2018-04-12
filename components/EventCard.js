@@ -38,6 +38,8 @@ class EventCard  extends Component{
             <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
               <Text style={styles.detailsText}> {dateFormatted} </Text>
+            </View>
+            <View style={styles.eventDetails}>
               <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
               <Text style={styles.detailsText}> {distance} miles away </Text>
             </View>
@@ -66,6 +68,7 @@ const styles = StyleSheet.create({
   eventDetails: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 2,
     marginTop: 2
   },

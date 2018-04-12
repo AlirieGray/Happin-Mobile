@@ -31,6 +31,9 @@ class App extends Component {
       // dispatch to store
       this.props.addHap(res.hap)
     })
+    this.socket.on('Error', (res) => {
+      console.log(res);
+    })
   }
 
   componentWillUnount() {

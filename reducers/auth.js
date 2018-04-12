@@ -24,6 +24,7 @@ export default (state = authDefaultState, action) => {
         isFetching: action.isFetching,
         isAuthenticated: action.isAuthenticated,
         userId: action.userId,
+        username: action.username,
         token: action.token,
         errorMessage: ''
       }
@@ -42,11 +43,13 @@ export default (state = authDefaultState, action) => {
         errorMessage: ''
       }
     case 'LOGIN_SUCCESS':
+      console.log("ACTION", action. userId)
       return {
         ...state,
         isFetching: action.isFetching,
         isAuthenticated: action.isAuthenticated,
         userId: action.userId,
+        username: action.username,
         token: action.token,
         errorMessage: ''
       }
