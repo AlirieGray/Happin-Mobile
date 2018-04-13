@@ -1,6 +1,5 @@
 import {
-  GET_CREATED_EVENTS_SUCCESS,
-  GET_ATTENDING_EVENTS_SUCCESS,
+  GET_USER_EVENTS_SUCCESS,
   REQUEST_USER_EVENTS } from '../actions/events';
 
 export default (state = {attending: [], created: [], isFetching: true}, action) => {
@@ -10,17 +9,12 @@ export default (state = {attending: [], created: [], isFetching: true}, action) 
         ...state,
         isFetching: true
       }
-    case GET_CREATED_EVENTS_SUCCESS:
+    case GET_USER_EVENTS_SUCCESS:
       return {
         ...state,
         isFetching: action.isFetching,
-        created: [...action.events]
-      }
-    case GET_ATTENDING_EVENTS_SUCCESS:
-      return {
-        ...state,
-        isFetching: action.isFetching,
-        attending: [...action.events]
+        created: [...action.created],
+        attending: [...action.attending]
       }
     default:
       return state;

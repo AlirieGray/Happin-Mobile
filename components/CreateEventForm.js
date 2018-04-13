@@ -17,8 +17,8 @@ class CreateEventForm extends Component {
     super(props);
     this.state = {
       name: '',
-      date: '2018-04-12',
-      time: '10:00',
+      date: '04/12/2018',
+      time: '10:00 am',
       lat: 0,
       lng: 0,
       placeId: '',
@@ -76,9 +76,9 @@ class CreateEventForm extends Component {
               date={this.state.date}
               mode="date"
               placeholder="Select date"
-              format="YYYY-MM-DD"
-              minDate="2018-01-01"
-              maxDate="2070-01-01"
+              format="MM/DD/YYYY"
+              minDate="01/01/2018"
+              maxDate="01/01/2070"
               confirmBtnText="Confirm"
               iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
               customStyles={{
@@ -95,13 +95,14 @@ class CreateEventForm extends Component {
               style={{width: 200, marginBottom: 25}}
               date={this.state.time}
               mode="time"
-              format="HH:mm"
+              format="HH:MM a"
               is24Hour={false}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               minuteInterval={10}
               iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
               onDateChange={(time) => {
+                console.log(time)
                 this.setState( { time })
               }}
             />
@@ -260,7 +261,7 @@ class CreateEventForm extends Component {
             />
             <View style={styles.submitButtonStyle}>
               <Button title="Create" color={'#4AB169'} onPress={() => {
-                if (this.state.name && this.state.address && this.state.date) {
+                if (this.state.name && this.state.address && this.state.date && this.state.time) {
                   var newHap = {
                     name: this.state.name,
                     description: this.state.description,
@@ -269,7 +270,8 @@ class CreateEventForm extends Component {
                     loc: [this.state.lng, this.state.lat],
                     placeId: this.state.placeId,
                     address: this.state.address,
-                    dateTime: this.state.date + "T" + this.state.time,
+                    date: this.state.date,
+                    time: this.state.time,
                     tags: this.state.tags,
                     organizer: this.props.auth.username,
                     organizerId: this.props.auth.userId }
@@ -294,7 +296,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#fafff9',
-    paddingTop: 60
+    paddingTop: 20
   },
   input: {
     paddingLeft: 10,
@@ -315,7 +317,9 @@ const styles = StyleSheet.create({
   closeButtonStyle: {
     display: 'flex',
     width: 300,
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    paddingTop: 10,
+    marginTop: 15
   },
   tagsContainer: {
   }

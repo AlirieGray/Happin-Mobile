@@ -10,8 +10,7 @@ export const GET_EVENTS_FAILURE = 'GET_EVENTS_FAILURE';
 export const REQUEST_GET_EVENT_BY_ID = 'REQUEST_GET_EVENT_BY_ID';
 export const GET_EVENT_BY_ID_SUCCESS = 'GET_EVENT_BY_ID_SUCCESS';
 export const REQUEST_USER_EVENTS = 'REQUEST_USER_EVENTS';
-export const GET_ATTENDING_EVENTS_SUCCESS = 'GET_ATTENDING_EVENTS_SUCCESS';
-export const GET_CREATED_EVENTS_SUCCESS = 'GET_CREATED_EVENTS_SUCCESS';
+export const GET_USER_EVENTS_SUCCESS = 'GET_USER_EVENTS_SUCCESS';
 
 export const requestAddEvent = () => ({
   type: REQUEST_GET_EVENTS,
@@ -64,19 +63,14 @@ export const getEventsError = (message) => ({
   message
 })
 
-export const requestCreatedEvents = () => ({
+export const requestUserEvents = () => ({
   type: REQUEST_USER_EVENTS,
   isFetching: true,
 })
 
-export const receiveCreatedEvents = (events) => ({
-  type: GET_CREATED_EVENTS_SUCCESS,
-  events
-})
-
-export const receiveAttendingEvents = (events) => ({
-  type: GET_ATTENDING_EVENTS_SUCCESS,
-  events
+export const receiveUserEvents = (created, attending) => ({
+  type: GET_USER_EVENTS_SUCCESS,
+  created, attending
 })
 
 export const requestGetEventById = (id) => ({
@@ -151,15 +145,17 @@ export function getUserEvents(userId) {
 
   return dispatch => {
     dispatch(requestUserEvents());
-
+    console.log("REQUESTING USER EVENTS")
     return fetch(`${serverPath}/users/${userId}/events`, config).then((res) => {
       if (res.status !== 200) {
         dispatch(getEventsError("Error: Could not fetch events for this user from database: " + res.message));
         return Promise.reject("Error: Could not fetch events for this user from database")
       }
       return res.json();
-    }).then(({ events }) => {
-        dispatch(receiveUserEvents(events));
+    }).then(({ created, attending }) => {
+        console.log("created: ", created)
+        console.log("attending: ", attending)
+        dispatch(receiveUserEvents(created, attending));
     }).catch(err => console.log(err))
   }
 }

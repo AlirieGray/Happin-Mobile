@@ -22,7 +22,11 @@ class EventCard  extends Component{
   }
 
   render() {
-    const { name, description, organizer, address, attendeeCount, distance, dateFormatted } = this.props;
+    const { name, description, organizer, address, attendeeCount, distance } = this.props;
+    var dateFormatted = this.props.dateFormatted;
+    if (dateFormatted[0] == '0') {
+      dateFormatted = dateFormatted.slice(1)
+    }
     const id = this.props._id;
     const lat = parseFloat(this.props.lat);
     const lng = parseFloat(this.props.lng);
@@ -34,14 +38,13 @@ class EventCard  extends Component{
           navigate("EventPage", {id, lat, lng, name} )
         }} >
           <View>
-            <Text style={{fontSize: 22, fontWeight:'bold'}}> {name} </Text>
+            <Text style={{fontSize: 18, fontWeight:'bold'}}> {name} </Text>
             <View style={styles.eventDetails}>
-              <Text style={styles.detailsText}> {address.split(',')[0]} </Text>
+              <Text style={styles.organizer}> {organizer} </Text>
               <Text style={styles.detailsText}> {distance} miles away </Text>
             </View>
-            <View style={styles.eventDetails}>
+            <View style={{display: 'flex', alignItems: 'flex-end'}}>
               <Text style={styles.detailsText}> {dateFormatted} </Text>
-              <Text style={styles.detailsText}> {attendeeCount} Attending </Text>
             </View>
             <View style={styles.divider} />
             <View style={styles.tagsContainer}>
@@ -105,7 +108,11 @@ const styles = StyleSheet.create({
   detailsText: {
     fontSize: 14,
     color: '#333',
-    paddingLeft: 5
+  },
+  organizer: {
+    fontSize: 14,
+    color: '#4AB169',
+    paddingLeft: 2
   }
 
 });

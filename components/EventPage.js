@@ -78,8 +78,17 @@ class EventPage extends Component {
   });
 
   render() {
-    const { name, address, description, organizer, dateFormatted } = this.props.currentEvent;
-    console.log("raw date: ", this.props.currentEvent.date)
+    const { name, address, description, organizer } = this.props.currentEvent;
+    var dateFormatted = this.props.currentEvent.dateFormatted;
+    if (dateFormatted) {
+      if (dateFormatted[0] == '0') {
+          dateFormatted = dateFormatted.slice(1)
+      }
+      var splitDate = dateFormatted.split('/');
+      if (splitDate[1][0] == '0') {
+        dateFormatted = splitDate[0]  + '/' + splitDate[1][1] + '/' + splitDate[2];
+      }
+    }
 
     return(
       <ScrollView contentContainerStyle={styles.contentContainer}>

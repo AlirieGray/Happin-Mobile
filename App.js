@@ -22,7 +22,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    //console.ignoredYellowBox = ['Setting a timer'];
+    console.ignoredYellowBox = ['Setting a timer'];
     this.socket = io(`${serverPath}`);
     this.props.connectSocket(this.socket);
 

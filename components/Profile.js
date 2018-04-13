@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import * as Actions from '../actions/events';
+import * as eventActions from '../actions/events';
+import * as modalActions from '../actions/modal';
 import EventCard from './EventCard';
 
 
@@ -16,7 +17,8 @@ class Profile extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    console.log(this.props)
     this.props.getUserEvents(this.props.auth.userId);
     this.props.navigation.setParams({ setCreateEventModal: this.props.setCreateEventModal });
   }
@@ -58,31 +60,40 @@ class Profile extends Component {
   });
 
   render() {
-    const events = this.props.userEvents;
+    const created = this.props.userEvents.created;
+    const attending = this.props.userEvents.attending;
+    var haps = null;
+    if (this.state.isHosting) {
+      {haps = created.map((event, index) => {
+        return <EventCard key={event._id} {...event} {...this.props}  />
+      })}
+    } else {
+      {haps = attending.map((event, index) => {
+        return <EventCard key={event._id} {...event} {...this.props}  />
+      })}
+    }
     return(
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.tab}
             onPress={() => {
-              console.log('My event')
+              this.setState({isHosting: true})
             }}>
-            <Text style={{color:this.state.isHosting ? 'rgba(255,255,255,.65)' : 'rgba(255,255,255,1)'}}> Hosting </Text>
+            <Text style={{color:this.state.isHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Hosting </Text>
           </TouchableOpacity>
           <View  style={styles.divider}/>
           <TouchableOpacity
             style={styles.tab}
             onPress={() => {
-              console.log('Attending....')
+              this.setState({isHosting: false})
             }}>
-            <Text style={{color:!this.state.isHosting ? 'rgba(255,255,255,.65)' : 'rgba(255,255,255,1)'}}> Attending </Text>
+            <Text style={{color:!this.state.isHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Attending </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.container}>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            {events.map((event, index) => {
-              return <EventCard key={event._id} {...event} {...this.props}  />
-            })}
+            {haps}
             <View style={styles.empty} />
           </ScrollView>
         </View>
@@ -136,12 +147,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     userEvents: state.userEvents,
-    auth: state.auth
+    auth: state.auth,
+    modal: state.modal
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Object.assign({}, eventActions, modalActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

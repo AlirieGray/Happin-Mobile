@@ -112,20 +112,6 @@ class EventsList extends Component {
     </TouchableOpacity>
   });
 
-  // getDistanceToEvent(lat, lng) {
-  //   var lat1 = Math.PI * lat / 180;
-  //   var lng1 = Math.PI * lat / 180;
-  //   var lat2 = Math.PI * this.state.latitude / 180;
-  //   var lng2 = Math.PI * this.state.longitude / 180;
-  //
-  //   var theta = Math.PI * (lng1 - lng2) / 180;
-  //   var distance = Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(theta)
-  //   distance = Math.acos(distance);
-  //   distance = distance * 180/Math.PI;
-  //   distance = distance * 60 * 1.1515;
-  //   return Math.round(distance * 10) / 10;
-  // }
-
   getDistanceToEvent(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
@@ -159,7 +145,6 @@ class EventsList extends Component {
 
   }
 
-  //<SortButtons mapView={this.state.mapView} mapStyle={mapStyle} toggleView={this.toggleView}/>
   render() {
     const events = this.props.events;
     console.log("Location in events list: ", this.props.location)
