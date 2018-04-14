@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/auth';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Left = ({ onPress }) => (
-  <TouchableHighlight style={{ padding: 10 }} onPress={() => {
+  <TouchableOpacity style={{ padding: 10 }} onPress={() => {
     onPress()
   }}>
     <Icon name="arrow-back" size={30} color={'#FFF'}/>
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 class Signup extends Component {
