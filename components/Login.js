@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableHighlight } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
+import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableHighlight, Image } from 'react-native';
+import { FormLabel, FormInput, Input, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/auth';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-const Left = ({ onPress }) => (
-  <TouchableHighlight style={{ padding: 10 }} onPress={() => {
-    onPress()
-  }}>
-    <Icon name="arrow-back" size={30} color={'#FFF'}/>
-  </TouchableHighlight>
-);
 
 class Login extends Component {
   constructor(props) {
@@ -26,20 +18,12 @@ class Login extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Login',
     headerStyle: {
       backgroundColor: '#4AB169',
       paddingTop: 30,
       paddingBottom: 15,
       height: 80
-    },
-    headerTitleStyle: {
-      color: '#FFF',
-      fontSize: 20,
-      textAlign: 'center',
-      width: '80%',
-    },
-    headerLeft: <Left onPress={navigation.goBack} />
+    }
   });
 
   updateUsername(txt) {
@@ -57,16 +41,17 @@ class Login extends Component {
           {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
         </View>
         <Text> {this.props.auth.errorMessage } </Text>
-        <FormLabel> Username </FormLabel>
+        <Image source={require('../images/light.png')} />
         <FormInput
           inputStyle={styles.input}
           containerStyle={styles.inputContainer}
+          placeholder={'Username'}
           onChangeText={this.updateUsername}
           underlineColorAndroid={'#4AB169'}
         />
-        <FormLabel> Password </FormLabel>
         <FormInput inputStyle={styles.input}
           containerStyle={styles.inputContainer}
+          placeholder={'Password'}
           onChangeText={this.updatePassword}
           secureTextEntry={true}
           underlineColorAndroid={'#4AB169'}
@@ -82,6 +67,16 @@ class Login extends Component {
             }
           }}
         />
+        <View>
+          <Text> Don't have an account? </Text>
+          <Button
+            title="Sign Up"
+            color="#4AB169"
+            onPress={() => {
+              this.props.navToSignup();
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -91,7 +86,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fafff9'
+    backgroundColor: '#fbfffc'
   },
   input: {
     paddingLeft: 10,

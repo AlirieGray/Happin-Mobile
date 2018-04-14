@@ -10,9 +10,6 @@ import Profile from '../components/Profile';
 import CreateEventForm from '../components/CreateEventForm';
 
 const LoginStack = StackNavigator({
-  Home: {
-    screen: Home
-  },
   Login: {
     screen: Login
   },
@@ -21,7 +18,7 @@ const LoginStack = StackNavigator({
   }
 }, {
   headerMode: 'screen',
-  initialRouteName: 'Home',
+  initialRouteName: 'Login',
   navigationOptions: {
     headerStyle: {
       backgroundColor: '#4AB169',

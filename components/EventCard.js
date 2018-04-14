@@ -55,7 +55,6 @@ class EventCard  extends Component{
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({

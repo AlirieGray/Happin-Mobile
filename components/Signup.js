@@ -26,7 +26,6 @@ class Signup extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Sign Up',
     headerStyle: {
       backgroundColor: '#4AB169',
       paddingTop: 30,
@@ -57,16 +56,16 @@ class Signup extends Component {
           {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
         </View>
         <Text> {this.props.auth.errorMessage } </Text>
-        <FormLabel> Username </FormLabel>
         <FormInput
           inputStyle={styles.input}
           containerStyle={styles.inputContainer}
+          placeholder={'Username'}
           onChangeText={this.updateUsername}
           underlineColorAndroid={'#4AB169'}
         />
-        <FormLabel> Password </FormLabel>
         <FormInput inputStyle={styles.input}
           containerStyle={styles.inputContainer}
+          placeholder={'Password'}
           onChangeText={this.updatePassword}
           secureTextEntry={true}
           underlineColorAndroid={'#4AB169'}
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fafff9'
+    backgroundColor: '#fbfffc'
   },
   input: {
     paddingLeft: 10,
