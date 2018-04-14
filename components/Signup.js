@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
+import { RaisedTextButton } from 'react-native-material-buttons';
+import Toast, {DURATION} from 'react-native-easy-toast';
 import * as Actions from '../actions/auth';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -70,14 +72,25 @@ class Signup extends Component {
           secureTextEntry={true}
           underlineColorAndroid={'#4AB169'}
         />
-        <Button
-          title="Sign Up"
+        <Toast
+          ref="toast"
+          style={{backgroundColor:'#777', borderRadius: 20}}
+          position='bottom'
+          positionValue={250}
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={1}
+          textStyle={{color:'white'}}
+        />
+        <RaisedTextButton
+          title={"Sign Up"}
+          titleColor={"rgb(255,255,255)"}
           color="#4AB169"
           onPress={() => {
             if (this.state.username && this.state.password) {
-              this.props.signupUser(this.state);
+              this.props.loginUser(this.state);
             } else {
-              console.log('missing a required field');
+              this.refs.toast.show('Missing a required field', 500)
             }
           }}
         />

@@ -59,23 +59,32 @@ class Login extends Component {
             secureTextEntry={true}
             underlineColorAndroid={'#4AB169'}
           />
-          <Toast ref="loginError" position={'bottom'}/>
+          <Toast
+            ref="toast"
+            style={{backgroundColor:'#777', borderRadius: 20}}
+            position='bottom'
+            positionValue={250}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={1}
+            textStyle={{color:'white'}}
+          />
           <RaisedTextButton
             title={"Log In"}
             titleColor={"rgb(255,255,255)"}
             color="#4AB169"
             onPress={() => {
-              if (this.state.username && this.state.password) {
+              if (this.state.username !== "" && this.state.password !== "") {
                 this.props.loginUser(this.state);
               } else {
-                this.refs.loginError.show('Missing a required field', 500)
+                this.refs.toast.show('Missing a required field', 500)
               }
             }}
           />
         </View>
         <View>
           <TouchableOpacity onPress={this.props.navToSignup}>
-            <Text> Don't have an account? Sign Up </Text>
+            <Text style={{color: '#333'}}> Don't have an account? Sign Up </Text>
             </TouchableOpacity>
         </View>
       </View>
