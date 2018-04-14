@@ -44,7 +44,7 @@ class Login extends Component {
             {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
           </View>
           <Text> {this.props.auth.errorMessage } </Text>
-          <Image source={require('../images/light.png')} />
+          <Image source={require('../images/light.png')} style={{marginBottom: 20}}/>
           <FormInput
             inputStyle={styles.input}
             containerStyle={styles.inputContainer}

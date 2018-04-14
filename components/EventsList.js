@@ -221,7 +221,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafff9'
   },
   empty: {
-    padding: 30
+    padding: 30,
+    margin: 50
   },
   navHeaderButton: {
     padding: 20

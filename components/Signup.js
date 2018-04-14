@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, TouchableOpacity, Image } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { RaisedTextButton } from 'react-native-material-buttons';
@@ -58,6 +58,7 @@ class Signup extends Component {
           {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
         </View>
         <Text> {this.props.auth.errorMessage } </Text>
+        <Image source={require('../images/light.png')} style={{marginBottom: 20}}/>
         <FormInput
           inputStyle={styles.input}
           containerStyle={styles.inputContainer}
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fbfffc'
+    backgroundColor: '#fbfffc',
   },
   input: {
     paddingLeft: 10,
