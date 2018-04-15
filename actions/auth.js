@@ -71,8 +71,6 @@ export function signupUser(creds) {
       }
       return res.json();
     }).then( async (json) => {
-      console.log("SENDING USERNAME TO REDUX", creds.username)
-      console.log("SENDING ID TO REDUX", json.userId);
       dispatch(receiveSignUp({userId: json.userId, token: json.token, username: creds.username}));
       try {
         console.log("saving token!")

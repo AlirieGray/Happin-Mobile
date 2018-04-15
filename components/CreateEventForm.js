@@ -348,7 +348,7 @@ class CreateEventForm extends Component {
                 textStyle={{color:'white'}}
               />
               <View style={styles.submitButtonStyle}>
-                <TouchableOpacity title="Create"
+                <RaisedTextButton title="Create"
                   color={'#4AB169'}
                   titleColor={"rgb(255,255,255)"} onPress={() => {
                   if (this.state.name && this.state.address && this.state.date && this.state.time) {

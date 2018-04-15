@@ -90,7 +90,7 @@ class Signup extends Component {
           color="#4AB169"
           onPress={() => {
             if (this.state.username && this.state.password) {
-              this.props.loginUser(this.state);
+              this.props.signupUser(this.state);
             } else {
               this.refs.toast.show('Missing a required field', 500)
             }

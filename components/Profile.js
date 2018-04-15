@@ -64,7 +64,7 @@ class Profile extends Component {
     const created = this.props.userEvents.created;
     const attending = this.props.userEvents.attending;
     var haps = null;
-    if (this.state.isHosting) {
+    if (this.state.showHosting) {
       {haps = created.map((event, index) => {
         return <EventCard key={event._id} {...event} {...this.props}  />
       })}
@@ -79,17 +79,17 @@ class Profile extends Component {
           <TouchableOpacity
             style={styles.tab}
             onPress={() => {
-              this.setState({isHosting: true})
+              this.setState({showHosting: true})
             }}>
-            <Text style={{color:this.state.isHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Hosting </Text>
+            <Text style={{color:this.state.showHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Hosting </Text>
           </TouchableOpacity>
           <View  style={styles.divider}/>
           <TouchableOpacity
             style={styles.tab}
             onPress={() => {
-              this.setState({isHosting: false})
+              this.setState({showHosting: false})
             }}>
-            <Text style={{color:!this.state.isHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Attending </Text>
+            <Text style={{color:!this.state.showHosting ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,.65)'}}> Attending </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.container}>
