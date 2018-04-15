@@ -41,11 +41,6 @@ class CreateEventForm extends Component {
 
 
   render() {
-    //console.log(this.props)
-    //console.log("Props socket reducer: ", this.props.socket)
-    //console.log("Props socket socket: ", this.props.socket.socket)
-    console.log("GOT USERNAME", this.props.auth.username)
-    console.log("GOT USERID", this.props.auth.userId)
     return(
         <Modal
         transparent={true}
@@ -115,7 +110,7 @@ class CreateEventForm extends Component {
                     borderRadius: 10,
                     margin: 2,
                     backgroundColor:
-                    this.state.tags.includes("Social") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      this.state.tags.includes("Social") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 3,
                   }}
@@ -135,7 +130,7 @@ class CreateEventForm extends Component {
                     borderRadius: 10,
                     margin: 2,
                     backgroundColor:
-                    this.state.tags.includes("Party") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      this.state.tags.includes("Party") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 3,
                   }}
@@ -155,7 +150,7 @@ class CreateEventForm extends Component {
                       borderRadius: 10,
                       margin: 2,
                       backgroundColor:
-                      this.state.tags.includes("Free") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                        this.state.tags.includes("Free") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       padding: 3,
                     }}
@@ -175,7 +170,7 @@ class CreateEventForm extends Component {
                     borderRadius: 10,
                     margin: 2,
                     backgroundColor:
-                    this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 3,
                   }}
@@ -195,7 +190,7 @@ class CreateEventForm extends Component {
                     borderRadius: 10,
                     margin: 2,
                     backgroundColor:
-                    this.state.tags.includes("Food") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      this.state.tags.includes("Food") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 3,
                   }}
@@ -215,7 +210,7 @@ class CreateEventForm extends Component {
                     borderRadius: 10,
                     margin: 2,
                     backgroundColor:
-                    this.state.tags.includes("Activism") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      this.state.tags.includes("Activism") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 3,
                   }}
@@ -235,7 +230,7 @@ class CreateEventForm extends Component {
                       borderRadius: 10,
                       margin: 2,
                       backgroundColor:
-                      this.state.tags.includes("Music") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                        this.state.tags.includes("Music") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       padding: 3,
                     }}
@@ -255,7 +250,7 @@ class CreateEventForm extends Component {
                       borderRadius: 10,
                       margin: 2,
                       backgroundColor:
-                      this.state.tags.includes("Art") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                        this.state.tags.includes("Art") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       padding: 3,
                     }}
@@ -275,7 +270,7 @@ class CreateEventForm extends Component {
                       borderRadius: 10,
                       margin: 2,
                       backgroundColor:
-                      this.state.tags.includes("Games") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                        this.state.tags.includes("Games") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       padding: 3,
                     }}

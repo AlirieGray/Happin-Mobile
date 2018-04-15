@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
 import EventCard from './EventCard';
+import CreateEventForm from './CreateEventForm';
 
 
 class Profile extends Component {
@@ -92,6 +93,7 @@ class Profile extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.container}>
+          <CreateEventForm />
           <ScrollView contentContainerStyle={styles.contentContainer}>
             {haps}
             <View style={styles.empty} />
