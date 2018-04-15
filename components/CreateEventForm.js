@@ -60,17 +60,17 @@ class CreateEventForm extends Component {
                 onPress={ () => {
                   this.props.setCreateEventModal(false);
                 }}>
-                  <Icon name='clear' size={30} />
+                  <Icon name='clear' size={30} color={'#aaa'}/>
                 </TouchableOpacity>
               </View>
-              <FormLabel> Name </FormLabel>
               <FormInput inputStyle={styles.input}
+                placeholder={"Name"}
                 containerStyle={styles.inputContainer}
                 onChangeText={this.updateEventName}
                 underlineColorAndroid={'#4AB169'}/>
-              <FormLabel> Description </FormLabel>
               <FormInput multiline
                 inputStyle={styles.input}
+                placeholder={"Description"}
                 containerStyle={styles.descriptionContainer}
                 onChangeText={this.updateEventDescription} underlineColorAndroid={'#4AB169'}/>
               <DatePicker
@@ -110,8 +110,15 @@ class CreateEventForm extends Component {
               />
               <FormLabel> Tags </FormLabel>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} contentContainerStyle={styles.tagsContainer}>
-                <TextButton title="Social"
-                  color={this.state.tags.includes("Social") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 10,
+                    margin: 2,
+                    backgroundColor:
+                    this.state.tags.includes("Social") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 3,
+                  }}
                   onPress={() => {
                     if (this.state.tags.includes("Social")) {
                       this.setState({
@@ -120,9 +127,18 @@ class CreateEventForm extends Component {
                     } else {
                       this.setState({ tags: [...this.state.tags, "Social"]})
                     }
-                  }}/>
-                <TextButton title="Party"
-                  color={this.state.tags.includes("Party") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  }}>
+                    <Text style={{color: '#aaa'}}> Social </Text>
+                  </TouchableOpacity>
+                <TouchableOpacity title="Party"
+                  style={{
+                    borderRadius: 10,
+                    margin: 2,
+                    backgroundColor:
+                    this.state.tags.includes("Party") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 3,
+                  }}
                   onPress={() => {
                     if (this.state.tags.includes("Party")) {
                       this.setState({
@@ -131,9 +147,18 @@ class CreateEventForm extends Component {
                     } else {
                       this.setState({ tags: [...this.state.tags, "Party"]})
                     }
-                  }}/>
-                  <TextButton title="Free"
-                    color={this.state.tags.includes("Free") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  }}>
+                    <Text style={{color: '#aaa'}}> Party </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity title="Free"
+                    style={{
+                      borderRadius: 10,
+                      margin: 2,
+                      backgroundColor:
+                      this.state.tags.includes("Free") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: 3,
+                    }}
                     onPress={() => {
                       if (this.state.tags.includes("Free")) {
                         this.setState({
@@ -142,9 +167,18 @@ class CreateEventForm extends Component {
                       } else {
                         this.setState({ tags: [...this.state.tags, "Free"]})
                       }
-                    }}/>
-                <TextButton title="Volunteer"
-                  color={this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    }}>
+                      <Text style={{color: '#aaa'}}> Free </Text>
+                    </TouchableOpacity>
+                <TouchableOpacity title="Volunteer"
+                  style={{
+                    borderRadius: 10,
+                    margin: 2,
+                    backgroundColor:
+                    this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 3,
+                  }}
                   onPress={() => {
                     if (this.state.tags.includes("Volunteer")) {
                       this.setState({
@@ -153,9 +187,18 @@ class CreateEventForm extends Component {
                     } else {
                       this.setState({ tags: [...this.state.tags, "Volunteer"]})
                     }
-                  }}/>
-                <TextButton title="Food"
-                  color={this.state.tags.includes("Food") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  }}>
+                    <Text style={{color: '#aaa'}}> Volunteer </Text>
+                  </TouchableOpacity>
+                <TouchableOpacity title="Food"
+                  style={{
+                    borderRadius: 10,
+                    margin: 2,
+                    backgroundColor:
+                    this.state.tags.includes("Food") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 3,
+                  }}
                   onPress={() => {
                     if (this.state.tags.includes("Food")) {
                       this.setState({
@@ -164,9 +207,18 @@ class CreateEventForm extends Component {
                     } else {
                       this.setState({ tags: [...this.state.tags, "Food"]})
                     }
-                  }}/>
-                <TextButton title="Activism"
-                  color={this.state.tags.includes("Activism") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  }}>
+                    <Text style={{color: '#aaa'}}> Food </Text>
+                  </TouchableOpacity>
+                <TouchableOpacity title="Activism"
+                  style={{
+                    borderRadius: 10,
+                    margin: 2,
+                    backgroundColor:
+                    this.state.tags.includes("Activism") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 3,
+                  }}
                   onPress={() => {
                     if (this.state.tags.includes("Activism")) {
                       this.setState({
@@ -175,9 +227,18 @@ class CreateEventForm extends Component {
                     } else {
                       this.setState({ tags: [...this.state.tags, "Activism"]})
                     }
-                  }}/>
-                  <TextButton title="Music"
-                    color={this.state.tags.includes("Music") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  }}>
+                    <Text style={{color: '#aaa'}}> Activism </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity title="Music"
+                    style={{
+                      borderRadius: 10,
+                      margin: 2,
+                      backgroundColor:
+                      this.state.tags.includes("Music") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: 3,
+                    }}
                     onPress={() => {
                       if (this.state.tags.includes("Music")) {
                         this.setState({
@@ -186,9 +247,18 @@ class CreateEventForm extends Component {
                       } else {
                         this.setState({ tags: [...this.state.tags, "Music"]})
                       }
-                    }}/>
-                  <TextButton title="Art"
-                    color={this.state.tags.includes("Art") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    }}>
+                      <Text style={{color: '#aaa'}}> Music </Text>
+                    </TouchableOpacity>
+                  <TouchableOpacity title="Art"
+                    style={{
+                      borderRadius: 10,
+                      margin: 2,
+                      backgroundColor:
+                      this.state.tags.includes("Art") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: 3,
+                    }}
                     onPress={() => {
                       if (this.state.tags.includes("Art")) {
                         this.setState({
@@ -197,9 +267,18 @@ class CreateEventForm extends Component {
                       } else {
                         this.setState({ tags: [...this.state.tags, "Art"]})
                       }
-                    }}/>
-                  <TextButton title="Games"
-                    color={this.state.tags.includes("Games") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    }}>
+                      <Text style={{color: '#aaa'}}> Art </Text>
+                    </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{
+                      borderRadius: 10,
+                      margin: 2,
+                      backgroundColor:
+                      this.state.tags.includes("Games") ? 'rgba(0,0,0,.2)' : 'rgba(0,0,0,.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: 3,
+                    }}
                     onPress={() => {
                       if (this.state.tags.includes("Games")) {
                         this.setState({
@@ -208,7 +287,9 @@ class CreateEventForm extends Component {
                       } else {
                         this.setState({ tags: [...this.state.tags, "Games"]})
                       }
-                    }}/>
+                    }}>
+                      <Text style={{color: '#aaa'}}> Games </Text>
+                    </TouchableOpacity>
               </ScrollView>
               <FormLabel> Location </FormLabel>
               <GooglePlacesAutocomplete
@@ -272,7 +353,7 @@ class CreateEventForm extends Component {
                 textStyle={{color:'white'}}
               />
               <View style={styles.submitButtonStyle}>
-                <RaisedTextButton title="Create"
+                <TouchableOpacity title="Create"
                   color={'#4AB169'}
                   titleColor={"rgb(255,255,255)"} onPress={() => {
                   if (this.state.name && this.state.address && this.state.date && this.state.time) {
@@ -309,12 +390,12 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingTop: 20
+    paddingTop: 20,
+    borderRadius: 3
   },
   input: {
     paddingLeft: 10,
     width: 295,
-    marginBottom: 10,
   },
   inputContainer: {
     marginBottom: 15,
