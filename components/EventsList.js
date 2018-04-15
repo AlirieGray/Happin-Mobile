@@ -13,6 +13,8 @@ import CreateEventForm from './CreateEventForm';
 import { NavigationActions } from 'react-navigation';
 import selectEvents from '../selectors/events';
 import Map from './Map';
+import moment from 'moment';
+var now = moment().format();
 
 // details for Google Maps View
 let { width, height } = Dimensions.get('window');
@@ -40,6 +42,7 @@ class EventsList extends Component {
     this.getDistanceToEvent = this.getDistanceToEvent.bind(this);
     this.deg2rad = this.deg2rad.bind(this);
     this.setView = this.setView.bind(this);
+    this.getTimeUntilEvent = this.getTimeUntilEvent.bind(this);
     this.TestGetToken = this.TestGetToken.bind(this);
   }
 
@@ -101,14 +104,14 @@ class EventsList extends Component {
     headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name='menu' size={30} color={'#FFF'}/>
+        <Icon name='menu' size={32} color={'#FFF'}/>
        </TouchableOpacity>),
     headerRight: <TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
       }} >
-      <Icon name='add' size={30} color={'#FFF'} />
+      <Icon name='add' size={32} color={'#FFF'} />
     </TouchableOpacity>
   });
 
@@ -131,6 +134,11 @@ class EventsList extends Component {
     return deg * (Math.PI/180)
   }
 
+  getTimeUntilEvent(eventTime) {
+    var fromNow = moment(eventTime).fromNow();
+    return fromNow;
+  }
+
   setView(viewType) {
     console.log("setting view")
     if (viewType === 'map') {
@@ -147,7 +155,6 @@ class EventsList extends Component {
 
   render() {
     const events = this.props.events;
-    console.log("Location in events list: ", this.props.location)
 
     var eventsView = null;
     if (this.state.mapView && this.state.gotLocation) {
@@ -164,7 +171,8 @@ class EventsList extends Component {
           {events.map((event, index) => {
             // calculate distance from user's location
             var distance = this.getDistanceToEvent(event.lat, event.lng, this.state.latitude, this.state.longitude);
-            return <EventCard key={event._id} {...event} distance={distance} latitude={this.state.latitude} longitude={this.state.longitude} {...this.props}  />
+            var timeUntil = this.getTimeUntilEvent(event.date)
+            return <EventCard key={event._id} {...event} distance={distance} latitude={this.state.latitude} longitude={this.state.longitude} timeUntil={timeUntil} {...this.props}  />
           })}
           <View style={styles.empty} />
         </ScrollView>
@@ -225,7 +233,7 @@ const styles = StyleSheet.create({
     margin: 50
   },
   navHeaderButton: {
-    padding: 20
+    padding: 22
   },
   loading: {
     display: 'flex',

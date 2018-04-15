@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
+import { Card, CardTitle, CardContent, CardAction, CardButton } from 'react-native-cards';
 
 const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -21,8 +22,33 @@ class EventCard  extends Component{
     }
   }
 
+  /*
+  <View style={styles.eventContainer}>
+    <TouchableOpacity onPress={() => {
+      navigate("EventPage", {id, lat, lng, name} )
+    }} >
+      <View>
+        <Text style={{fontSize: 18, fontWeight:'bold'}}> {name} </Text>
+        <View style={styles.eventDetails}>
+          <Text style={styles.organizer}> {organizer} </Text>
+          <Text style={styles.detailsText}> {distance} miles away </Text>
+        </View>
+        <View style={{display: 'flex', alignItems: 'flex-end'}}>
+          <Text style={styles.detailsText}> {dateFormatted} </Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.tagsContainer}>
+          {this.getTags()}
+        </View>
+      </View>
+    </TouchableOpacity>
+  </View>
+
+
+  */
+
   render() {
-    const { name, description, organizer, address, attendeeCount, distance } = this.props;
+    const { name, description, organizer, address, attendeeCount, distance, timeUntil } = this.props;
     var dateFormatted = this.props.dateFormatted;
     if (dateFormatted[0] == '0') {
       dateFormatted = dateFormatted.slice(1)
@@ -33,26 +59,19 @@ class EventCard  extends Component{
     const { navigate } = this.props.navigation;
 
     return (
-      <View style={styles.eventContainer}>
-        <TouchableOpacity onPress={() => {
-          navigate("EventPage", {id, lat, lng, name} )
-        }} >
-          <View>
-            <Text style={{fontSize: 18, fontWeight:'bold'}}> {name} </Text>
-            <View style={styles.eventDetails}>
-              <Text style={styles.organizer}> {organizer} </Text>
-              <Text style={styles.detailsText}> {distance} miles away </Text>
-            </View>
-            <View style={{display: 'flex', alignItems: 'flex-end'}}>
-              <Text style={styles.detailsText}> {dateFormatted} </Text>
-            </View>
-            <View style={styles.divider} />
-            <View style={styles.tagsContainer}>
-              {this.getTags()}
-            </View>
-          </View>
-        </TouchableOpacity>
-      </View>
+      <Card style={{maxHeight: 200}}>
+        <CardTitle
+          title={name}
+          subtitle={organizer}
+        />
+        <CardContent text={distance + ' miles away            ' + timeUntil} />
+        <CardAction
+          style={{padding: 5}}
+          separator={true}
+          inColumn={false}>
+          {this.getTags()}
+        </CardAction>
+      </Card>
     );
   }
 }

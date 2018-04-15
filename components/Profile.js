@@ -49,14 +49,14 @@ class Profile extends Component {
     headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name='menu' size={30} color={'#FFF'}/>
+        <Icon name='menu' size={32} color={'#FFF'}/>
        </TouchableOpacity>),
     headerRight: <TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => {
         navigation.state.params.setCreateEventModal(true)
         }} >
-      <Icon name='add' size={30} color={'#FFF'} />
+      <Icon name='add' size={32} color={'#FFF'} />
     </TouchableOpacity>
   });
 
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     marginRight: 6
   },
   navHeaderButton: {
-    padding: 20
+    padding: 22
   },
   tab: {
     width: '50%',

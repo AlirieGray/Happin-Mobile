@@ -86,14 +86,12 @@ export const receiveEventById = (event) => ({
 
 ////**** SOCKET ACTIONS ****////
 export function addHap(hap) {
-  console.log("received hap from socket: ", hap)
   return dispatch => {
     dispatch(receiveAddEvent(hap));
   }
 }
 
 export function createNewHapSocket(socket, hap) {
-  console.log("emitting new hap: ", hap)
   return dispatch => {
     socket.emit('New Hap', {hap});
   }
@@ -178,7 +176,6 @@ export function getEvents() {
       }
       return res.json();
     }).then((  events  ) => {
-      console.log(events)
       dispatch(receiveEvents(events));
     }).catch(err => console.log(err));
   }

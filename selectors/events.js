@@ -39,11 +39,8 @@ export default (events, { text, sortBy, startDate, endDate}, position ) => {
     else if (sortBy === 'name') {
       return a.name < b.name ? -1 : 1;
     } else if (sortBy === 'distance') {
-      console.log("sorting by distance")
-      console.log("position in selector: ", position)
 
       const eventLatLng = { lat: a.lat, lng: a.lng };
-      console.log("Event lat lng: ", eventLatLng);
 
       var distanceA = getDistanceToEvent(a.lat, a.lng, position.latitude, position.longitude);
       var distanceB = getDistanceToEvent(b.lat, b.lng, position.latitude, position.longitude);

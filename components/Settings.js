@@ -32,7 +32,7 @@ class Settings extends Component {
     headerLeft: (<TouchableOpacity
       style={styles.navHeaderButton}
       onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name='menu' size={30} color={'#FFF'}/>
+        <Icon name='menu' size={32} color={'#FFF'}/>
        </TouchableOpacity>)
   });
 
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20
   },
   navHeaderButton: {
-    padding: 20
+    padding: 22
   }
 })
 

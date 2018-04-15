@@ -1,7 +1,12 @@
 {
   "expo": {
-    "name": "Activize",
-    "slug": "activize",
-    "sdkVersion": "23.0.0"
+    "name": "Happin",
+    "slug": "happin",
+    "icon": "./images/light.png",
+    "sdkVersion": "23.0.0",
+    "version": "0.1.1",
+    "android": {
+      "package": "com.gray.happin"
+    }
   }
 }

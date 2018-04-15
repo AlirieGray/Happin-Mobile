@@ -60,8 +60,6 @@ export default class Map extends Component {
   }
 
   render() {
-    console.log("Rendering map")
-    console.log(this.props.initialRegion)
     var eventMarker = null;
     if (!this.props.events) {
       eventMarker = (
