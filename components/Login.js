@@ -20,6 +20,13 @@ class Login extends Component {
   }
 
   static navigationOptions = ({ navigation }) => ({
+    title: 'Happin',
+    headerTitleStyle: {
+      color: '#FFF',
+      textAlign: 'center',
+      width: '90%',
+      fontSize: 20
+    },
     headerStyle: {
       backgroundColor: '#4AB169',
       paddingTop: 30,
@@ -84,7 +91,9 @@ class Login extends Component {
         </View>
         <View>
           <TouchableOpacity onPress={this.props.navToSignup}>
-            <Text style={{color: '#333'}}> Don't have an account? Sign Up </Text>
+            <Text style={{color: '#333'}}> Don't have an account?
+              <Text style={{color: '#222', fontWeight: 'bold'}}> Create One </Text>
+            </Text>
             </TouchableOpacity>
         </View>
       </View>

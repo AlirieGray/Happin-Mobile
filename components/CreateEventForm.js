@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Modal, StyleSheet, Text, View, Button, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, SearchBar } from 'react-native-elements';
-import { TextButton } from 'react-native-material-buttons';
+import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 import DatePicker from 'react-native-datepicker';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Toast, {DURATION} from 'react-native-easy-toast';
 import * as eventActions from '../actions/events';
 import * as modalActions from '../actions/modal';
 
@@ -18,7 +19,7 @@ class CreateEventForm extends Component {
     this.state = {
       name: '',
       date: '04/12/2018',
-      time: '10:00 am',
+      time: '',
       lat: 0,
       lng: 0,
       placeId: '',
@@ -47,245 +48,258 @@ class CreateEventForm extends Component {
     console.log("GOT USERID", this.props.auth.userId)
     return(
         <Modal
-        transparent={false}
+        transparent={true}
         visible={this.props.modal.createEventModal}
         onRequestClose={ () => {
           console.log('Modal has been closed.');
         }}>
-          <ScrollView contentContainerStyle={styles.container}>
-            <View style={styles.closeButtonStyle}>
-              <TouchableOpacity
-              onPress={ () => {
-                this.props.setCreateEventModal(false);
-              }}>
-                <Icon name='clear' size={30} />
-              </TouchableOpacity>
-            </View>
-            <FormLabel> Name </FormLabel>
-            <FormInput inputStyle={styles.input}
-              containerStyle={styles.inputContainer}
-              onChangeText={this.updateEventName}
-              underlineColorAndroid={'#4AB169'}/>
-            <FormLabel> Description </FormLabel>
-            <FormInput multiline
-              inputStyle={styles.input}
-              containerStyle={styles.descriptionContainer}
-              onChangeText={this.updateEventDescription} underlineColorAndroid={'#4AB169'}/>
-            <DatePicker
-              style={{width: 200}}
-              date={this.state.date}
-              mode="date"
-              placeholder="Select date"
-              format="MM/DD/YYYY"
-              minDate="01/01/2018"
-              maxDate="01/01/2070"
-              confirmBtnText="Confirm"
-              iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
-              customStyles={{
-                dateInput: {
-                  marginBottom: 25
-                },
-              }}
-              cancelBtnText="Cancel"
-              onDateChange={(date) => {
-                this.setState({ date });
-              }}
-            />
-            <DatePicker
-              style={{width: 200, marginBottom: 25}}
-              date={this.state.time}
-              mode="time"
-              format="HH:MM a"
-              is24Hour={false}
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              minuteInterval={10}
-              iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
-              onDateChange={(time) => {
-                console.log(time)
-                this.setState( { time })
-              }}
-            />
-            <FormLabel> Tags </FormLabel>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} contentContainerStyle={styles.tagsContainer}>
-              <TextButton title="Social"
-                color={this.state.tags.includes("Social") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Social")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Social')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Social"]})
-                  }
-                }}/>
-              <TextButton title="Party"
-                color={this.state.tags.includes("Party") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Party")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Party')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Party"]})
-                  }
-                }}/>
-                <TextButton title="Free"
-                  color={this.state.tags.includes("Free") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                  onPress={() => {
-                    if (this.state.tags.includes("Free")) {
-                      this.setState({
-                        tags: this.state.tags.filter(word => word !== 'Free')
-                      })
-                    } else {
-                      this.setState({ tags: [...this.state.tags, "Free"]})
-                    }
-                  }}/>
-              <TextButton title="Volunteer"
-                color={this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Volunteer")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Volunteer')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Volunteer"]})
-                  }
-                }}/>
-              <TextButton title="Food"
-                color={this.state.tags.includes("Food") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Food")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Food')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Food"]})
-                  }
-                }}/>
-              <TextButton title="Activism"
-                color={this.state.tags.includes("Activism") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                onPress={() => {
-                  if (this.state.tags.includes("Activism")) {
-                    this.setState({
-                      tags: this.state.tags.filter(word => word !== 'Activism')
-                    })
-                  } else {
-                    this.setState({ tags: [...this.state.tags, "Activism"]})
-                  }
-                }}/>
-                <TextButton title="Music"
-                  color={this.state.tags.includes("Music") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                  onPress={() => {
-                    if (this.state.tags.includes("Music")) {
-                      this.setState({
-                        tags: this.state.tags.filter(word => word !== 'Music')
-                      })
-                    } else {
-                      this.setState({ tags: [...this.state.tags, "Music"]})
-                    }
-                  }}/>
-                <TextButton title="Art"
-                  color={this.state.tags.includes("Art") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                  onPress={() => {
-                    if (this.state.tags.includes("Art")) {
-                      this.setState({
-                        tags: this.state.tags.filter(word => word !== 'Art')
-                      })
-                    } else {
-                      this.setState({ tags: [...this.state.tags, "Art"]})
-                    }
-                  }}/>
-                <TextButton title="Games"
-                  color={this.state.tags.includes("Games") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
-                  onPress={() => {
-                    if (this.state.tags.includes("Games")) {
-                      this.setState({
-                        tags: this.state.tags.filter(word => word !== 'Games')
-                      })
-                    } else {
-                      this.setState({ tags: [...this.state.tags, "Games"]})
-                    }
-                  }}/>
-            </ScrollView>
-            <FormLabel> Location </FormLabel>
-            <GooglePlacesAutocomplete
-              placeholder="Search for location"
-              minLength={2}
-              autoFocus={false}
-              fetchDetails={true}
-              returnKeyType={'default'}
-              renderDescription={row => row.description}
-              onPress={(data, details) => {
-                var splitAddress = details.formatted_address.split(',');
-                var shortAddress = splitAddress.splice(0, 2).join(',');
-                this.setState({
-                  address: shortAddress,
-                  placeId: data.place_id,
-                  lat: details.geometry.location.lat,
-                  lng: details.geometry.location.lng
-                })
-              }}
-              getDefaultValue={() => {
-                return ''; // text input default value
-              }}
-              query={{
-                // available options: https://developers.google.com/places/web-service/autocomplete
-                key: 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc',
-                language: 'en',
-              }}
-              styles={{
-                textInputContainer: {
-                  backgroundColor: 'rgba(0,0,0,0)',
-                  borderTopWidth: 0,
-                  borderBottomWidth:0,
-                  minWidth: '100%'
-                },
-                textInput: {
-                  marginLeft: 0,
-                  marginRight: 0,
-                  height: 38,
-                  color: '#5d5d5d',
-                  fontSize: 16,
-                },
-                predefinedPlacesDescription: {
-                  color: '#1faadb'
-                },
-              }}
-              nearbyPlacesAPI="GooglePlacesSearch"
-              filterReverseGeocodingByTypes={[
-                'locality',
-                'administrative_area_level_3',
-              ]}
-              debounce={200}
-            />
-            <View style={styles.submitButtonStyle}>
-              <Button title="Create" color={'#4AB169'} onPress={() => {
-                if (this.state.name && this.state.address && this.state.date && this.state.time) {
-                  var newHap = {
-                    name: this.state.name,
-                    description: this.state.description,
-                    lat: this.state.lat,
-                    lng: this.state.lng,
-                    loc: [this.state.lng, this.state.lat],
-                    placeId: this.state.placeId,
-                    address: this.state.address,
-                    date: this.state.date,
-                    time: this.state.time,
-                    tags: this.state.tags,
-                    organizer: this.props.auth.username,
-                    organizerId: this.props.auth.userId }
-                  this.props.createNewHapSocket(this.props.socket.socket, newHap)
-                  //this.props.addEvent(newHap);
+          <View style={styles.outer}>
+            <ScrollView contentContainerStyle={styles.container}>
+              <View style={styles.closeButtonStyle}>
+                <TouchableOpacity
+                onPress={ () => {
                   this.props.setCreateEventModal(false);
-                }
-                else {
-                  console.log('missing a required field')
-                  // TOAST: 'missing required field' / validation error/ etc
-                }
-              }}/>
-            </View>
-          </ScrollView>
+                }}>
+                  <Icon name='clear' size={30} />
+                </TouchableOpacity>
+              </View>
+              <FormLabel> Name </FormLabel>
+              <FormInput inputStyle={styles.input}
+                containerStyle={styles.inputContainer}
+                onChangeText={this.updateEventName}
+                underlineColorAndroid={'#4AB169'}/>
+              <FormLabel> Description </FormLabel>
+              <FormInput multiline
+                inputStyle={styles.input}
+                containerStyle={styles.descriptionContainer}
+                onChangeText={this.updateEventDescription} underlineColorAndroid={'#4AB169'}/>
+              <DatePicker
+                style={{width: 200}}
+                date={this.state.date}
+                mode="date"
+                placeholder="Select date"
+                format="MM/DD/YYYY"
+                minDate="01/01/2018"
+                maxDate="01/01/2070"
+                confirmBtnText="Confirm"
+                iconComponent={<Icon name='event' size={30} style={{marginBottom: 20, marginLeft: 3}} />}
+                customStyles={{
+                  dateInput: {
+                    marginBottom: 25
+                  },
+                }}
+                cancelBtnText="Cancel"
+                onDateChange={(date) => {
+                  this.setState({ date });
+                }}
+              />
+              <DatePicker
+                style={{width: 200, marginBottom: 25}}
+                date={this.state.time}
+                mode="time"
+                format="HH:MM a"
+                is24Hour={false}
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                minuteInterval={10}
+                iconComponent={<Icon name='access-time' size={30}  style={{marginLeft: 3}} />}
+                onDateChange={(time) => {
+                  console.log(time)
+                  this.setState( { time })
+                }}
+              />
+              <FormLabel> Tags </FormLabel>
+              <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} contentContainerStyle={styles.tagsContainer}>
+                <TextButton title="Social"
+                  color={this.state.tags.includes("Social") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Social")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Social')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Social"]})
+                    }
+                  }}/>
+                <TextButton title="Party"
+                  color={this.state.tags.includes("Party") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Party")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Party')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Party"]})
+                    }
+                  }}/>
+                  <TextButton title="Free"
+                    color={this.state.tags.includes("Free") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    onPress={() => {
+                      if (this.state.tags.includes("Free")) {
+                        this.setState({
+                          tags: this.state.tags.filter(word => word !== 'Free')
+                        })
+                      } else {
+                        this.setState({ tags: [...this.state.tags, "Free"]})
+                      }
+                    }}/>
+                <TextButton title="Volunteer"
+                  color={this.state.tags.includes("Volunteer") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Volunteer")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Volunteer')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Volunteer"]})
+                    }
+                  }}/>
+                <TextButton title="Food"
+                  color={this.state.tags.includes("Food") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Food")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Food')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Food"]})
+                    }
+                  }}/>
+                <TextButton title="Activism"
+                  color={this.state.tags.includes("Activism") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                  onPress={() => {
+                    if (this.state.tags.includes("Activism")) {
+                      this.setState({
+                        tags: this.state.tags.filter(word => word !== 'Activism')
+                      })
+                    } else {
+                      this.setState({ tags: [...this.state.tags, "Activism"]})
+                    }
+                  }}/>
+                  <TextButton title="Music"
+                    color={this.state.tags.includes("Music") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    onPress={() => {
+                      if (this.state.tags.includes("Music")) {
+                        this.setState({
+                          tags: this.state.tags.filter(word => word !== 'Music')
+                        })
+                      } else {
+                        this.setState({ tags: [...this.state.tags, "Music"]})
+                      }
+                    }}/>
+                  <TextButton title="Art"
+                    color={this.state.tags.includes("Art") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    onPress={() => {
+                      if (this.state.tags.includes("Art")) {
+                        this.setState({
+                          tags: this.state.tags.filter(word => word !== 'Art')
+                        })
+                      } else {
+                        this.setState({ tags: [...this.state.tags, "Art"]})
+                      }
+                    }}/>
+                  <TextButton title="Games"
+                    color={this.state.tags.includes("Games") ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
+                    onPress={() => {
+                      if (this.state.tags.includes("Games")) {
+                        this.setState({
+                          tags: this.state.tags.filter(word => word !== 'Games')
+                        })
+                      } else {
+                        this.setState({ tags: [...this.state.tags, "Games"]})
+                      }
+                    }}/>
+              </ScrollView>
+              <FormLabel> Location </FormLabel>
+              <GooglePlacesAutocomplete
+                placeholder="Search for location"
+                minLength={2}
+                autoFocus={false}
+                fetchDetails={true}
+                returnKeyType={'default'}
+                renderDescription={row => row.description}
+                onPress={(data, details) => {
+                  var splitAddress = details.formatted_address.split(',');
+                  var shortAddress = splitAddress.splice(0, 2).join(',');
+                  this.setState({
+                    address: shortAddress,
+                    placeId: data.place_id,
+                    lat: details.geometry.location.lat,
+                    lng: details.geometry.location.lng
+                  })
+                }}
+                getDefaultValue={() => {
+                  return ''; // text input default value
+                }}
+                query={{
+                  // available options: https://developers.google.com/places/web-service/autocomplete
+                  key: 'AIzaSyCo9YcZlx8POaoqjHVG2aTKThuoyCRjsVc',
+                  language: 'en',
+                }}
+                styles={{
+                  textInputContainer: {
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    borderTopWidth: 0,
+                    borderBottomWidth:0,
+                    minWidth: '100%'
+                  },
+                  textInput: {
+                    marginLeft: 0,
+                    marginRight: 0,
+                    height: 38,
+                    color: '#5d5d5d',
+                    fontSize: 16,
+                  },
+                  predefinedPlacesDescription: {
+                    color: '#1faadb'
+                  },
+                }}
+                nearbyPlacesAPI="GooglePlacesSearch"
+                filterReverseGeocodingByTypes={[
+                  'locality',
+                  'administrative_area_level_3',
+                ]}
+                debounce={200}
+              />
+              <Toast
+                ref="toast"
+                style={{backgroundColor:'#777', borderRadius: 20}}
+                position='bottom'
+                positionValue={190}
+                fadeInDuration={750}
+                fadeOutDuration={1000}
+                opacity={1}
+                textStyle={{color:'white'}}
+              />
+              <View style={styles.submitButtonStyle}>
+                <RaisedTextButton title="Create"
+                  color={'#4AB169'}
+                  titleColor={"rgb(255,255,255)"} onPress={() => {
+                  if (this.state.name && this.state.address && this.state.date && this.state.time) {
+                    var newHap = {
+                      name: this.state.name,
+                      description: this.state.description,
+                      lat: this.state.lat,
+                      lng: this.state.lng,
+                      loc: [this.state.lng, this.state.lat],
+                      placeId: this.state.placeId,
+                      address: this.state.address,
+                      date: this.state.date,
+                      time: this.state.time,
+                      tags: this.state.tags,
+                      organizer: this.props.auth.username,
+                      organizerId: this.props.auth.userId }
+                    this.props.createNewHapSocket(this.props.socket.socket, newHap)
+                    //this.props.addEvent(newHap);
+                    this.props.setCreateEventModal(false);
+                  }
+                  else {
+                    this.refs.toast.show('Missing a required field', 500)
+                  }
+                }}/>
+              </View>
+            </ScrollView>
+          </View>
         </Modal>
     );
   }
@@ -293,9 +307,8 @@ class CreateEventForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fafff9',
+    backgroundColor: '#fff',
     paddingTop: 20
   },
   input: {
@@ -319,9 +332,14 @@ const styles = StyleSheet.create({
     width: 300,
     alignItems: 'flex-end',
     paddingTop: 10,
-    marginTop: 15
   },
-  tagsContainer: {
+  outer: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 10,
+    paddingTop: 100,
+    height: '100%',
+    backgroundColor: 'rgba(0,0,0,.3)',
   }
 });
 

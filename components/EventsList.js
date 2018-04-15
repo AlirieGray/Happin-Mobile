@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#fafff9'
+    backgroundColor: '#fbfffc'
   },
   empty: {
     padding: 30,
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     paddingTop: 30,
-    backgroundColor: '#fafff9'
+    backgroundColor: '#fbfffc'
   },
   tab: {
     width: '50%',

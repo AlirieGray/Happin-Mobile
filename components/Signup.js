@@ -34,11 +34,12 @@ class Signup extends Component {
       paddingBottom: 15,
       height: 80
     },
+    title: 'Happin',
     headerTitleStyle: {
       color: '#FFF',
-      fontSize: 20,
       textAlign: 'center',
-      width: '80%',
+      width: '90%',
+      fontSize: 20
     },
     headerLeft: <Left onPress={navigation.goBack} />
   });
