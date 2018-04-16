@@ -1,4 +1,0 @@
-#Sun Apr 15 18:39:28 PDT 2018
-base.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dex/release/0
-renamed.0=classes.dex
-file.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dex/release/0/classes.dex
