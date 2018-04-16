@@ -8,5 +8,7 @@
     "android": {
       "package": "com.gray.happin"
     }
-  }
+  },
+  "name": "Happin",
+  "displayName": "Happin"
 }

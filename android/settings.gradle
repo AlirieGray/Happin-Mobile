@@ -1,0 +1,3 @@
+rootProject.name = 'Happin'
+
+include ':app'
