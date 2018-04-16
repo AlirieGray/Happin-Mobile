@@ -4,18 +4,19 @@ ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/A
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:2:1-15:12
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/2ab98687898ca9afdecb8f5101a7022f/AndroidManifest.xml:17:1-24:12
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/37eccdd3ace9c6a293a0b2f7681221bc/AndroidManifest.xml:10:1-18:12
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/4548ebc3ee50f20ac4c4c7c3ca113ad8/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/40b1e5e16e45954ee993115ff1fd0837/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/ec0564954cdb271544424cdb642e9dd1/AndroidManifest.xml:1:1-4:12
-MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/318326ff0a06c83f15413ff30431fbe7/AndroidManifest.xml:1:1-3:12
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/511674601bc55008133620e591fcb783/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/65a191a6cb11315749744f754dc379f2/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/0e8be2694de79a89ba9f6b215333c604/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3fde0671e39aaf3fe05ed1568de5b1a3/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-vector-icons] /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/3c8cd8657b40171fa3d9d16c3ddbe181/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/05d1af0205403c809cc0376edb4d13d5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/828aee061a31d8c265209c07299e0c47/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/AndroidManifest.xml:1:1-4:12
+MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/716ce3d72a592769288731e4b002b004/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/9fef1c30d401147b0044d63e2b9bcebf/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2b597debdc6fc5b5831d0e3271f8244b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/f25f874b076093b30a7826628f1e3dcd/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/0d862f407b8589c69d7a505596bc13f1/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:1:1-32:12
@@ -39,36 +40,38 @@ ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/A
 		ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:7:5-77
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:7:22-75
 uses-sdk
 ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:9:5-11:41
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:9:5-11:41
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:9:5-11:41
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/2ab98687898ca9afdecb8f5101a7022f/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/2ab98687898ca9afdecb8f5101a7022f/AndroidManifest.xml:20:5-43
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/37eccdd3ace9c6a293a0b2f7681221bc/AndroidManifest.xml:14:5-16:41
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/37eccdd3ace9c6a293a0b2f7681221bc/AndroidManifest.xml:14:5-16:41
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/4548ebc3ee50f20ac4c4c7c3ca113ad8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/4548ebc3ee50f20ac4c4c7c3ca113ad8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/40b1e5e16e45954ee993115ff1fd0837/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/40b1e5e16e45954ee993115ff1fd0837/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/ec0564954cdb271544424cdb642e9dd1/AndroidManifest.xml:2:3-70
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/ec0564954cdb271544424cdb642e9dd1/AndroidManifest.xml:2:3-70
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/511674601bc55008133620e591fcb783/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/511674601bc55008133620e591fcb783/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/65a191a6cb11315749744f754dc379f2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/65a191a6cb11315749744f754dc379f2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/0e8be2694de79a89ba9f6b215333c604/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/0e8be2694de79a89ba9f6b215333c604/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3fde0671e39aaf3fe05ed1568de5b1a3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3fde0671e39aaf3fe05ed1568de5b1a3/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-vector-icons] /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/3c8cd8657b40171fa3d9d16c3ddbe181/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/3c8cd8657b40171fa3d9d16c3ddbe181/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/05d1af0205403c809cc0376edb4d13d5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/05d1af0205403c809cc0376edb4d13d5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/828aee061a31d8c265209c07299e0c47/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/828aee061a31d8c265209c07299e0c47/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/9fef1c30d401147b0044d63e2b9bcebf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/9fef1c30d401147b0044d63e2b9bcebf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2b597debdc6fc5b5831d0e3271f8244b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2b597debdc6fc5b5831d0e3271f8244b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/f25f874b076093b30a7826628f1e3dcd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/f25f874b076093b30a7826628f1e3dcd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/0d862f407b8589c69d7a505596bc13f1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/0d862f407b8589c69d7a505596bc13f1/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:9:5-11:41
 INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:9:5-11:41
 	android:targetSdkVersion
@@ -81,16 +84,16 @@ INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/mai
 		INJECTED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:13:5-30:19
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/AndroidManifest.xml:13:5-20
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/2ab98687898ca9afdecb8f5101a7022f/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/2ab98687898ca9afdecb8f5101a7022f/AndroidManifest.xml:22:5-20
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/ec0564954cdb271544424cdb642e9dd1/AndroidManifest.xml:3:3-17
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/ec0564954cdb271544424cdb642e9dd1/AndroidManifest.xml:3:3-17
-MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/318326ff0a06c83f15413ff30431fbe7/AndroidManifest.xml:2:3-17
-MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/318326ff0a06c83f15413ff30431fbe7/AndroidManifest.xml:2:3-17
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.50.3] /Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/AndroidManifest.xml:3:3-17
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/716ce3d72a592769288731e4b002b004/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/alirie/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/716ce3d72a592769288731e4b002b004/AndroidManifest.xml:2:3-17
 	android:label
 		ADDED from /Users/alirie/Documents/make/web/Happin_Mobile/android/app/src/main/AndroidManifest.xml:16:7-39
 	android:icon

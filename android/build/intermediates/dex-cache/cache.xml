@@ -3,192 +3,223 @@
 
     <item
         is-multidex="false"
+        jar="/Users/alirie/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
+        revision="27.0.0"
         sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/okio-1.13.0_bebbf3885991bcfdb2ab57443c54b0795f7a34d0.jar" />
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/14.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/jars/classes.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/okhttp-3.6.0_352f7248e66855ccc4fd89ef84da0af1b4728576.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/internal_impl-23.0.1_8981d72991eb16dbb20f47424e95242ec5c50f69.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-1.3.0_352ce0125337edc240454a8065ac5fd9ad976f15.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/staticlayout-proxy-1.0_10310bef5b06f4b7ead479702b2fd9593cc55713.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="24303e5ddb2c1210dd7e8db9dbab018f50313e48">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.react-react-native-0.50.3_81d7c2806476a9d2c4183e0e5553d4e320290bf7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-drawee-1.3.0_bd7ab3cff859b90120f5b42c11301811fdba59f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/okhttp-urlconnection-3.6.0_a91e619e2fe1b7c80e4b93ab1ce11f49f16a6125.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_0d6ae6e92cda6cc30ecb607cda75ea43e276aecd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/jsr305-3.0.0_bc7eb60a42ce3edddfef31971eade5a0760ee901.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/libs/infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/infer-annotations-4.0_e5fae101855288dc91d3f26ec74b703566d2b4f4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.android.support-appcompat-v7-23.0.1_706809534c989b151b97ae24b3fee5a0bbeaa9b9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
+        revision="27.0.0"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-23.0.1_5783585e3b19d1a04f4cefd8bfd24d9839a6b43a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-fresco-1.3.0_989355ccf4c6e624c457fb4823f3ee04f214b12e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_36068794c5a4959fab77bf94f77f9d4f35436757.jar" />
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/4.jar" />
     </item>
     <item
         is-multidex="false"
         jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
+        revision="27.0.0"
         sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/javax.inject-1_1bf4a3c39f5079c2322b5353e2af4c3b815bc5b2.jar" />
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2b597debdc6fc5b5831d0e3271f8244b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/05d1af0205403c809cc0376edb4d13d5/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/9fef1c30d401147b0044d63e2b9bcebf/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/f25f874b076093b30a7826628f1e3dcd/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/828aee061a31d8c265209c07299e0c47/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b62a72d61e56890b1946dc58ab609f87/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/0d862f407b8589c69d7a505596bc13f1/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/3c8cd8657b40171fa3d9d16c3ddbe181/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/7.jar" />
     </item>
     <item
         is-multidex="false"
         jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
+        revision="27.0.0"
         sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/bolts-tasks-1.4.0_a3172ac5b7354798d7e532e08c2b53af5c388e51.jar" />
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/22.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/alirie/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jar="/Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native-vector-icons/android/build/intermediates/intermediate-jars/release/classes.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/support-annotations-23.0.1_539d9d2876c8dd4fccf4ad817ef9f84043132cb1.jar" />
+        revision="27.0.0"
+        sha1="e501a3b1389681ca23bcfb6578099cdc82d20c8c">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/23.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/jars/classes.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
-        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-imagepipeline-base-1.3.0_4c1a5d109ff3ca14113875499ee9acb42d6d80bf.jar" />
+        revision="27.0.0"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/446a48029136da20b23d772b5fcb842a/jars/libs/internal_impl-23.0.1.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
-        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.soloader-soloader-0.1.0_b78535131423ec0d8d9f844573467fec9e88d536.jar" />
+        revision="27.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jar="/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/2ee79211751f6509a8f160ae9f8f1d90/jars/classes.jar"
         jumboMode="false"
+        min-sdk-version="16"
         optimize="true"
-        revision="23.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/pre-dexed/release/com.facebook.fresco-fbcore-1.3.0_a9d407d4b500a06da4efd6a62c15ab0612a3d751.jar" />
+        revision="27.0.0"
+        sha1="24303e5ddb2c1210dd7e8db9dbab018f50313e48">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/alirie/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.0"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/preDex/release/12.jar" />
     </item>
 
 </items>

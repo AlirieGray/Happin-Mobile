@@ -33,8 +33,8 @@ class EventsList extends Component {
     super(props);
     this.state = {
       location: {
-        latitude: null,
-        longitude: null
+        latitude: 37.7749,
+        longitude: -122.4194
       },
       mapView: true,
       gotLocation: false
