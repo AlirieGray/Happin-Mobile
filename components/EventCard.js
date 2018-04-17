@@ -92,7 +92,8 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     display: 'flex',
     flexDirection: 'column',
-    margin: 4
+    margin: 4,
+    elevation: 1
   },
   title: {
     fontSize: 24,
