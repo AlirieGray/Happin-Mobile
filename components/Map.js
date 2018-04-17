@@ -52,6 +52,7 @@ export default class Map extends Component {
       return this.props.droppedPins.map((pin, index) => {
         return <Marker
           key={`marker${index}`}
+          draggable
           coordinate={{latitude: pin.lat, longitude: pin.lng}}>
           {markerSymbols[pin.name]}
           </Marker>
