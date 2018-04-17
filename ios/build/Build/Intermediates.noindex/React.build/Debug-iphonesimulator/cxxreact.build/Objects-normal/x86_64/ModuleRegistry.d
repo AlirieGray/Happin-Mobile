@@ -1,23 +1,15 @@
 dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/ModuleRegistry.cpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/ModuleRegistry.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSExecutor.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/NativeModule.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Optional.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/operators.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/user.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_compiler_config.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/compiler/clang.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_stdlib_config.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/stdlib/libcpp.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_platform_config.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/platform/macos.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/posix_features.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/suffix.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/detail/workaround.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Range.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/Executor.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSBigString.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Conv.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/implicit_cast.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/double-conversion/double-conversion.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/double-conversion/utils.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Demangle.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FBString.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Portability.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Config.h \
@@ -31,6 +23,17 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/BitIteratorDetail.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/iterator/iterator_adaptor.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/static_assert.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/user.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_compiler_config.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/compiler/clang.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_stdlib_config.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/stdlib/libcpp.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/select_platform_config.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/platform/macos.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/posix_features.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/config/suffix.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/detail/workaround.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/iterator.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/detail/iterator.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/iterator/iterator_categories.hpp \
@@ -340,24 +343,23 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/type_traits/type_identity.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/type_traits/integral_promotion.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/type_traits/promote.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Expected.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Preprocessor.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Unit.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Range.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Constexpr.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/String.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/operators.hpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/logging.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/log_severity.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/vlog_is_on.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/CpuId.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeCommon.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeSse42.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic-inl.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Conv.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/implicit_cast.hpp \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/double-conversion/double-conversion.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/double-conversion/utils.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Demangle.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Expected.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Preprocessor.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Unit.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Math.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Optional.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic-inl.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/String.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/regex/pending/unicode_iterator.hpp \
@@ -372,6 +374,5 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/String-inl.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FormatArg.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format-inl.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/SystraceSection.h

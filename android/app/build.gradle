@@ -73,7 +73,14 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+  // whether to bundle JS and assets in debug mode
+  bundleInDebug: false,
+
+  // whether to bundle JS and assets in release mode
+  bundleInRelease: true,
+
+  // the root of your RN project, i.e. where "package.json" lives
+  root: "../../"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -101,8 +108,8 @@ android {
         applicationId "com.gray.happin"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 2
-        versionName "1.0"
+        versionCode 4
+        versionName "0.1.4"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

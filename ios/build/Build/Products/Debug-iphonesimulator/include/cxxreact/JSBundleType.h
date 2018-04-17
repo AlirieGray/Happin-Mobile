@@ -5,10 +5,6 @@
 #include <cstdint>
 #include <cstring>
 
-#ifndef RN_EXPORT
-#define RN_EXPORT __attribute__((visibility("default")))
-#endif
-
 namespace facebook {
 namespace react {
 
@@ -47,7 +43,7 @@ struct __attribute__((packed)) BundleHeader {
  * Takes the first 8 bytes of a bundle, and returns a tag describing the
  * bundle's format.
  */
-RN_EXPORT ScriptTag parseTypeFromHeader(const BundleHeader& header);
+ScriptTag parseTypeFromHeader(const BundleHeader& header);
 
 /**
  * stringForScriptTag
@@ -55,7 +51,7 @@ RN_EXPORT ScriptTag parseTypeFromHeader(const BundleHeader& header);
  * Convert an `ScriptTag` enum into a string, useful for emitting in errors
  * and diagnostic messages.
  */
-RN_EXPORT const char* stringForScriptTag(const ScriptTag& tag);
+const char* stringForScriptTag(const ScriptTag& tag);
 
 }  // namespace react
 }  // namespace facebook

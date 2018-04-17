@@ -1,6 +1,7 @@
 dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/JSCUtils.cpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/JSCUtils.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/Executor.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSBigString.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Conv.h \
@@ -355,9 +356,7 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeCommon.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeSse42.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Math.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Value.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Optional.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic-inl.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format.h \
@@ -375,6 +374,8 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FormatArg.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format-inl.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Value.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Unicode.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/noncopyable.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/privatedata/PrivateDataBase.h
+  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/noncopyable.h

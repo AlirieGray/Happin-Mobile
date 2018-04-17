@@ -1,26 +1,23 @@
 // Copyright 2004-present Facebook. All Rights Reserved.
 
-#pragma once
+#ifndef FBXPLATMODULE
+#define FBXPLATMODULE
+
+#include <folly/dynamic.h>
 
 #include <functional>
+
 #include <map>
 #include <tuple>
 #include <vector>
 
-#include <folly/dynamic.h>
-
 using namespace std::placeholders;
 
-namespace facebook {
-namespace react {
-
-class Instance;
-
+namespace facebook { namespace react {
+  class Instance;
 }}
 
-namespace facebook {
-namespace xplat {
-namespace module {
+namespace facebook { namespace xplat { namespace module {
 
 /**
  * Base class for Catalyst native modules whose implementations are
@@ -67,11 +64,6 @@ public:
     std::function<void(folly::dynamic, Callback, Callback)> func;
 
     std::function<folly::dynamic(folly::dynamic)> syncFunc;
-
-    const char *getType() {
-      assert(func || syncFunc);
-      return func ? (callbacks == 2 ? "promise" : "async") : "sync";
-    }
 
     // std::function/lambda ctors
 
@@ -165,7 +157,7 @@ public:
    * Each entry in the map will be exported as a property to JS.  The
    * key is the property name, and the value can be anything.
    */
-  virtual auto getConstants() -> std::map<std::string, folly::dynamic> { return {}; };
+  virtual auto getConstants() -> std::map<std::string, folly::dynamic> = 0;
 
   /**
    * @return a list of methods this module exports to JS.
@@ -194,3 +186,5 @@ private:
 };
 
 }}}
+
+#endif

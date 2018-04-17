@@ -29,7 +29,7 @@ class Login extends Component {
     },
     headerStyle: {
       backgroundColor: '#4AB169',
-      paddingTop: 30,
+      paddingTop: 15,
       paddingBottom: 15,
       height: 80
     }
@@ -46,10 +46,7 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{display: 'flex', alignItems: 'center'}}>
-          <View style={styles.loading}>
-            {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
-          </View>
+        <View style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
           <Text> {this.props.auth.errorMessage } </Text>
           <Image source={require('../images/light.png')}/>
           <FormInput
@@ -88,6 +85,9 @@ class Login extends Component {
               }
             }}
           />
+          <View style={styles.loading}>
+            {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
+          </View>
         </View>
         <View>
           <TouchableOpacity onPress={this.props.navToSignup}>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     width: 300
   },
   loading: {
-    height: 50,
+    height: 20,
     paddingTop: 10
   }
 });

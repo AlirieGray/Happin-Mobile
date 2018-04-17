@@ -1,6 +1,7 @@
 dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/JSIndexedRAMBundle.cpp \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/JSIndexedRAMBundle.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/Executor.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSBigString.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Conv.h \
@@ -355,6 +356,25 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeCommon.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/RangeSse42.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Math.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Optional.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/dynamic-inl.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/String.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/regex/pending/unicode_iterator.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/cstdint.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/assert.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/boost_1_63_0/boost/throw_exception.hpp \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/ExceptionString.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FBVector.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FormatTraits.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/ScopeGuard.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/detail/UncaughtExceptionCounter.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/String-inl.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/FormatArg.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Format-inl.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSBundleType.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSModulesUnbundle.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/noncopyable.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/oss-compat-util.h

@@ -102,14 +102,14 @@ class EventPage extends Component {
             <Text> Attending? </Text>
               <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
               onPress={() => {
-                this.props.joinHapSocket(this.props.socket.socket, this.props._id, this.props.auth.userId)
+                //this.props.joinHapSocket(this.props.socket.socket, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: true
                 })
               }}/>
               <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
               onPress={() => {
-                this.props.leaveHapSocket(this.props.socket.socekt, this.props._id, this.props.auth.userId)
+                //this.props.leaveHapSocket(this.props.socket.socekt, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: false
                 })

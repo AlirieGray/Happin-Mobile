@@ -7,6 +7,6 @@
 namespace facebook {
 namespace react {
 
-void addJSCMemoryHooks(JSGlobalContextRef ctx);
+void addNativeMemoryHooks(JSGlobalContextRef ctx);
 
 } }

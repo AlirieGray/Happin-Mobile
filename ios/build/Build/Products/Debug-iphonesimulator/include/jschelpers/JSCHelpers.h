@@ -16,7 +16,7 @@
 namespace facebook {
 namespace react {
 
-class RN_EXPORT JSException : public std::exception {
+class JSException : public std::exception {
 public:
   explicit JSException(const char* msg)
     : msg_(msg) {}
@@ -44,17 +44,6 @@ private:
   void buildMessage(JSContextRef ctx, JSValueRef exn, JSStringRef sourceURL, const char* errorMsg);
 };
 
-namespace ExceptionHandling {
-  struct ExtractedEror {
-    std::string message;
-    // Stacktrace formatted like JS stack
-    // method@filename[:line[:column]]
-    std::string stack;
-  };
-  using PlatformErrorExtractor = std::function<ExtractedEror(const std::exception &ex, const char *context)>;
-  extern PlatformErrorExtractor platformErrorExtractor;
-}
-
 using JSFunction = std::function<JSValueRef(JSContextRef, JSObjectRef, size_t, const JSValueRef[])>;
 
 JSObjectRef makeFunction(
@@ -72,7 +61,7 @@ JSObjectRef makeFunction(
     const char* name,
     JSObjectCallAsFunctionCallback callback);
 
-RN_EXPORT void installGlobalFunction(
+void installGlobalFunction(
     JSGlobalContextRef ctx,
     const char* name,
     JSObjectCallAsFunctionCallback callback);
@@ -95,23 +84,6 @@ JSValueRef evaluateSourceCode(
     JSSourceCodeRef source,
     JSStringRef sourceURL);
 #endif
-
-/**
- * A lock for protecting accesses to the JSGlobalContext
- * This will be a no-op for most compilations, where #if WITH_FBJSCEXTENSIONS is false,
- * but avoids deadlocks in execution environments with advanced locking requirements,
- * particularly with uses of the pthread mutex lock
-**/
-class JSContextLock {
-public:
-  JSContextLock(JSGlobalContextRef ctx) noexcept;
-  ~JSContextLock() noexcept;
-private:
-#if WITH_FBJSCEXTENSIONS
-  JSGlobalContextRef ctx_;
-  pthread_mutex_t globalLock_;
-#endif
-};
 
 JSValueRef translatePendingCppExceptionToJSError(JSContextRef ctx, const char *exceptionLocation);
 JSValueRef translatePendingCppExceptionToJSError(JSContextRef ctx, JSObjectRef jsFunctionCause);

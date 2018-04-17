@@ -373,22 +373,24 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/NativeModule.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/Executor.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSBigString.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Optional.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/Instance.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/ModuleRegistry.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/NativeToJsBridge.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSCExecutor.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSCNativeModules.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/ModuleRegistry.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSExecutor.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Value.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Unicode.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/noncopyable.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/privatedata/PrivateDataBase.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/json.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCHelpers.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JSModulesUnbundle.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/MessageQueueThread.h \
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/MethodCall.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/JsArgumentHelpers.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/cxxreact/JsArgumentHelpers-inl.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/SystraceSection.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/MessageQueueThread.h
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/ReactCommon/cxxreact/SystraceSection.h

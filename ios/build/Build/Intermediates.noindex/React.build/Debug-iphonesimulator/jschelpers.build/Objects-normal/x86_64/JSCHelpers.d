@@ -375,5 +375,4 @@ dependencies: \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
   /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/jschelpers/Unicode.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/jschelpers/noncopyable.h \
-  /Users/alirie/Documents/make/web/Happin_Mobile/ios/build/Build/Products/Debug-iphonesimulator/include/privatedata/PrivateDataBase.h
+  /Users/alirie/Documents/make/web/Happin_Mobile/node_modules/react-native/React/../ReactCommon/jschelpers/noncopyable.h
