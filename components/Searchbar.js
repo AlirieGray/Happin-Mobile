@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     paddingLeft: 5,
-    margin: 6,
     backgroundColor: '#FFF',
     color: '#424242',
     borderRadius: 4
