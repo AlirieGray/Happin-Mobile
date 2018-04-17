@@ -12,12 +12,12 @@
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_disabled.9.png.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/3679b297d88e6eeb156866075a1e35a9/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_light_normal.9.png.flat",
@@ -40,12 +40,12 @@
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/layout/abc_activity_chooser_view.xml"
     },
     {
-        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
-        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_list_focused_holo.9.png.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-hdpi/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_list_pressed_holo_light.9.png.flat",
@@ -320,12 +320,12 @@
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-hdpi/abc_ic_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_fade_out.xml.flat",
-        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.46.0.aar/8de81d41aa5bef3e0836de2ca31ac298/res/anim/fade_out.xml"
-    },
-    {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_fade_out.xml.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.46.0.aar/8de81d41aa5bef3e0836de2ca31ac298/res/anim/fade_out.xml"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -442,6 +442,10 @@
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_up.xml.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/res/anim/catalyst_slide_up.xml"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal.9.png.flat",
@@ -662,6 +666,10 @@
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/drawable-hdpi/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_down.xml.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/res/anim/catalyst_slide_down.xml"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -916,6 +924,10 @@
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/color/abc_primary_text_material_light.xml"
     },
     {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_out.xml.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/res/anim/catalyst_fade_out.xml"
+    },
+    {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/layout/abc_expanded_menu_layout.xml"
     },
@@ -942,6 +954,10 @@
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light_focused.xml.flat",
         "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/3679b297d88e6eeb156866075a1e35a9/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_in.xml.flat",
+        "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/react-native-0.50.3.aar/21b1c9c55a98a865910d2dd8cb675571/res/anim/catalyst_fade_in.xml"
     },
     {
         "merged": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/res/merged/debug/anim_abc_slide_out_bottom.xml.flat",
