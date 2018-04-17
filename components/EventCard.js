@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
-import { Card, CardTitle, CardContent, CardAction, CardButton } from 'react-native-cards';
 
 const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -45,6 +44,12 @@ class EventCard  extends Component{
   </View>
 
 
+  ///////
+  <Text> {organizer} </Text>
+  <Text> {distance + ' miles away            ' + timeUntil}> </Text>
+  <View style={styles.divider}> </View>
+  <View style={styles.tagsContainer}> {this.getTags()}</View>
+
   */
 
   render() {
@@ -59,56 +64,55 @@ class EventCard  extends Component{
     const { navigate } = this.props.navigation;
 
     return (
-      <Card style={{maxHeight: 200}}>
-        <CardTitle
-          title={name}
-          subtitle={organizer}
-        />
-        <CardContent text={distance + ' miles away            ' + timeUntil} />
-        <CardAction
-          style={{padding: 5}}
-          separator={true}
-          inColumn={false}>
-          {this.getTags()}
-        </CardAction>
-      </Card>
+      <TouchableOpacity onPress={() => {
+        navigate("EventPage", {id, lat, lng, name} )
+      }} >
+        <View style={styles.card}>
+          <Text style={styles.title}> {name} </Text>
+          <Text style={styles.organizer}> {organizer} </Text>
+          <View style={{paddingLeft: 4, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10}}>
+            <Text style={styles.contentText}> {distance} miles away </Text>
+            <Text style={styles.contentText}> {timeUntil} </Text>
+          </View>
+          <View style={styles.divider} />
+          <View style={styles.tagsContainer}>
+            {this.getTags()}
+          </View>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  eventContainer: {
+  card: {
     backgroundColor: '#fff',
-    padding: 5,
-    borderRadius: 4,
-    borderColor: '#ddd',
-    borderWidth: .5,
-    margin: 5
-  },
-  eventDetails: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 2,
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 2,
-    marginTop: 2
+    flexDirection: 'column',
+    margin: 4
   },
-  description: {
-    marginBottom: 5,
-    paddingLeft: 10
+  title: {
+    fontSize: 24,
+    color: '#000',
+  },
+  contentText: {
+    color: '#999',
+    fontSize: 14,
   },
   divider: {
-    backgroundColor: '#ccc',
-    height: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 3
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width: '100%'
   },
   tagsContainer: {
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 10,
     paddingTop: 4,
-    zIndex: 0,
+    paddingBottom: 4,
     maxWidth: '95%',
     flexWrap: 'wrap'
   },
@@ -123,14 +127,10 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5
   },
-  detailsText: {
-    fontSize: 14,
-    color: '#333',
-  },
   organizer: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#4AB169',
-    paddingLeft: 2
+    paddingLeft: 4
   }
 
 });

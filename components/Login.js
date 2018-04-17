@@ -51,7 +51,7 @@ class Login extends Component {
             {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
           </View>
           <Text> {this.props.auth.errorMessage } </Text>
-          <Image source={require('../images/light.png')} style={{marginBottom: 20}}/>
+          <Image source={require('../images/light.png')}/>
           <FormInput
             inputStyle={styles.input}
             containerStyle={styles.inputContainer}
@@ -115,7 +115,8 @@ const styles = StyleSheet.create({
     width: 295
   },
   inputContainer: {
-    marginBottom: 15,
+    marginTop: 15,
+    marginBottom: 5,
     width: 300
   },
   descriptionContainer: {
