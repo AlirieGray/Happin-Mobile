@@ -5,8 +5,11 @@ import { StyleSheet, Text, Image, View } from 'react-native';
 const RedFlag =(<Image source={require('../images/red_flag.png')} style={{height: 35, width: 35}}/>)
 const GreenFlag =(<Image source={require('../images/green_flag.png')} style={{height: 35, width: 35}} />)
 const BlueFlag = (<Image source={require('../images/blue_flag.png')} style={{height: 35, width: 35}} />)
+const BlueBalloon = (<Image source={require('../images/balloon_blue.png')} style={{height: 35, width: 35}} />)
+const GreenBalloon = (<Image source={require('../images/balloon_red.png')} style={{height: 35, width: 35}} />)
+const RedBalloon = (<Image source={require('../images/balloon_green.png')} style={{height: 35, width: 35}} />)
 var markerSymbols = {
-  RedFlag, GreenFlag, BlueFlag
+  RedFlag, GreenFlag, BlueFlag, BlueBalloon, GreenBalloon, RedBalloon
 }
 
 export default class Map extends Component {
@@ -52,7 +55,9 @@ export default class Map extends Component {
       return this.props.droppedPins.map((pin, index) => {
         return <Marker
           key={`marker${index}`}
-          coordinate={{latitude: pin.lat, longitude: pin.lng}}>
+          coordinate={{latitude: pin.lat, longitude: pin.lng}}
+          draggable
+          >
           {markerSymbols[pin.name]}
           </Marker>
       })

@@ -140,11 +140,11 @@ class EventPage extends Component {
             </View>
         </View>
 
-          <View style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
+          <View style={{display: 'flex', flexDirection: 'row', width: '100%', backgroundColor: '#FFF'}}>
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "BlueFlag"}]
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "BlueFlag"}]
               })
             }}>
               <Image
@@ -153,7 +153,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "GreenFlag"}]
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "GreenFlag"}]
               })
             }}>
               <Image
@@ -162,11 +162,38 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "RedFlag"}]
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "RedFlag"}]
               })
             }}>
               <Image
                 source={require('../images/red_flag.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "BlueBalloon"}]
+              })
+            }}>
+              <Image
+                source={require('../images/balloon_blue.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "RedBalloon"}]
+              })
+            }}>
+              <Image
+                source={require('../images/balloon_red.png')} style={{width: 30, height: 30}}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              console.log("Adding Marker!")
+              this.setState({
+                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "GreenBalloon"}]
+              })
+            }}>
+              <Image
+                source={require('../images/balloon_green.png')} style={{width: 30, height: 30}}/>
             </TouchableOpacity>
           </View>
 
