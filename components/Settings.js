@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { TextButton } from 'react-native-material-buttons';
 import * as Actions from '../actions/auth';
 
 class Settings extends Component {
@@ -41,11 +42,10 @@ class Settings extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => {
+        <TextButton
+        title={"Log Out"} onPress={() => {
           this.props.logoutUser();
-        }}>
-          <Text> Log Out  </Text>
-        </TouchableOpacity>
+        }} />
       </View>
     );
   }
