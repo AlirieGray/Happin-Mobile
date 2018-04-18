@@ -54,6 +54,9 @@ class CreateEventForm extends Component {
                 <TouchableOpacity
                 onPress={ () => {
                   this.props.setCreateEventModal(false);
+                  this.setState({
+                    tags: []
+                  })
                 }}>
                   <Icon name='clear' size={30} color={'#aaa'}/>
                 </TouchableOpacity>
@@ -378,6 +381,9 @@ class CreateEventForm extends Component {
                     this.props.createNewHapSocket(this.props.socket.socket, newHap)
                     //this.props.addEvent(newHap);
                     this.props.setCreateEventModal(false);
+                    this.setState({
+                      tags: []
+                    })
                   }
                   else {
                     this.refs.toast.show('Missing a required field', 500)

@@ -102,14 +102,14 @@ class EventPage extends Component {
             <Text> Attending? </Text>
               <TextButton title={"Yes"} color={this.state.attending ? 'rgba(0,0,0,.1)' : 'rgba(0,0,0,0)'}
               onPress={() => {
-                this.props.joinHapSocket(this.props.socket.socket, this.props._id, this.props.auth.userId)
+                //this.props.joinHapSocket(this.props.socket.socket, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: true
                 })
               }}/>
               <TextButton title={"No"} color={this.state.attending ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)'}
               onPress={() => {
-                this.props.leaveHapSocket(this.props.socket.socekt, this.props._id, this.props.auth.userId)
+                //this.props.leaveHapSocket(this.props.socket.socekt, this.props._id, this.props.auth.userId)
                 this.setState({
                   attending: false
                 })
@@ -144,7 +144,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "BlueFlag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "BlueFlag"}]
               })
             }}>
               <Image
@@ -153,7 +153,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "GreenFlag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "GreenFlag"}]
               })
             }}>
               <Image
@@ -162,7 +162,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "RedFlag"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "RedFlag"}]
               })
             }}>
               <Image
@@ -171,7 +171,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "BlueBalloon"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "BlueBalloon"}]
               })
             }}>
               <Image
@@ -180,7 +180,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "RedBalloon"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "RedBalloon"}]
               })
             }}>
               <Image
@@ -189,7 +189,7 @@ class EventPage extends Component {
             <TouchableOpacity onPress={() => {
               console.log("Adding Marker!")
               this.setState({
-                markers: [...this.state.markers, {lat: this.props.navigation.state.params.lat, lng: this.props.navigation.state.params.lng, name: "GreenBalloon"}]
+                markers: [...this.state.markers, {lat: this.state.latitude, lng: this.state.longitude, name: "GreenBalloon"}]
               })
             }}>
               <Image

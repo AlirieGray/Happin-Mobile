@@ -60,7 +60,10 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#fafff9',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: '#fbfffc',
+    paddingBottom: 50,
     flex: 1,
     paddingTop: 30,
     paddingLeft: 20
