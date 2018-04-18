@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import * as Actions from '../actions/auth';
 
 class Settings extends Component {
   constructor(props) {
@@ -39,7 +41,9 @@ class Settings extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+          this.props.logoutUser();
+        }}>
           <Text> Log Out  </Text>
         </TouchableOpacity>
       </View>
@@ -72,4 +76,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Settings);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

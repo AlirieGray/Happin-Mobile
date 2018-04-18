@@ -134,16 +134,23 @@ export function loginUser(creds) {
   }
 }
 
-export function logoutUser () {
-    return async dispatch => {
-      dispatch(requestLogout());
-      try {
-        await AsyncStorage.removeItem('userId');
-        //await AsyncStorage.removeItem('token');
-
-      } catch(error) {
-        throw error;
-      }
+export function logoutUser() {
+    return dispatch => {
+      dispatch(logout());
+      dispatch(NavigationActions.reset({
+        index: 0,
+        key: null,
+        actions: [
+          NavigationActions.navigate({ routeName: 'loginStack', screenName: 'Login' })
+        ]
+      }))
+      // try {
+      //   await AsyncStorage.removeItem('userId');
+      //   //await AsyncStorage.removeItem('token');
+      //
+      // } catch(error) {
+      //   throw error;
+      // }
     }
 }
 

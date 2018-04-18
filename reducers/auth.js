@@ -62,7 +62,6 @@ export default (state = authDefaultState, action) => {
       }
     case 'LOGOUT':
       return {
-        ...state,
         isFetching: action.isFetching,
         isAuthenticated: action.isAuthenticated,
         errorMessage: ''
