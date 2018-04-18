@@ -4,24 +4,7 @@
             "outputFile": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-my/values-my.xml",
             "map": [
                 {
-                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/6bbe004f8edf942da895b63f42f990fb/res/values-my/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "212",
-                        "endOffsets": "497"
-                    },
-                    "to": {
-                        "startLines": "9",
-                        "startColumns": "4",
-                        "startOffsets": "1138",
-                        "endColumns": "212",
-                        "endOffsets": "1346"
-                    }
-                },
-                {
-                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/c6b072ec62622aa16016412e1d7177e4/res/values-my/values.xml",
+                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/3679b297d88e6eeb156866075a1e35a9/res/values-my/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -35,6 +18,23 @@
                         "startOffsets": "105,214,410,546,659,865,999,1351,1586,1694,1895,2040,2257,2474,2574,2677",
                         "endColumns": "108,195,135,112,205,133,138,234,107,200,144,216,216,99,102,117",
                         "endOffsets": "209,405,541,654,860,994,1133,1581,1689,1890,2035,2252,2469,2569,2672,2790"
+                    }
+                },
+                {
+                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/351c9224f2206913668408b75513d11d/res/values-my/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "212",
+                        "endOffsets": "497"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "1138",
+                        "endColumns": "212",
+                        "endOffsets": "1346"
                     }
                 }
             ]

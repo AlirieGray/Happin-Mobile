@@ -1,19 +1,4 @@
-#Tue Apr 17 19:44:52 PDT 2018
-renamed.5=classes6.dex
-renamed.4=classes5.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
-renamed.1=classes2.dex
+#Tue Apr 17 20:05:04 PDT 2018
+base.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/19
 renamed.0=classes.dex
-base.5=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/15
-base.4=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/13
-base.3=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/12
-base.2=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/14
-base.1=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/17
-base.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/16
-file.5=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/15/classes.dex
-file.4=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/13/classes.dex
-file.3=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/12/classes.dex
-file.2=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/14/classes.dex
-file.1=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/17/classes.dex
-file.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/16/classes.dex
+file.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/19/classes.dex

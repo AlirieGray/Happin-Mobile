@@ -4,7 +4,24 @@
             "outputFile": "/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/c6b072ec62622aa16016412e1d7177e4/res/values-sv/values.xml",
+                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/351c9224f2206913668408b75513d11d/res/values-sv/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "206",
+                        "endOffsets": "491"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "2865",
+                        "endColumns": "206",
+                        "endOffsets": "3067"
+                    }
+                },
+                {
+                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.1.aar/3679b297d88e6eeb156866075a1e35a9/res/values-sv/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/676ba1652f031115c4fe7c90da8a4817/res/values-sv/values-sv.xml",
+                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/a764bef67fb17234f041c3b40a8dbb94/res/values-sv/values-sv.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,23 +52,6 @@
                         "startOffsets": "105,211,319,442,545,656,741,843,956,1036,1142,1242,1338,1443,1545,1647,1764,4408",
                         "endColumns": "105,107,122,102,110,84,101,112,79,105,99,95,104,101,101,116,101,100",
                         "endOffsets": "206,314,437,540,651,736,838,951,1031,1137,1237,1333,1438,1540,1642,1759,1861,4504"
-                    }
-                },
-                {
-                    "source": "/Users/alirie/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/6bbe004f8edf942da895b63f42f990fb/res/values-sv/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "206",
-                        "endOffsets": "491"
-                    },
-                    "to": {
-                        "startLines": "26",
-                        "startColumns": "4",
-                        "startOffsets": "2865",
-                        "endColumns": "206",
-                        "endOffsets": "3067"
                     }
                 }
             ]
