@@ -1,4 +1,4 @@
-#Tue Apr 17 09:57:57 PDT 2018
-base.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/6
+#Tue Apr 17 20:30:43 PDT 2018
+base.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/7
 renamed.0=classes.dex
-file.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/6/classes.dex
+file.0=/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/transforms/dexMerger/debug/7/classes.dex

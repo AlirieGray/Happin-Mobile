@@ -6,7 +6,7 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.0.0"
-    timestamp="1523990396679"
+    timestamp="1524022234635"
     token="6267892634076337839"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -18,28 +18,28 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="394" />
     <task
         name="verifier"
-        duration="0" />
+        duration="134" />
 
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
     <artifact
         location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
     <artifact
         location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
@@ -48,13 +48,13 @@
         location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
         location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/outputs/apk/debug/app-debug.apk"
@@ -62,25 +62,25 @@
 
     <build
         build-mode="FULL"
-        timestamp="1523990396679"
+        timestamp="1524022234635"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
             location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
             location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
@@ -89,13 +89,13 @@
             location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/alirie/Documents/make/web/Happin_Mobile/android/app/build/outputs/apk/debug/app-debug.apk"
