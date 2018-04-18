@@ -3,8 +3,8 @@
     "name": "Happin",
     "slug": "happin",
     "icon": "./images/light.png",
-    "sdkVersion": "23.0.0",
-    "version": "0.1.1",
+    "sdkVersion": "20.0.0",
+    "version": "0.1.4",
     "android": {
       "package": "com.gray.happin"
     }
