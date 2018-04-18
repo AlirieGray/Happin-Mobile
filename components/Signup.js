@@ -55,9 +55,6 @@ class Signup extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.loading}>
-          {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
-        </View>
         <Text> {this.props.auth.errorMessage } </Text>
         <Image source={require('../images/light.png')} style={{marginBottom: 20}}/>
         <FormInput
@@ -96,6 +93,9 @@ class Signup extends Component {
             }
           }}
         />
+        <View style={styles.loading}>
+          {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
+        </View>
       </View>
     );
   }

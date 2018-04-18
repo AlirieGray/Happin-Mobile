@@ -47,9 +47,6 @@ class Login extends Component {
     return (
       <View style={styles.container}>
         <View style={{display: 'flex', alignItems: 'center'}}>
-          <View style={styles.loading}>
-            {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
-          </View>
           <Text> {this.props.auth.errorMessage } </Text>
           <Image source={require('../images/light.png')} style={{marginBottom: 20}}/>
           <FormInput
@@ -88,6 +85,9 @@ class Login extends Component {
               }
             }}
           />
+          <View style={styles.loading}>
+            {this.props.auth.isFetching && <ActivityIndicator size="small" color="#0000ff"/> }
+          </View>
         </View>
         <View>
           <TouchableOpacity onPress={this.props.navToSignup}>
