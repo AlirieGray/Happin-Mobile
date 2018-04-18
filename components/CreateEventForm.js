@@ -18,8 +18,8 @@ class CreateEventForm extends Component {
     super(props);
     this.state = {
       name: '',
-      date: '04/12/2018',
-      time: '',
+      date: '04/18/2018',
+      time: '5:00: pm',
       lat: 0,
       lng: 0,
       placeId: '',
@@ -92,7 +92,7 @@ class CreateEventForm extends Component {
                 style={{width: 200, marginBottom: 25}}
                 date={this.state.time}
                 mode="time"
-                format="HH:MM a"
+                format="hh:mm: a"
                 is24Hour={false}
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
@@ -351,6 +351,16 @@ class CreateEventForm extends Component {
                 <RaisedTextButton title="Create"
                   color={'#4AB169'}
                   titleColor={"rgb(255,255,255)"} onPress={() => {
+                  var splitTime = this.state.time.split(':');
+
+                  // convert to 24 time
+                  console.log(splitTime)
+                  if (splitTime[2] == ' pm' && splitTime[0] !== '12') {
+                    console.log("adding 12...")
+                    splitTime[0] = parseInt(splitTime[0]) + 12;
+                  }
+                  var formattedTime = splitTime[0] + ':' + splitTime[1];
+                  console.log("formatted time: ", formattedTime)
                   if (this.state.name && this.state.address && this.state.date && this.state.time) {
                     var newHap = {
                       name: this.state.name,
@@ -361,7 +371,7 @@ class CreateEventForm extends Component {
                       placeId: this.state.placeId,
                       address: this.state.address,
                       date: this.state.date,
-                      time: this.state.time,
+                      time: formattedTime,
                       tags: this.state.tags,
                       organizer: this.props.auth.username,
                       organizerId: this.props.auth.userId }
