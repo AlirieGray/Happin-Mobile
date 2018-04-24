@@ -1,6 +1,6 @@
 # Happin
-### The mobile app for the activists of the 21st century
-An cross-platform mobile app to help activists organize safely and efficiently. The main feature is a live updating map with a Waze-esque method of alerting local activists to points of interest and hazards. This will allow organizers to communicate the location of a police blockade to everyone at a rally within seconds, for street medics to keep participants updated with the location of first aid stations, or to help people navigate to the water fountains and public bathrooms at large events. The developers are focused on protecting the safety of activists without allowing the app to be co-opted by police or others with malicious intent. We are open to feedback from both the activist and developer communities.
+### The mobile app for the modern community
+An cross-platform mobile app to help people organize effectively in their local communities. The main feature is a live updating map with a Waze-esque method of alerting the user to points of interest and hazards in real-time. This will allow organizers to communicate the location of a police blockade to everyone at a rally within seconds, for street medics to keep participants updated with the location of first aid stations, or to help people navigate to the water fountains and public bathrooms at large events. We are open to feedback from community organizers, developers, and anyone else!
 
 ## Built With
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app). Documentation for Create React Native App is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
@@ -15,10 +15,13 @@ You should see a QR code in your terminal. To run the app on your phone, downloa
 
 ## TODO
 - User should be able to drop a pin on the map
-- Login/authentication screens
-- Comment & document
+- Comment & document & refactor
 - Event privacy settings
-- Users can join an event as an organizer, flag holder or participant
+- Roles: Users can join an event as an organizer, flag holder or participant
 - Forum/notifications
-- Re-design and beautify UI
-- Eject to Android Studio and XCode
+- Eject to Android Studio & ship to Google Play store
+
+## Images
+![Login](./images/login.png)
+![Map](./images/map.png)
+![Haps](./images/haps.png)

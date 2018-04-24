@@ -1,13 +1,13 @@
 import React from 'react';
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 import { TouchableHighlight } from 'react-native';
-import Login from '../components/Login';
-import Signup from '../components/Signup';
-import EventPage from '../components/EventPage';
-import EventsList from '../components/EventsList';
-import Settings from '../components/Settings';
-import Profile from '../components/Profile';
-import CreateEventForm from '../components/CreateEventForm';
+import Login from './Login';
+import Signup from './Signup';
+import EventPage from './EventPage';
+import EventsList from './EventsList';
+import Settings from './Settings';
+import Profile from './Profile';
+import CreateEventForm from './CreateEventForm';
 
 const LoginStack = StackNavigator({
   Login: {
